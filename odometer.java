@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Level1
 {
-    public static int odometer(int[] oksana)
+    public static int odometer(int [] oksana)
       {
         int result = 0,var = 0;
         for (int j = 0; j < oksana.length - 1; j+=2) {
