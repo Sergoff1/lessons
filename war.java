@@ -11,6 +11,12 @@ public class Level1
             field[battalion[i]-1][battalion[i+1]-1] = 1;
         }
 
+        for (int [] k :field){                                    //Заполнение числа завоёванных клеток
+                for(int i: k){     
+                    conquered +=i ;
+                }
+        }
+
         days++;
         while (conquered < cells){                                //Боевые действия
             conquered = 0;                                        // Обнуляем счётчик территорий, иначе будут считаться и те,что уже захвачены
