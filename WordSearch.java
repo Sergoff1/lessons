@@ -44,7 +44,7 @@ public class Level1
         cnt = 0;
 
         for (String elem : arrPhrases) {
-            if (elem.startsWith(subs) && elem.contains(subs+"\s") || elem.contains("\s"+subs) && elem.endsWith(subs) || elem.contains("\s"+subs+"\s")) {
+            if (elem.startsWith(subs) && elem.contains(subs+"\s") || elem.contains("\s"+subs) && elem.endsWith(subs) || elem.contains("\s"+subs+"\s") || elem.startsWith(subs) && elem.endsWith(subs)) {
                 result [cnt] = 1;
             }
             cnt++;
