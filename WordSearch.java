@@ -47,8 +47,9 @@ public class Level1
             if (elem.startsWith(subs) && elem.contains(subs+"\s") || elem.contains("\s"+subs) && elem.endsWith(subs) || elem.contains("\s"+subs+"\s")) {
                 result [cnt] = 1;
             }
+            cnt++;
+        }
         return result;
-      }
 
     }
 }
