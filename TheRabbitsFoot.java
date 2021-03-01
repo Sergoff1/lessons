@@ -44,7 +44,6 @@ public class Level1
             res = res.trim();
           } else {
             char [][] arr2 = new char[rows][columns];                   // Массив для начального переноса строки
-            char [][] transposedArray = new char[columns][rows];        // Транспонированный массив для расшифровки строки
 
             String [] arrStr = s.split("\s");
 
@@ -52,8 +51,8 @@ public class Level1
                 arr2[r] = arrStr[r].toCharArray();
             }
 
-            for (int r = 0; r < transposedArray.length; r++) {            // Восстановление строки путём транспонирования массива
-                for (int c = 0; c < transposedArray[r].length; c++) {
+            for (int r = 0; r < columns; r++) {            // Восстановление строки путём транспонирования массива
+                for (int c = 0; c < rows; c++) {
                     if (cnt == N) {
                         break;
                     }
