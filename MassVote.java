@@ -9,7 +9,7 @@ public class Level1
         int max = 0;                               //Максимальное количество голосов за одного кандидата
         int totalVotes = 0;                        //Общее количество голосов
         int maxIndex = 0;                          //Номер победителя
-        
+
         for (int i = 0; i < Votes.length; i++) {
             totalVotes += Votes[i];
             if (Votes[i] > max) {
@@ -23,7 +23,7 @@ public class Level1
             }
         }
         if (cnt == 1) {
-            if (100/totalVotes * max > 50) {
+            if ((double)100/totalVotes * max > 50) {
                 result = "majority winner " + (maxIndex + 1);
             } else {
                 result = "minority winner " + (maxIndex + 1);
