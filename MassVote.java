@@ -17,11 +17,13 @@ public class Level1
                 maxIndex = i;
             }
         }
+        
         for (int i: Votes) {
             if (i == max) {
                 cnt++;
             }
         }
+        
         if (cnt == 1) {
             if ((double)100/totalVotes * max > 50) {
                 result = "majority winner " + (maxIndex + 1);
