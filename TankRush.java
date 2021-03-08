@@ -36,6 +36,10 @@ public class Level1
                         }
                     }
                     result = Arrays.deepEquals(enemyLocation, tempEL);
+                    if (result) {
+                        i = H1;
+                        j = W1;
+                    }
                 }
             }
         }
