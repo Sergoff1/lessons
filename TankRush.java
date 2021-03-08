@@ -28,8 +28,8 @@ public class Level1
 
         for (int i = 0; i < H1; i++) {                                                //Ходим по массиву в поисках совпадений
             for (int j = 0; j < W1; j++) {
-                if (map[i][j] == enemyLocation[0][0] && i + H2 <= H1 && j + W2 <= W1) //Если нашли совпадение,которое не противоречит условиям
-                {
+                if (map[i][j] == enemyLocation[0][0] && i + H2 <= H1 && j + W2 <= W1){ //Если нашли совпадение,которое не противоречит условиям
+                
                     for (int c = 0; c < H2; c++) {                                    //Записываем подмассив в промежуточный массив
                         for (int k = 0; k < W2; k++) {
                             tempEL[c][k] = map[i+c][j+k];
@@ -40,6 +40,5 @@ public class Level1
             }
         }
         return result;
-                             // Ссылка на задачу в блоге https://vk.com/wall-203096474_4
       }
 }
