@@ -31,7 +31,9 @@ public class Level1
             if (items[i] != "") {
                 result[i] = items[i+c];
             } else {
-                c++;
+                while (items[i+c] == "") {
+                    c++;
+                }
                 result[i] = items[i+c];
             }
         }
