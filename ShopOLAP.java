@@ -28,7 +28,7 @@ public class Level1
         result = new String[N]; //Creating an array with unique product records
 
         for (int i = 0,c = 0; i < N; i++) {//Fill it out
-            if (items[i] != "") {
+            if (items[i+c] != "") {
                 result[i] = items[i+c];
             } else {
                 while (items[i+c] == "") {
