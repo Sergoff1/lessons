@@ -11,7 +11,7 @@ public class Level1
         for (int i = 0; i < items.length; i++) { //Объединяем записи по одинаковым товарам
             for (int j = 0; j < items.length; j++) {
                 if (items[j] != "") {
-                    if (i != j && items[i].contains(items[j].substring(0, items[j].indexOf("\s")))) { //Есть совпадение товаров в массиве
+                    if (i != j && items[i].contains(items[j].substring(0, items[j].indexOf("\s")+1))) { //Есть совпадение товаров в массиве
                         quantity = Integer.valueOf(items[i].substring(items[i].indexOf("\s")+1, items[i].length())); //Число продаж в первой записи
                         quantity += Integer.valueOf(items[j].substring(items[j].indexOf("\s")+1, items[j].length())); //Суммируем с числом продаж из второй записи
                         items[i] = items[i].replaceAll("\\s\\d+", " " + quantity.toString()); //Меняем значение продаж первой записи
