@@ -22,6 +22,7 @@ public class Level1
                     ifAdd.clear();
                     undoCount = 0;
                     redoCount = 0;
+                    wasUndo = false;
                 }
 
                 arrUndo.add(command.substring(2, command.length()));    
@@ -37,6 +38,7 @@ public class Level1
                     ifAdd.clear();
                     undoCount = 0;
                     redoCount = 0;
+                    wasUndo = false;
                 }
 
                 if (N > result.length()) {
