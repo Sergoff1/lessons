@@ -9,7 +9,7 @@ public class Level1
         boolean unaltered = true;
         char[] arrChar = input.toCharArray();
 
-        for (int i = arrChar.length -1; i > 0; i--){          //Проверка на возможность преобразования
+        for (int i = arrChar.length -1; i > 0; i--){          //Checking for conversion capability
             if (arrChar[i] > arrChar[i-1]) {
                 unaltered = false;
                 break;
@@ -20,25 +20,25 @@ public class Level1
             return "";
         }
 
-        do {                                       //Ищем индекс первого элемента для перестановки
+        do {                                       //Looking for the index of the first element to permute
             firstIndexForSwap--;
         } while (arrChar[firstIndexForSwap] >= arrChar[firstIndexForSwap+1]);
 
-        secondIndexForSwap = firstIndexForSwap + 1;                                         //Первичное значение индекса второго элемента
-        for (int i = firstIndexForSwap + 1; i < input.length(); i++) {                      //Ищем индекс второго элемента
+        secondIndexForSwap = firstIndexForSwap + 1;                                         //Primary index value of the second element
+        for (int i = firstIndexForSwap + 1; i < input.length(); i++) {                      //Looking for the index of the second element
             if (arrChar[firstIndexForSwap] - arrChar[i] < 0 && arrChar[firstIndexForSwap] - arrChar[i] > temp) {
                 temp = arrChar[firstIndexForSwap] - arrChar[i];
                 secondIndexForSwap = i;
             }
         }
 
-        temp = arrChar[firstIndexForSwap];                                    //Перестановка
+        temp = arrChar[firstIndexForSwap];                                    //Permutation
         arrChar[firstIndexForSwap] = arrChar[secondIndexForSwap];
         arrChar[secondIndexForSwap] = (char)temp;
 
-        if (input.length()- firstIndexForSwap > 2) {                         //Если переставляли не два последних элемента
+        if (input.length()- firstIndexForSwap > 2) {                         //If more than two elements could participate in the permutation
             boolean sorted = false;
-            while(!sorted) {                                                 //Сортируем оставшиеся элементы по возрастанию
+            while(!sorted) {                                                 //Sort the remaining elements in ascending order
                 sorted = true;
                 for (int i = firstIndexForSwap+1; i < input.length() - 1; i++) {
                     if (arrChar[i] > arrChar[i+1]) {
