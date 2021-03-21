@@ -3,7 +3,7 @@ import java.util.*;
 public class Level1
 {
     public static String BiggerGreater(String input) {
-        int temp = 0;
+        int temp = -35;
         int firstIndexForSwap = input.length()-1;
         int secondIndexForSwap = 0;
         boolean unaltered = true;
