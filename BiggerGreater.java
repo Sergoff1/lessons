@@ -20,7 +20,7 @@ public class Level1
             return "";
         }
 
-        do {                                       //Looking for the index of the first element to permute
+        do {                          //Looking for the index of the first element to permute
             firstIndexForSwap--;
         } while (arrChar[firstIndexForSwap] >= arrChar[firstIndexForSwap+1]);
 
