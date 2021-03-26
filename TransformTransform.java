@@ -17,6 +17,7 @@ public class Level1
                     }
                 }
                 B.add(max);
+                max = 0;
             }
         }
 
