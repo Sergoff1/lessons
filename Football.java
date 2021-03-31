@@ -9,6 +9,10 @@ public class Level1
         int[] sortedF = Arrays.copyOf(F, N);
         Arrays.sort(sortedF);
 
+        if (Arrays.equals(F, sortedF)) {
+            return true;
+        }
+
         for (int i = 0; i < N; i++) {      //Find the number of discrepancies and save their indexes
             if (F[i] != sortedF[i]) {
                 discrepanciesNum++;
