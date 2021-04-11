@@ -4,15 +4,15 @@ public class Level1
 {
     public static int odometer(int [] oksana)
       {
-        int result = 0,var = 0;
+        int totalDistanceKm = 0,distanceAtOneSpeedKm = 0;
         for (int j = 0; j < oksana.length - 1; j+=2) {
                 if (oksana[j+1] <= 2) {
-                var = oksana[j] * oksana[j+1];
-                } else { 
-                    var = oksana[j] * (oksana[j+1] - oksana[j-1]);
+                  distanceAtOneSpeedKm = oksana[j] * oksana[j+1];
+                } else {
+                  distanceAtOneSpeedKm = oksana[j] * (oksana[j+1] - oksana[j-1]);
                 }
-           result += var;
+                totalDistanceKm += distanceAtOneSpeedKm;
         }
-        return result;
+        return totalDistanceKm;
       }
 }

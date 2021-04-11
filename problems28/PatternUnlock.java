@@ -21,15 +21,15 @@ public class Level1
       }
 
       public static double indexOf(int [][] arr, int val) {                  // Поиск индекса указанного элемента в двумерном массиве
-        double res = 0;
+        double indexOfThePassedElement = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length;j++) {
                 if (arr[i][j] == val) {
-                    res = i + (double)j/10;
+                  indexOfThePassedElement = i + (double)j/10;
                     break;
                   }
             }
           }
-          return res;
+          return indexOfThePassedElement;
     }
 }

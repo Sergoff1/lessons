@@ -4,35 +4,34 @@ public class Level1
 {
     public static int [] WordSearch(int len, String s, String subs)
       {
-        String [] arr = s.split(" ");
+        String [] wordsFromThePassedString = s.split(" ");
         ArrayList<String> arrPhrases = new ArrayList<String>();
         StringBuilder stringBuffer = new StringBuilder();
-        int cnt = 0;
-        int index = 0;
-        int length = arr.length;
+        int numberOfOccupiedCharactersInTheCurrentLine = 0;
+        int indexOfTheCurrentWord = 0;
 
-        while (index != length) {
-            if (cnt == 0 && arr[index].length() > len) {
-                arrPhrases.add(arr[index].substring(0, len));
+        while (indexOfTheCurrentWord != wordsFromThePassedString.length) {
+            if (numberOfOccupiedCharactersInTheCurrentLine == 0 && wordsFromThePassedString[indexOfTheCurrentWord].length() > len) {
+                arrPhrases.add(wordsFromThePassedString[indexOfTheCurrentWord].substring(0, len));
                 int ct = 2;
-                while (arr[index].length() - ct * len > 0) {
-                    arrPhrases.add(arr[index].substring((ct-1)*len, ct*len));
+                while (wordsFromThePassedString[indexOfTheCurrentWord].length() - ct * len > 0) {
+                    arrPhrases.add(wordsFromThePassedString[indexOfTheCurrentWord].substring((ct-1)*len, ct*len));
                     ct++;
                 }
-                stringBuffer.append(arr[index].substring((ct-1)*len)).append(" ");
-                cnt += arr[index].substring((ct-1)*len).length() + 1;
-                index++;
+                stringBuffer.append(wordsFromThePassedString[indexOfTheCurrentWord].substring((ct-1)*len)).append(" ");
+                numberOfOccupiedCharactersInTheCurrentLine += wordsFromThePassedString[indexOfTheCurrentWord].substring((ct-1)*len).length() + 1;
+                indexOfTheCurrentWord++;
                 continue;
             }
 
-            if (cnt + arr[index].length() <= len) {
-                cnt += arr[index].length() + 1;
-                stringBuffer.append(arr[index]).append(" ");
-                index++;
+            if (numberOfOccupiedCharactersInTheCurrentLine + wordsFromThePassedString[indexOfTheCurrentWord].length() <= len) {
+                numberOfOccupiedCharactersInTheCurrentLine += wordsFromThePassedString[indexOfTheCurrentWord].length() + 1;
+                stringBuffer.append(wordsFromThePassedString[indexOfTheCurrentWord]).append(" ");
+                indexOfTheCurrentWord++;
             } else {   
                 arrPhrases.add(stringBuffer.toString().trim());
                 stringBuffer.delete(0, stringBuffer.length());
-                cnt = 0;
+                numberOfOccupiedCharactersInTheCurrentLine = 0;
                 }
 
         }
@@ -41,7 +40,7 @@ public class Level1
         arrPhrases.add(stringBuffer.toString().trim());
         }
         int [] result = new int[arrPhrases.size()];
-        cnt = 0;
+        int cnt = 0;
 
         for (String elem : arrPhrases) {
             if (elem.startsWith(subs) && elem.contains(subs+"\s") || elem.contains("\s"+subs) && elem.endsWith(subs) || elem.contains("\s"+subs+"\s") || elem.startsWith(subs) && elem.endsWith(subs)) {

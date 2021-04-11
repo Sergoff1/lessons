@@ -4,14 +4,14 @@ public class Level1
 {
     public static int [] MadMax(int N, int [] Tele)
       {
-        int B =0;
+        int bufferVariable = 0;
         Arrays.sort(Tele);
         N = 0;
         for (int i = Tele.length/2; i <= (Tele.length-1-Tele.length/2)/2 + Tele.length/2; i++) {
             N++;
-            B = Tele[i];
+            bufferVariable = Tele[i];
             Tele[i] = Tele[Tele.length - N];
-            Tele[Tele.length - N] = B;
+            Tele[Tele.length - N] = bufferVariable;
         }
         return Tele;
       }

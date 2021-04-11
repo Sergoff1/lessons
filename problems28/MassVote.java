@@ -5,30 +5,30 @@ public class Level1
     public static String MassVote(int N, int [] Votes)
       {
         String result = "";
-        int cnt = 0;                               //Есть ли ещё кандидаты с максимальным количеством голосов
-        int max = 0;                               //Максимальное количество голосов за одного кандидата
-        int totalVotes = 0;                        //Общее количество голосов
-        int maxIndex = 0;                          //Номер победителя
+        int numberOfCandidatesWithTheMostVotes = 0; //Есть ли ещё кандидаты с максимальным количеством голосов
+        int maximumNumberOfVotesPerCandidate = 0;   //Максимальное количество голосов за одного кандидата
+        int totalVotes = 0;                         //Общее количество голосов
+        int winnerNumber = 0;                       //Номер победителя
 
         for (int i = 0; i < Votes.length; i++) {
             totalVotes += Votes[i];
-            if (Votes[i] > max) {
-                max = Votes[i];
-                maxIndex = i;
+            if (Votes[i] > maximumNumberOfVotesPerCandidate) {
+                maximumNumberOfVotesPerCandidate = Votes[i];
+                winnerNumber = i;
             }
         }
         
         for (int i: Votes) {
-            if (i == max) {
-                cnt++;
+            if (i == maximumNumberOfVotesPerCandidate) {
+                numberOfCandidatesWithTheMostVotes++;
             }
         }
         
-        if (cnt == 1) {
-            if ((double)100/totalVotes * max > 50) {
-                result = "majority winner " + (maxIndex + 1);
+        if (numberOfCandidatesWithTheMostVotes == 1) {
+            if ((double)100/totalVotes * maximumNumberOfVotesPerCandidate > 50) {
+                result = "majority winner " + (winnerNumber + 1);
             } else {
-                result = "minority winner " + (maxIndex + 1);
+                result = "minority winner " + (winnerNumber + 1);
             }
         } else {
             result = "no winner";
