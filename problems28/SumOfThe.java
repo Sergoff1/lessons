@@ -4,7 +4,7 @@ public class Level1
 {
     public static int SumOfThe(int N, int [] data)
       {
-        int sum = 0, res = 0;
+        int sum = 0, sumOfAllOtherNumbers = 0;
         for (int i = 0; i < N; i++) {
             for (int j =0; j < N; j++) {
                 if (j != i) {
@@ -12,10 +12,10 @@ public class Level1
                 }
             }
             if (data [i] == sum) {
-                res = sum;
+                sumOfAllOtherNumbers = sum;
             }
             sum = 0;
         }
-        return res;
+        return sumOfAllOtherNumbers;
       }
 }

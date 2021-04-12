@@ -4,16 +4,16 @@ public class Level1
 {
     public static boolean LineAnalysis(String line)
       {
-        boolean result = true;
+        boolean isCorrectPattern = true;
 
         if (line.charAt(0) == '*' && line.charAt(line.length()-1) == '*') {
             for (int i = 1; i < line.length()/2; i++) {
                 if (line.charAt(i) != line.charAt(line.length() - 1 - i)) {
-                    result = false;
+                    isCorrectPattern = false;
                 }
             }
-        } else result = false;
+        } else isCorrectPattern = false;
 
-        return result;
+        return isCorrectPattern;
       }
 }

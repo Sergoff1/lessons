@@ -6,20 +6,20 @@ public class Level1
       {
         int totalTravelTimeCU = 0;                 //Общее время на дорогу в условных единицах
         int location = 0;                          //Показатель местоположения
-        int numberOfTrafficLightsPassed = 0;       //Сколько светофоров проехали
+        int passedTrafficLights = 0;       //Сколько светофоров проехали
         boolean isRed = true;                      //Статус светофора
         int cycle = 0;                             //Цикл работы светофора, от красного до красного
         while (location < L) {
-            if (location == track[numberOfTrafficLightsPassed][0]) {
-                cycle = track[numberOfTrafficLightsPassed][1]+track[numberOfTrafficLightsPassed][2];
+            if (location == track[passedTrafficLights][0]) {
+                cycle = track[passedTrafficLights][1]+track[passedTrafficLights][2];
                 while (isRed) {
-                    if (totalTravelTimeCU % cycle - track[numberOfTrafficLightsPassed][1] >= 0) { //Если сейчас горит зелёный
+                    if (totalTravelTimeCU % cycle - track[passedTrafficLights][1] >= 0) { //Если сейчас горит зелёный
                         isRed = false;
                     } else {
                         totalTravelTimeCU++;
                     }
                 }
-                if (numberOfTrafficLightsPassed < N-1) numberOfTrafficLightsPassed++;
+                if (passedTrafficLights < N-1) passedTrafficLights++;
                 isRed = true;
             }
             totalTravelTimeCU++;            

@@ -4,7 +4,7 @@ public class Level1
 {
     public static boolean MisterRobot(int N, int [] data) 
       {
-        boolean result = true;
+        boolean canSorted = true;
         int temp = 0;
 
         while (true) {
@@ -20,10 +20,10 @@ public class Level1
             if (temp == 0 && data[N-1] > data[N-2]) {
                 break;
             } else if (temp == 0 && data[N-1] < data[N-2]){
-                result = false;
+                canSorted = false;
                 break;
             }
         }
-        return result;
+        return canSorted;
       }
 }

@@ -5,16 +5,16 @@ public class Level1
     public static String [] ShopOLAP(int N, String [] items)  
       {
         String [] result;
-        Integer quantity;
+        Integer itemQuantity;
         String temp = "";
 
         for (int i = 0; i < items.length; i++) { //Combine records for the same products
             for (int j = 0; j < items.length; j++) {
                 if (items[j] != "") {
                     if (i != j && items[i].substring(0, items[i].indexOf("\s")+1).equals(items[j].substring(0, items[j].indexOf("\s")+1))) { //There is a match of products in the array
-                        quantity = Integer.valueOf(items[i].substring(items[i].indexOf("\s")+1, items[i].length())); //Number of sales in the first record
-                        quantity += Integer.valueOf(items[j].substring(items[j].indexOf("\s")+1, items[j].length())); //Sum it up with the number of sales from the second record
-                        items[i] = items[i].replaceAll("\\s\\d+", " " + quantity.toString()); //Changing the sales value of the first record
+                        itemQuantity = Integer.valueOf(items[i].substring(items[i].indexOf("\s")+1, items[i].length())); //Number of sales in the first record
+                        itemQuantity += Integer.valueOf(items[j].substring(items[j].indexOf("\s")+1, items[j].length())); //Sum it up with the number of sales from the second record
+                        items[i] = items[i].replaceAll("\\s\\d+", " " + itemQuantity.toString()); //Changing the sales value of the first record
                         items[j] = ""; //Deleting the second record
                     }
                 }

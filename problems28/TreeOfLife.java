@@ -4,7 +4,7 @@ public class Level1
 {
     public static String [] TreeOfLife(int H, int W, int N, String [] tree) 
     {
-        String[] result = new String[H];
+        String[] treeState = new String[H];
         char[][] tree2D = new char[H][W];
         int[] neighbors;
 
@@ -48,15 +48,15 @@ public class Level1
         }
 
         for (int i = 0; i < H; i++) {    //Converting a two-dimensional array of characters back to a string array
-            result[i] = "";
+            treeState[i] = "";
             for (int j = 0; j < W; j++) {
                 if (tree2D[i][j] > '0') {
-                    result[i] += "+";
+                    treeState[i] += "+";
                 } else {
-                    result[i] += ".";
+                    treeState[i] += ".";
                 }
             }
         }
-        return result;
+        return treeState;
     }
 }
