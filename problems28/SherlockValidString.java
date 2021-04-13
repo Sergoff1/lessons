@@ -5,22 +5,22 @@ public class Level1
     public static boolean SherlockValidString(String s)
       {
         HashMap<Character, Integer> letterFrequency = new HashMap<Character, Integer>();
-        int numOfSimbols = 0;
+        int numOfCharOccurrences = 0;
         int difference = 0;
-        boolean result = true;
+        boolean valid = true;
         boolean mayDeleted = true;
 
         for (int i = 0; i < s.length(); i++) {                //Count the number of occurrences of each character in the string
-            numOfSimbols = 0;
+            numOfCharOccurrences = 0;
             if (letterFrequency.containsKey(s.charAt(i))) {
                 continue;
             }
             for (int j = 0; j < s.length(); j++) {
                 if (s.charAt(j) == s.charAt(i)) {
-                    numOfSimbols++;
+                    numOfCharOccurrences++;
                 }
             }
-            letterFrequency.put(s.charAt(i), numOfSimbols);
+            letterFrequency.put(s.charAt(i), numOfCharOccurrences);
         }
 
         Iterator<Character> iter = letterFrequency.keySet().iterator();
@@ -59,11 +59,11 @@ public class Level1
             secondElem = iter.next();
             difference = letterFrequency.get(firstElem) - letterFrequency.get(secondElem);
             if (difference != 0 && !mayDeleted) {                 //If there are excess characters
-                result = false;
+                valid = false;
                 break;
             }
             firstElem = secondElem;
         }
-        return result;
+        return valid;
       }
 }

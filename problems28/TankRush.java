@@ -4,7 +4,7 @@ public class Level1
 {
     public static boolean TankRush(int H1, int W1, String S1, int H2, int W2, String S2) 
       {
-        boolean result = false;
+        boolean isEnemyInReach = false;
         int [][] map = new int [H1][W1];
         int [][] enemyLocation = new int [H2][W2];
         int [][] tempEL = new int [H2][W2];
@@ -35,14 +35,14 @@ public class Level1
                             tempEL[c][k] = map[i+c][j+k];
                         }
                     }
-                    result = Arrays.deepEquals(enemyLocation, tempEL);
-                    if (result) {
+                    isEnemyInReach = Arrays.deepEquals(enemyLocation, tempEL);
+                    if (isEnemyInReach) {
                         i = H1;
                         j = W1;
                     }
                 }
             }
         }
-        return result;
+        return isEnemyInReach;
       }
 }

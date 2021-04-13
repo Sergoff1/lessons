@@ -9,18 +9,18 @@ public class Level1
         Arrays.sort(c_ids);
         Arrays.sort(c_salary);
         for (int i = 0; i < N; i++) {
-                salary [indexOf(ids, c_ids[i])] = c_salary[i];
+                salary [indexOfValue(ids, c_ids[i])] = c_salary[i];
         }
         return salary;
       }
       
-      public static int indexOf(int [] arr, int val) {
+      public static int indexOfValue(int [] arr, int value) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == val) {
-              val = i;
+            if (arr[i] == value) {
+              value = i;
               break;
             }
           }
-          return val;
+          return value;
     }
 }

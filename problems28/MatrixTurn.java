@@ -13,7 +13,7 @@ public class Level1
             }
         }
 
-        for (int t = 0; t < T; t++) {     //Number of steps to rotate the matrix
+        for (int step = 0; step < T; step++) {     //Number of steps to rotate the matrix
             for (int offset = 0; offset < Math.min(M, N)/2; offset++) {      //Convergence to the middle
 
                 temp = matrix2D[M-1 - offset][N-1 - offset];

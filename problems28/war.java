@@ -4,7 +4,7 @@ public class Level1
 {
     public static int ConquestCampaign(int N, int M, int L, int [] battalion)
       {
-        int days = 0,conqueredCells = 0, cells = N*M;
+        int days = 0,conqueredCells = 0;
         int [][] field = new int[N][M];
 
         for (int i = 0; i < battalion.length; i += 2) {           //Высадка десанта
@@ -18,7 +18,7 @@ public class Level1
         }
 
         days++;
-        while (conqueredCells < cells){                                //Боевые действия
+        while (conqueredCells < N*M){                                  //Боевые действия
             conqueredCells = 0;                                        // Обнуляем счётчик территорий, иначе будут считаться и те,что уже захвачены
             for (int i = 0; i < field.length; i++) {
                 for (int j = 0; j < field[i].length; j++) {

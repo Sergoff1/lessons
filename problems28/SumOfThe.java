@@ -4,17 +4,17 @@ public class Level1
 {
     public static int SumOfThe(int N, int [] data)
       {
-        int sum = 0, sumOfAllOtherNumbers = 0;
+        int sumOfAllOtherNumbers = 0;
         for (int i = 0; i < N; i++) {
             for (int j =0; j < N; j++) {
                 if (j != i) {
-                    sum +=  data[j];
+                    sumOfAllOtherNumbers +=  data[j];
                 }
             }
-            if (data [i] == sum) {
-                sumOfAllOtherNumbers = sum;
+            if (data [i] == sumOfAllOtherNumbers) {
+                break;
             }
-            sum = 0;
+            sumOfAllOtherNumbers = 0;
         }
         return sumOfAllOtherNumbers;
       }

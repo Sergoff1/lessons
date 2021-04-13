@@ -6,17 +6,17 @@ public class Level1
         int temp = -35;
         int firstIndexForSwap = input.length()-1;
         int secondIndexForSwap = 0;
-        boolean unaltered = true;
+        boolean isUnaltered = true;
         char[] arrChar = input.toCharArray();
 
         for (int i = arrChar.length -1; i > 0; i--){          //Checking for conversion capability
             if (arrChar[i] > arrChar[i-1]) {
-                unaltered = false;
+                isUnaltered = false;
                 break;
             }
         }
 
-        if (unaltered) {
+        if (isUnaltered) {
             return "";
         }
 
