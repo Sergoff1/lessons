@@ -2,22 +2,22 @@ import java.util.*;
 
 public class Level1
 {
-    public static void combosParentheses(ArrayList<String> result, int open, int close, String str) {
+    public static void combosParentheses(ArrayList<String> comboOfParentheses, int open, int close, String bracketLayoutOption) {
         if (open == 0 && close == 0) {      //add the assembled combination
-            result.add(str);
+            comboOfParentheses.add(bracketLayoutOption);
         } else {
             if (open > 0) {   //add an opening parenthesis
-                combosParentheses(result, open - 1, close, str+"(");
+                combosParentheses(comboOfParentheses, open - 1, close, bracketLayoutOption+"(");
             }
             if (close > open) {  //add an closing parenthesis
-                combosParentheses(result, open, close - 1, str+")");
+                combosParentheses(comboOfParentheses, open, close - 1, bracketLayoutOption+")");
             }
         }
     }
 
     public static String BalancedParentheses(int N) {
-        ArrayList<String> result = new ArrayList<String>(); //list with combinations of parentheses
-        combosParentheses(result, N, N, "");
-        return String.join(" ", result);
+        ArrayList<String> comboOfParentheses = new ArrayList<String>(); //list with combinations of parentheses
+        combosParentheses(comboOfParentheses, N, N, "");
+        return String.join(" ", comboOfParentheses);
     }
 }

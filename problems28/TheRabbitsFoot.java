@@ -4,7 +4,7 @@ public class Level1
 {
     public static String TheRabbitsFoot(String s, boolean encode)
       {
-          String result = "";
+          String convertedString = "";
           int numOfTransferChars = 0;                                           //Переменная для заноса символов строки в двумерный массив, на случай если символов в строке меньше произведения строк и столбцов
           int nonSpaceStringLength = s.replaceAll("\s", "").length();
           int rows = (int)Math.floor(Math.sqrt(nonSpaceStringLength));
@@ -34,14 +34,14 @@ public class Level1
                         break;
                     }
                     if (arr[c][r] != null) {
-                    result = result.concat(String.valueOf(arr[c][r]));
+                    convertedString = convertedString.concat(String.valueOf(arr[c][r]));
                     numOfTransferChars++;
                     }
                 }
-                result+= " ";
+                convertedString+= " ";
             }
 
-            result = result.trim();
+            convertedString = convertedString.trim();
           } else {
             char [][] arr2 = new char[rows][columns];                   // Массив для начального переноса строки
 
@@ -56,11 +56,11 @@ public class Level1
                     if (numOfTransferChars == nonSpaceStringLength) {
                         break;
                     }
-                    result += arr2[c][r];
+                    convertedString += arr2[c][r];
                     numOfTransferChars++;
                 }
             }
           }
-        return result;
+        return convertedString;
       }
 }

@@ -4,7 +4,7 @@ public class Level1
 {
     public static String [] ShopOLAP(int N, String [] items)  
       {
-        String [] result;
+        String [] groupedSalesSummary;
         Integer itemQuantity;
         String temp = "";
 
@@ -20,49 +20,49 @@ public class Level1
                 }
             }
         }
-        N = 0;
+        int numOfUniqueGoods = 0;
         for (String i: items) {//Counting how many elements are left in the array after merging the same records
-            if (i != "") N++;
+            if (i != "") numOfUniqueGoods++;
         }
 
-        result = new String[N]; //Creating an array with unique product records
+        groupedSalesSummary = new String[numOfUniqueGoods]; //Creating an array with unique product records
 
-        for (int i = 0,c = 0; i < N; i++) {//Fill it out
+        for (int i = 0,c = 0; i < numOfUniqueGoods; i++) {//Fill it out
             if (items[i+c] != "") {
-                result[i] = items[i+c];
+                groupedSalesSummary[i] = items[i+c];
             } else {
                 while (items[i+c] == "") {
                     c++;
                 }
-                result[i] = items[i+c];
+                groupedSalesSummary[i] = items[i+c];
             }
         }
 
         boolean sorted = false;
         while (!sorted) { //Sorting the resulting array by the number of sales
             sorted = true;
-            for (int j = 1; j < N; j++) {
+            for (int j = 1; j < numOfUniqueGoods; j++) {
                 int count = 0;
-                Integer value = Integer.valueOf(result[j].substring(result[j].indexOf("\s")+1, result[j].length())); //Number of sales of the first item
-                Integer previousValue = Integer.valueOf(result[j-1].substring(result[j-1].indexOf("\s")+1, result[j-1].length())); //Number of sales of the second item
+                Integer value = Integer.valueOf(groupedSalesSummary[j].substring(groupedSalesSummary[j].indexOf("\s")+1, groupedSalesSummary[j].length())); //Number of sales of the first item
+                Integer previousValue = Integer.valueOf(groupedSalesSummary[j-1].substring(groupedSalesSummary[j-1].indexOf("\s")+1, groupedSalesSummary[j-1].length())); //Number of sales of the second item
                 if (value > previousValue) {
-                    temp = result[j];
-                    result[j] = result[j-1];
-                    result[j-1] = temp;
+                    temp = groupedSalesSummary[j];
+                    groupedSalesSummary[j] = groupedSalesSummary[j-1];
+                    groupedSalesSummary[j-1] = temp;
                     sorted = false;
                 } else if (value == previousValue) { //If the number of sales is the same we change the places of the elements in lexicographic ascending order
-                    while (result[j].charAt(count) == result[j-1].charAt(count)) {
+                    while (groupedSalesSummary[j].charAt(count) == groupedSalesSummary[j-1].charAt(count)) {
                         count++;
                     }
-                    if (result[j].charAt(count) < result[j-1].charAt(count)) {
-                        temp = result[j];
-                        result[j] = result[j-1];
-                        result[j-1] = temp;
+                    if (groupedSalesSummary[j].charAt(count) < groupedSalesSummary[j-1].charAt(count)) {
+                        temp = groupedSalesSummary[j];
+                        groupedSalesSummary[j] = groupedSalesSummary[j-1];
+                        groupedSalesSummary[j-1] = temp;
                         sorted = false;
                     }
                 }
             }
         }
-        return result;
+        return groupedSalesSummary;
       }
 }

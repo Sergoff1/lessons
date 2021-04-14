@@ -4,10 +4,10 @@ public class Level1
 {
     public static int squirrel(int N)
       {
-        int result = 1;
+        int firstFactorialDigit = 1;
         for (int i = 1; i <= N; i++) {
-            result = result * i;	
+            firstFactorialDigit = firstFactorialDigit * i;	
 	    }
-        return Integer.valueOf(Integer.toString(result).substring(0,1));
+        return Integer.valueOf(Integer.toString(firstFactorialDigit).substring(0,1));
       }
 }

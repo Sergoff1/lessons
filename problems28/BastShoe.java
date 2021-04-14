@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Level1
 {
-    public static StringBuilder result = new StringBuilder("");            
-    public static ArrayList<String> arrUndo = new ArrayList<>();           
+    public static StringBuilder workingString = new StringBuilder("");            
+    public static ArrayList<String> undoArray = new ArrayList<>();           
     public static ArrayList<Boolean> added = new ArrayList<>();            
     static int undoCount = 0;                                              
     static int redoCount = 0;                                              
@@ -15,17 +15,17 @@ public class Level1
         try {
             switch(command.charAt(0)) { 
             case '1':                                                   
-                result.append(command.substring(2, command.length()));
+                workingString.append(command.substring(2, command.length()));
 
                 if (wasUndo) {                                          
-                    arrUndo.clear();
+                    undoArray.clear();
                     added.clear();
                     undoCount = 0;
                     redoCount = 0;
                     wasUndo = false;
                 }
 
-                arrUndo.add(command.substring(2, command.length()));    
+                undoArray.add(command.substring(2, command.length()));    
                 added.add(true);                                        
                 undoCount++;
                 break;
@@ -34,21 +34,21 @@ public class Level1
                 numOfCharsToDel = Integer.valueOf(command.substring(2, command.length())); 
 
                 if (wasUndo) {                                              
-                    arrUndo.clear();
+                    undoArray.clear();
                     added.clear();
                     undoCount = 0;
                     redoCount = 0;
                     wasUndo = false;
                 }
 
-                if (numOfCharsToDel > result.length()) {
-                    arrUndo.add(result.toString());                          
-                    result.delete(0, result.length());
+                if (numOfCharsToDel > workingString.length()) {
+                    undoArray.add(workingString.toString());                          
+                    workingString.delete(0, workingString.length());
                     added.add(false);                                        
                     undoCount++;
                 } else {
-                    arrUndo.add(result.substring(result.length() - numOfCharsToDel, result.length())); 
-                    result.delete(result.length() - numOfCharsToDel, result.length());
+                    undoArray.add(workingString.substring(workingString.length() - numOfCharsToDel, workingString.length())); 
+                    workingString.delete(workingString.length() - numOfCharsToDel, workingString.length());
                     added.add(false);                                                    
                     undoCount++;
                 }
@@ -56,20 +56,20 @@ public class Level1
 
             case '3':                                                        
                 Integer indexOfReturnedChar = Integer.valueOf(command.substring(2, command.length()));
-                if (indexOfReturnedChar < 0 || indexOfReturnedChar >= result.length()) {
+                if (indexOfReturnedChar < 0 || indexOfReturnedChar >= workingString.length()) {
                     return "";
                 } else 
-                    return result.substring(indexOfReturnedChar, indexOfReturnedChar+1); 
+                    return workingString.substring(indexOfReturnedChar, indexOfReturnedChar+1); 
 
             case '4':
                 if (undoCount == 0) {
-                    return result.toString();
+                    return workingString.toString();
                 } else {
-                    numOfCharsToDel = arrUndo.get(undoCount - 1).length();      
+                    numOfCharsToDel = undoArray.get(undoCount - 1).length();      
                     if (added.get(undoCount - 1)) {               
-                        result.delete(result.length() - numOfCharsToDel, result.length());
+                        workingString.delete(workingString.length() - numOfCharsToDel, workingString.length());
                     } else {
-                        result.append(arrUndo.get(undoCount - 1)); 
+                        workingString.append(undoArray.get(undoCount - 1)); 
                     }
                     undoCount--;
                 }
@@ -79,13 +79,13 @@ public class Level1
 
             case '5':
                 if (redoCount == 0) {
-                    return result.toString();
+                    return workingString.toString();
                 } else {
-                    numOfCharsToDel = arrUndo.get(undoCount).length();      
+                    numOfCharsToDel = undoArray.get(undoCount).length();      
                     if (added.get(undoCount)) {              
-                        result.append(arrUndo.get(undoCount));
+                        workingString.append(undoArray.get(undoCount));
                     } else {
-                        result.delete(result.length() - numOfCharsToDel, result.length());;
+                        workingString.delete(workingString.length() - numOfCharsToDel, workingString.length());;
                     }
                     redoCount--;
                     undoCount++;
@@ -93,12 +93,12 @@ public class Level1
                 break;
 
             default:
-                return result.toString();
+                return workingString.toString();
             }
         } catch (Exception e) {
-            return result.toString();
+            return workingString.toString();
         }
         
-        return result.toString();
+        return workingString.toString();
     }
 }

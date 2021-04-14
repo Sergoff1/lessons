@@ -5,7 +5,7 @@ public class Level1
     public static boolean TankRush(int H1, int W1, String S1, int H2, int W2, String S2) 
       {
         boolean isEnemyInReach = false;
-        int [][] map = new int [H1][W1];
+        int [][] areaScheme = new int [H1][W1];
         int [][] enemyLocation = new int [H2][W2];
         int [][] tempEL = new int [H2][W2];
         String [] s1Arr = S1.split(" ");
@@ -15,7 +15,7 @@ public class Level1
         for (int i = 0; i < H1; i++) {
             digString = s1Arr[i].toCharArray();
             for (int j = 0; j < W1; j++) {
-                map [i][j] = digString[j] - '0';
+                areaScheme [i][j] = digString[j] - '0';
             }
         }
 
@@ -28,11 +28,11 @@ public class Level1
 
         for (int i = 0; i < H1; i++) {
             for (int j = 0; j < W1; j++) {
-                if (map[i][j] == enemyLocation[0][0] && i + H2 <= H1 && j + W2 <= W1){
+                if (areaScheme[i][j] == enemyLocation[0][0] && i + H2 <= H1 && j + W2 <= W1){
                 
                     for (int c = 0; c < H2; c++) {
                         for (int k = 0; k < W2; k++) {
-                            tempEL[c][k] = map[i+c][j+k];
+                            tempEL[c][k] = areaScheme[i+c][j+k];
                         }
                     }
                     isEnemyInReach = Arrays.deepEquals(enemyLocation, tempEL);

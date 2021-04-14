@@ -39,16 +39,16 @@ public class Level1
         if (stringBuffer.length() > 0) {
         arrPhrases.add(stringBuffer.toString().trim());
         }
-        int [] result = new int[arrPhrases.size()];
-        int cnt = 0;
+        int [] stringsWithInputWord = new int[arrPhrases.size()];
+        int stringNumber = 0;
 
         for (String elem : arrPhrases) {
             if (elem.startsWith(subs) && elem.contains(subs+"\s") || elem.contains("\s"+subs) && elem.endsWith(subs) || elem.contains("\s"+subs+"\s") || elem.startsWith(subs) && elem.endsWith(subs)) {
-                result [cnt] = 1;
+                stringsWithInputWord [stringNumber] = 1;
             }
-            cnt++;
+            stringNumber++;
         }
-        return result;
+        return stringsWithInputWord;
 
     }
 }

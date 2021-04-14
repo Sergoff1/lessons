@@ -14,13 +14,13 @@ public class Level1
         return salary;
       }
       
-      public static int indexOfValue(int [] arr, int value) {
+      public static int indexOfValue(int [] arr, int arrayElementValue) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == value) {
-              value = i;
+            if (arr[i] == arrayElementValue) {
+              arrayElementValue = i;
               break;
             }
           }
-          return value;
+          return arrayElementValue;
     }
 }
