@@ -5,17 +5,17 @@ public class Level1
     public static int [] WordSearch(int len, String s, String subs)
       {
         String [] wordsFromThePassedString = s.split(" ");
-        ArrayList<String> arrPhrases = new ArrayList<String>();
+        ArrayList<String> PhrasesList = new ArrayList<String>();
         StringBuilder stringBuffer = new StringBuilder();
         int occupiedCharsInLine = 0;
         int indexOfTheCurrentWord = 0;
 
         while (indexOfTheCurrentWord != wordsFromThePassedString.length) {
             if (occupiedCharsInLine == 0 && wordsFromThePassedString[indexOfTheCurrentWord].length() > len) {
-                arrPhrases.add(wordsFromThePassedString[indexOfTheCurrentWord].substring(0, len));
+                PhrasesList.add(wordsFromThePassedString[indexOfTheCurrentWord].substring(0, len));
                 int ct = 2;
                 while (wordsFromThePassedString[indexOfTheCurrentWord].length() - ct * len > 0) {
-                    arrPhrases.add(wordsFromThePassedString[indexOfTheCurrentWord].substring((ct-1)*len, ct*len));
+                    PhrasesList.add(wordsFromThePassedString[indexOfTheCurrentWord].substring((ct-1)*len, ct*len));
                     ct++;
                 }
                 stringBuffer.append(wordsFromThePassedString[indexOfTheCurrentWord].substring((ct-1)*len)).append(" ");
@@ -29,7 +29,7 @@ public class Level1
                 stringBuffer.append(wordsFromThePassedString[indexOfTheCurrentWord]).append(" ");
                 indexOfTheCurrentWord++;
             } else {   
-                arrPhrases.add(stringBuffer.toString().trim());
+                PhrasesList.add(stringBuffer.toString().trim());
                 stringBuffer.delete(0, stringBuffer.length());
                 occupiedCharsInLine = 0;
                 }
@@ -37,12 +37,12 @@ public class Level1
         }
 
         if (stringBuffer.length() > 0) {
-        arrPhrases.add(stringBuffer.toString().trim());
+        PhrasesList.add(stringBuffer.toString().trim());
         }
-        int [] stringsWithInputWord = new int[arrPhrases.size()];
+        int [] stringsWithInputWord = new int[PhrasesList.size()];
         int stringNumber = 0;
 
-        for (String elem : arrPhrases) {
+        for (String elem : PhrasesList) {
             if (elem.startsWith(subs) && elem.contains(subs+"\s") || elem.contains("\s"+subs) && elem.endsWith(subs) || elem.contains("\s"+subs+"\s") || elem.startsWith(subs) && elem.endsWith(subs)) {
                 stringsWithInputWord [stringNumber] = 1;
             }

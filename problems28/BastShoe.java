@@ -3,7 +3,7 @@ import java.util.*;
 public class Level1
 {
     public static StringBuilder workingString = new StringBuilder("");            
-    public static ArrayList<String> undoArray = new ArrayList<>();           
+    public static ArrayList<String> undoList = new ArrayList<>();           
     public static ArrayList<Boolean> added = new ArrayList<>();            
     static int undoCount = 0;                                              
     static int redoCount = 0;                                              
@@ -18,14 +18,14 @@ public class Level1
                 workingString.append(command.substring(2, command.length()));
 
                 if (wasUndo) {                                          
-                    undoArray.clear();
+                    undoList.clear();
                     added.clear();
                     undoCount = 0;
                     redoCount = 0;
                     wasUndo = false;
                 }
 
-                undoArray.add(command.substring(2, command.length()));    
+                undoList.add(command.substring(2, command.length()));    
                 added.add(true);                                        
                 undoCount++;
                 break;
@@ -34,7 +34,7 @@ public class Level1
                 numOfCharsToDel = Integer.valueOf(command.substring(2, command.length())); 
 
                 if (wasUndo) {                                              
-                    undoArray.clear();
+                    undoList.clear();
                     added.clear();
                     undoCount = 0;
                     redoCount = 0;
@@ -42,12 +42,12 @@ public class Level1
                 }
 
                 if (numOfCharsToDel > workingString.length()) {
-                    undoArray.add(workingString.toString());                          
+                    undoList.add(workingString.toString());                          
                     workingString.delete(0, workingString.length());
                     added.add(false);                                        
                     undoCount++;
                 } else {
-                    undoArray.add(workingString.substring(workingString.length() - numOfCharsToDel, workingString.length())); 
+                    undoList.add(workingString.substring(workingString.length() - numOfCharsToDel, workingString.length())); 
                     workingString.delete(workingString.length() - numOfCharsToDel, workingString.length());
                     added.add(false);                                                    
                     undoCount++;
@@ -65,11 +65,11 @@ public class Level1
                 if (undoCount == 0) {
                     return workingString.toString();
                 } else {
-                    numOfCharsToDel = undoArray.get(undoCount - 1).length();      
+                    numOfCharsToDel = undoList.get(undoCount - 1).length();      
                     if (added.get(undoCount - 1)) {               
                         workingString.delete(workingString.length() - numOfCharsToDel, workingString.length());
                     } else {
-                        workingString.append(undoArray.get(undoCount - 1)); 
+                        workingString.append(undoList.get(undoCount - 1)); 
                     }
                     undoCount--;
                 }
@@ -81,9 +81,9 @@ public class Level1
                 if (redoCount == 0) {
                     return workingString.toString();
                 } else {
-                    numOfCharsToDel = undoArray.get(undoCount).length();      
+                    numOfCharsToDel = undoList.get(undoCount).length();      
                     if (added.get(undoCount)) {              
-                        workingString.append(undoArray.get(undoCount));
+                        workingString.append(undoList.get(undoCount));
                     } else {
                         workingString.delete(workingString.length() - numOfCharsToDel, workingString.length());;
                     }
