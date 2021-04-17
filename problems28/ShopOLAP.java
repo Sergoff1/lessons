@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Level1
 {
-    public static String [] ShopOLAP(int N, String [] items)  
+    public static String [] getSalesReport(int N, String [] items)  
       {
         String [] groupedSalesSummary;
         Integer itemQuantity;

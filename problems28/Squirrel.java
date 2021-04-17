@@ -1,8 +1,6 @@
-import java.util.*;
-
-public class Level1
+public class Squirrel
 {
-    public static int squirrel(int N)
+    public static int getNumberOfEmeralds(int N)
       {
         int firstFactorialDigit = 1;
         for (int i = 1; i <= N; i++) {

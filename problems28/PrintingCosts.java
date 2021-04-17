@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Level1
 {
-    public static int PrintingCosts(String Line)
+    public static int getTonerCosts(String Line)
       {
         int tonerCostsTotal = 0;
         HashMap<Character, Integer> symbolsCost = new HashMap<Character, Integer>();

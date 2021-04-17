@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class Level1
+public class ConquestCampaign
 {
-    public static int ConquestCampaign(int N, int M, int L, int [] battalion)
+    public static int getDaysForConquest(int N, int M, int L, int [] battalion)
       {
         int days = 0,conqueredCells = 0;
         int [][] field = new int[N][M];

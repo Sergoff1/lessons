@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Level1
 {
-    public static String PatternUnlock(int N, int [] hits) 
+    public static String getUnlockSequence(int N, int [] hits) 
       {
         double unlockSequence = 0;
         int [][] dotField = {{6,1,9},{5,2,8},{4,3,7}};                       // Поле точек, по которому находим расстояния

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Level1
 {
-    public static int odometer(int [] oksana)
+    public static int getTotalDistanceKm(int [] oksana)
       {
         int totalDistanceKm = 0,distanceAtOneSpeedKm = 0;
         for (int j = 0; j < oksana.length - 1; j+=2) {

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Level1
 {
-    public static String BigMinus(String s1, String s2)
+    public static String getDifferenceOfNums(String s1, String s2)
       {
         String diff = "";
         int capacitySmallerNum = 0;                              // Разрядность меньшего числа

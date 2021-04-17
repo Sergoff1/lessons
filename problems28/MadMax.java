@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class Level1
+public class MadMax
 {
-    public static int [] MadMax(int N, int [] Tele)
+    public static int [] getStartingImpulse(int N, int [] Tele)
       {
         int bufferVariable = 0;
         Arrays.sort(Tele);

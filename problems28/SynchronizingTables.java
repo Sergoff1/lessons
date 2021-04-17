@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Level1
 {
-    public static int [] SynchronizingTables(int N, int [] ids, int [] salary) 
+    public static int [] getValidSalaryArray(int N, int [] ids, int [] salary) 
       {
         int [] c_ids = Arrays.copyOf(ids, N);
         int [] c_salary = Arrays.copyOf(salary, N);

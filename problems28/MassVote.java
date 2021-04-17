@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class Level1
+public class MassVote
 {
-    public static String MassVote(int N, int [] Votes)
+    public static String getTheVotingResult(int N, int [] Votes)
       {
         int maxVotesCandidates = 0;                 //Есть ли ещё кандидаты с максимальным количеством голосов
         int maxVotesPerCandidate = 0;               //Максимальное количество голосов за одного кандидата

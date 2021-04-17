@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class Level1
+public class Matrix
 {
-    public static void MatrixTurn(String Matrix[], int M, int N, int T)
+    public static void turn(String Matrix[], int M, int N, int T)
     {
         char[][] matrix2D = new char[M][N];
         int temp = 0;
