@@ -2,14 +2,14 @@ import java.util.*;
 
 public class BastShoe
 {
-    public static StringBuilder workingString = new StringBuilder("");            
-    public static ArrayList<String> undoList = new ArrayList<>();           
-    public static ArrayList<Boolean> added = new ArrayList<>();            
-    static int undoCount = 0;                                              
-    static int redoCount = 0;                                              
-    static boolean wasUndo = false;
+    private static StringBuilder workingString = new StringBuilder("");            
+    private static ArrayList<String> undoList = new ArrayList<>();           
+    private static ArrayList<Boolean> added = new ArrayList<>();            
+    private static int undoCount = 0;                                              
+    private static int redoCount = 0;                                              
+    private static boolean wasUndo = false;
 
-    static String addStringTo(String stringToAdd) {
+    private static String addStringTo(String stringToAdd) {
 
         workingString.append(stringToAdd);
 
@@ -28,7 +28,7 @@ public class BastShoe
         return workingString.toString();
     }
 
-    static String deleteCharsFrom(Integer numOfCharsToDel){
+    private static String deleteCharsFrom(Integer numOfCharsToDel){
         if (wasUndo) {                                              
             undoList.clear();
             added.clear();
@@ -52,14 +52,14 @@ public class BastShoe
         return workingString.toString();
     }
 
-    static String getCharFrom(Integer indexOfgettingChar){
+    private static String getCharFrom(Integer indexOfgettingChar){
         if (indexOfgettingChar < 0 || indexOfgettingChar >= workingString.length()) {
             return "";
         }
         return workingString.substring(indexOfgettingChar, indexOfgettingChar+1); 
     }
 
-    static String undo(){
+    private static String undo(){
         if (undoCount == 0) {
             return workingString.toString();
         } else {
@@ -76,7 +76,7 @@ public class BastShoe
         return workingString.toString();
     }
 
-    static String redo(){
+    private static String redo(){
         if (redoCount == 0) {
             return workingString.toString();
         } else {
@@ -100,11 +100,11 @@ public class BastShoe
                 return addStringTo(command.substring(2));
 
             case '2':                                                        
-                Integer numOfCharsToDel = Integer.valueOf(command.substring(2, command.length())); 
+                Integer numOfCharsToDel = Integer.valueOf(command.substring(2)); 
                 return deleteCharsFrom(numOfCharsToDel);
 
             case '3':                                                        
-                Integer indexOfGettingChar = Integer.valueOf(command.substring(2, command.length()));
+                Integer indexOfGettingChar = Integer.valueOf(command.substring(2));
                 return getCharFrom(indexOfGettingChar);
 
             case '4':
