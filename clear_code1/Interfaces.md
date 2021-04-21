@@ -4,7 +4,7 @@
 [Класс Squirrel.](https://github.com/Sergoff1/lessons/blob/main/problems28/Squirrel.java)
 Сделал целочисленное поле, означающее количество орехов, и 2 статических метода-фабрики, которые заполняли значение поля:
 1. Squirrel squirrel = Squirrel.IntegerNumberOfNuts();
-1. FromRealNumber = Squirrel.RealNumberOfNuts();
+1. Squirrel squirrel = Squirrel.RealNumberOfNuts();
 
 Второй метод, перед записью количества орехов, округлял введённое значение до целого числа.
 
