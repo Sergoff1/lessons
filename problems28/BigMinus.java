@@ -4,6 +4,7 @@ public class Level1
 {
     public static String getDifferenceOfNums(String s1, String s2)
       {
+        final int NOTATION = 10;
         String diff = "";
         int capacitySmallerNum = 0;                              // Разрядность меньшего числа
         int currentRankFromLeft = 0;
@@ -47,9 +48,9 @@ public class Level1
                         num1[num1.length - currentRankFromLeft -i] = '9';
                     }
                     dig1 += 10;
-                    num1[num1.length - 1 -i] = Character.forDigit(dig1 - dig2 ,10);
+                    num1[num1.length - 1 -i] = Character.forDigit(dig1 - dig2 ,NOTATION);
                 } else {
-                    num1[num1.length - 1 -i] = Character.forDigit(dig1 - dig2 ,10);
+                    num1[num1.length - 1 -i] = Character.forDigit(dig1 - dig2 ,NOTATION);
                 }
             }
             diff = new String (num1);
@@ -67,9 +68,9 @@ public class Level1
                         num2[num2.length - currentRankFromLeft -i] = '9';
                     }
                     dig1 += 10;
-                    num2[num2.length - 1 -i] = Character.forDigit(dig1 - dig2 ,10);
+                    num2[num2.length - 1 -i] = Character.forDigit(dig1 - dig2 ,NOTATION);
                 } else {
-                    num2[num2.length - 1 -i] = Character.forDigit(dig1 - dig2 ,10);
+                    num2[num2.length - 1 -i] = Character.forDigit(dig1 - dig2 ,NOTATION);
                 }
             }
             diff = new String (num2);

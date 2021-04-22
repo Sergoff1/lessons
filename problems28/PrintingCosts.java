@@ -4,6 +4,7 @@ public class Level1
 {
     public static int getTonerCosts(String Line)
       {
+        final int DEFAULT_COSTS = 23;
         int tonerCostsTotal = 0;
         HashMap<Character, Integer> symbolsCost = new HashMap<Character, Integer>();
         symbolsCost.put(' ', 0);
@@ -106,7 +107,7 @@ public class Level1
             if (symbolsCost.containsKey(printedСharacters[i])) {
                 tonerCostsTotal += symbolsCost.get(printedСharacters[i]);
             } else {
-                tonerCostsTotal += 23;
+                tonerCostsTotal += DEFAULT_COSTS;
             }
         }
         return tonerCostsTotal;

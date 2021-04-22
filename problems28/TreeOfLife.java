@@ -7,6 +7,7 @@ public class Level1
         String[] treeState = new String[H];
         char[][] tree2D = new char[H][W];
         int[] neighbors;
+        final char AGE_OF_DEATH = '3';
 
         for (int i = 0; i < H; i++) {         //Converting a string array to a two-dimensional character array
             for (int j = 0; j < W; j++) {
@@ -29,12 +30,12 @@ public class Level1
             if (year%2 == 1) {         //Tree behavior in an odd year
                 for (int i = 0; i < H; i++) {
                     for (int j = 0; j < W; j++) {
-                        if (tree2D[i][j] >= '3') {  //Death of old branches and their neighbors
+                        if (tree2D[i][j] >= AGE_OF_DEATH) {  //Death of old branches and their neighbors
                             tree2D[i][j] = '0';
                             neighbors = new int[] {i,i,i+1,i-1,j,j,j+1,j-1};  //Array for processing neighboring elements
                             for (int c = 0; c < 4; c++) {      //Processing neighboring elements
                                 try {
-                                    if (tree2D[neighbors[c]][neighbors[7-c]] < '3'){   //We leave the elements that should destroy the neighbors
+                                    if (tree2D[neighbors[c]][neighbors[7-c]] < AGE_OF_DEATH){   //We leave the elements that should destroy the neighbors
                                         tree2D[neighbors[c]][neighbors[7-c]] = '0';    //Destroy other elements
                                     }
                                 } catch (ArrayIndexOutOfBoundsException e){
