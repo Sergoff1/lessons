@@ -43,7 +43,11 @@ public class Level1
         int stringNumber = 0;
 
         for (String elem : PhrasesList) {
-            if (elem.startsWith(subs) && elem.contains(subs+"\s") || elem.contains("\s"+subs) && elem.endsWith(subs) || elem.contains("\s"+subs+"\s") || elem.startsWith(subs) && elem.endsWith(subs)) {
+            boolean isFirstWord = elem.startsWith(subs) && elem.contains(subs+"\s");
+            boolean isLastWord =  elem.contains("\s"+subs) && elem.endsWith(subs);
+            boolean isMiddleWord = elem.contains("\s"+subs+"\s");
+            boolean isSingleWord = elem.startsWith(subs) && elem.endsWith(subs);
+            if (isFirstWord || isLastWord || isMiddleWord || isSingleWord) {
                 stringsWithInputWord [stringNumber] = 1;
             }
             stringNumber++;

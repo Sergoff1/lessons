@@ -28,7 +28,9 @@ public class Level1
 
         for (int i = 0; i < H1; i++) {
             for (int j = 0; j < W1; j++) {
-                if (areaScheme[i][j] == enemyLocation[0][0] && i + H2 <= H1 && j + W2 <= W1){
+                boolean topLeftCornerMatch = ( areaScheme[i][j] == enemyLocation[0][0] );
+                boolean enemyWithinBorder = ( i + H2 <= H1 && j + W2 <= W1 );
+                if (topLeftCornerMatch && enemyWithinBorder){
                 
                     for (int c = 0; c < H2; c++) {
                         for (int k = 0; k < W2; k++) {

@@ -23,10 +23,17 @@ public class Squirrel
 
     public int getNumberOfEmeralds()
       {
-        int firstFactorialDigit = 1;
+        int factorial = 1;
+        int firstFactorialDigit = 0;
         for (int i = 1; i <= numberOfNuts; i++) {
-            firstFactorialDigit = firstFactorialDigit * i;	
-	    }
-        return Integer.valueOf(Integer.toString(firstFactorialDigit).substring(0,1));
+            factorial = factorial * i;	
+	      }
+
+        firstFactorialDigit = factorial;
+        while (firstFactorialDigit > 9) {
+          firstFactorialDigit /= 10;
+        }
+
+        return firstFactorialDigit;
       }
 }

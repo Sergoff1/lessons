@@ -7,31 +7,32 @@ public class Level1
         String [] groupedSalesSummary;
         Integer itemQuantity;
         String temp = "";
+        final String EMPTY_STRING = "";
 
         for (int i = 0; i < items.length; i++) { //Combine records for the same products
             for (int j = 0; j < items.length; j++) {
-                if (items[j] != "") {
+                if (items[j] != EMPTY_STRING) {
                     if (i != j && items[i].substring(0, items[i].indexOf("\s")+1).equals(items[j].substring(0, items[j].indexOf("\s")+1))) { //There is a match of products in the array
                         itemQuantity = Integer.valueOf(items[i].substring(items[i].indexOf("\s")+1, items[i].length())); //Number of sales in the first record
                         itemQuantity += Integer.valueOf(items[j].substring(items[j].indexOf("\s")+1, items[j].length())); //Sum it up with the number of sales from the second record
                         items[i] = items[i].replaceAll("\\s\\d+", " " + itemQuantity.toString()); //Changing the sales value of the first record
-                        items[j] = ""; //Deleting the second record
+                        items[j] = EMPTY_STRING; //Deleting the second record
                     }
                 }
             }
         }
         int numOfUniqueGoods = 0;
         for (String i: items) {//Counting how many elements are left in the array after merging the same records
-            if (i != "") numOfUniqueGoods++;
+            if (i != EMPTY_STRING) numOfUniqueGoods++;
         }
 
         groupedSalesSummary = new String[numOfUniqueGoods]; //Creating an array with unique product records
 
         for (int i = 0,c = 0; i < numOfUniqueGoods; i++) {//Fill it out
-            if (items[i+c] != "") {
+            if (items[i+c] != EMPTY_STRING) {
                 groupedSalesSummary[i] = items[i+c];
             } else {
-                while (items[i+c] == "") {
+                while (items[i+c] == EMPTY_STRING) {
                     c++;
                 }
                 groupedSalesSummary[i] = items[i+c];

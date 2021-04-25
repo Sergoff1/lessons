@@ -23,13 +23,16 @@ public class MassVote
             }
         }
         
-        if (maxVotesCandidates == 1) {
-            if ((double)100/totalVotes * maxVotesPerCandidate > 50) {
-                return "majority winner " + (winnerNumber + 1);
-            } else {
-                return "minority winner " + (winnerNumber + 1);
+        if (totalVotes != 0) {
+            if (maxVotesCandidates == 1) {
+                if ((double)100/totalVotes * maxVotesPerCandidate > 50) {
+                    return "majority winner " + (winnerNumber + 1);
+                } else {
+                    return "minority winner " + (winnerNumber + 1);
+                }
             }
         }
+
         return "no winner";
       }
 }

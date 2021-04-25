@@ -4,6 +4,7 @@ public class Level1
 {
     public static String Keymaker(int k) {
         String status = "";
+        final String OPEN_DOOR = "1";
         if (k==1) {
             return "1";
         }
