@@ -4,10 +4,7 @@ public class Level1
 {
     public static String [] TreeOfLife(int H, int W, int N, String [] tree) 
     {
-        String[] treeState = new String[H];
         char[][] tree2D = new char[H][W];
-        int[] neighbors;
-        final char AGE_OF_DEATH = '3';
         final char NO_BRANCH = '0';
 
         for (int i = 0; i < H; i++) {         //Converting a string array to a two-dimensional character array
@@ -20,6 +17,8 @@ public class Level1
             }
         }
 
+        int[] neighbors;
+        final char AGE_OF_DEATH = '3';
         for (int year = 0; year < N; year++) {  //Model the development of the tree for several years
 
             for (int i = 0; i < H; i++) {
@@ -49,6 +48,7 @@ public class Level1
             }
         }
 
+        String[] treeState = new String[H];
         for (int i = 0; i < H; i++) {    //Converting a two-dimensional array of characters back to a string array
             treeState[i] = "";
             for (int j = 0; j < W; j++) {

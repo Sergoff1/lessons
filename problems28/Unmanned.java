@@ -4,6 +4,14 @@ public class Level1
 {
     public static int Unmanned(int L, int N, int [][] track)
       {
+          if (L <= 0) {
+              System.out.println("Недопустимая длина дороги");
+          }
+
+          if (N < 0) {
+            System.out.println("Количество светофоров не может быть отрицательным");
+        }
+
         int totalTravelTimeCU = 0;                 //Общее время на дорогу в условных единицах
         int location = 0;                          //Показатель местоположения
         int passedTrafficLights = 0;       //Сколько светофоров проехали

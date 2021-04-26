@@ -5,7 +5,6 @@ public class Matrix
     public static void turn(String Matrix[], int M, int N, int T)
     {
         char[][] matrix2D = new char[M][N];
-        int temp = 0;
 
         for (int i = 0; i < M; i++) {                //Converting a string array to a two-dimensional character array
             for (int j = 0; j < N; j++) {
@@ -13,6 +12,7 @@ public class Matrix
             }
         }
 
+        int temp = 0;
         for (int step = 0; step < T; step++) {     //Number of steps to rotate the matrix
             for (int offset = 0; offset < Math.min(M, N)/2; offset++) {      //Convergence to the middle
 

@@ -4,14 +4,17 @@ public class Level1
 {
     public static String getDifferenceOfNums(String s1, String s2)
       {
-        final int NOTATION = 10;
-        String diff = "";
-        int capacitySmallerNum = 0;                              // Разрядность меньшего числа
         int currentRankFromLeft = 0;
         boolean firstBigger = false;                             // Принимает true если первое число больше второго, помогает определить максимальное число
-        char [] num1 = s1.toCharArray();
-        char [] num2 = s2.toCharArray();
-        int dig1 = 0, dig2 = 0;                                  // Переменные для облегчения восприятия кода в цикле
+        int capacitySmallerNum = 0;                              // Разрядность меньшего числа
+
+        if (s1.matches("\\D")) {
+            System.out.println("Первый аргумент содержит не числовые символы");
+        }
+
+        if (s2.matches("\\D")) {
+            System.out.println("Второй аргумент содержит не числовые символы");
+        }
 
         if (s1.length() > s2.length()) {                         // Решаем из какого числа будем вычитать
             capacitySmallerNum = s2.length();
@@ -33,6 +36,11 @@ public class Level1
             capacitySmallerNum = s1.length();
         }
         currentRankFromLeft = 0;
+        char [] num1 = s1.toCharArray();
+        char [] num2 = s2.toCharArray();
+        int dig1 = 0, dig2 = 0;                                  // Переменные для облегчения восприятия кода в цикле
+        String diff = "";
+        final int NOTATION = 10;
 
         if (firstBigger) {
             for (int i = 0; i < capacitySmallerNum; i++) {

@@ -4,10 +4,9 @@ public class Level1
 {
     public static boolean TankRush(int H1, int W1, String S1, int H2, int W2, String S2) 
       {
-        boolean isEnemyInReach = false;
         int [][] areaScheme = new int [H1][W1];
         int [][] enemyLocation = new int [H2][W2];
-        int [][] tempEL = new int [H2][W2];
+
         String [] s1Arr = S1.split(" ");
         String [] s2Arr = S2.split(" ");
         char [] digString;
@@ -25,7 +24,9 @@ public class Level1
                 enemyLocation [i][j] = digString[j] - '0';
             }
         }
-
+        
+        boolean isEnemyInReach = false;
+        int [][] tempEL = new int [H2][W2];
         for (int i = 0; i < H1; i++) {
             for (int j = 0; j < W1; j++) {
                 boolean topLeftCornerMatch = ( areaScheme[i][j] == enemyLocation[0][0] );

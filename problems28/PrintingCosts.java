@@ -4,8 +4,6 @@ public class Level1
 {
     public static int getTonerCosts(String Line)
       {
-        final int DEFAULT_COSTS = 23;
-        int tonerCostsTotal = 0;
         HashMap<Character, Integer> symbolsCost = new HashMap<Character, Integer>();
         symbolsCost.put(' ', 0);
         symbolsCost.put('&', 24);
@@ -102,7 +100,11 @@ public class Level1
         symbolsCost.put('m', 22);
         symbolsCost.put('s', 21);
         symbolsCost.put('y', 24);
+
         char [] printedСharacters = Line.toCharArray();
+        final int DEFAULT_COSTS = 23;
+        int tonerCostsTotal = 0;
+        
         for (int i = 0; i < printedСharacters.length; i++) {
             if (symbolsCost.containsKey(printedСharacters[i])) {
                 tonerCostsTotal += symbolsCost.get(printedСharacters[i]);

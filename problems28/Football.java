@@ -4,8 +4,6 @@ public class Level1
 {
     public static boolean Football(int F[], int N) {
         ArrayList<Integer> indexesList = new ArrayList<>();  //Indexes of elements for permutation
-        int discrepanciesNum = 0;            //Number of elements to permute
-        int temp;
         int[] sortedF = Arrays.copyOf(F, N);
         Arrays.sort(sortedF);
 
@@ -13,6 +11,7 @@ public class Level1
             return false;
         }
 
+        int discrepanciesNum = 0;            //Number of elements to permute
         for (int i = 0; i < N; i++) {      //Find the number of discrepancies and save their indexesList
             if (F[i] != sortedF[i]) {
                 discrepanciesNum++;
@@ -20,6 +19,7 @@ public class Level1
             }
         }
 
+        int temp;
         if (discrepanciesNum == 2) {      //Trying to sort the array by permuting two elements
             temp = F[indexesList.get(0)];
             F[indexesList.get(0)] = F[indexesList.get(indexesList.size()-1)];

@@ -3,8 +3,8 @@ import java.util.*;
 public class Level1
 {
     public static String TheRabbitsFoot(String s, boolean encode)
-      {
-          String convertedString = "";
+    {
+          
           int numOfTransferChars = 0;                                           //Переменная для заноса символов строки в двумерный массив, на случай если символов в строке меньше произведения строк и столбцов
           int nonSpaceStringLength = s.replaceAll("\s", "").length();
           int rows = (int)Math.floor(Math.sqrt(nonSpaceStringLength));
@@ -12,7 +12,9 @@ public class Level1
           while (rows * columns  < nonSpaceStringLength) {
               rows++;
           }
-          if (encode) {
+
+        String convertedString = "";
+        if (encode) {
             s = s.replaceAll("\s", "");
 
             Character [][] arr = new Character[rows][columns];
@@ -27,6 +29,7 @@ public class Level1
                 }
             }
 
+            
             numOfTransferChars = 0;
             for (int r = 0; r < rows; r++) {                       //Перенос массива в результирующую строку
                 for (int c = 0; c < columns; c++) {
@@ -42,7 +45,7 @@ public class Level1
             }
 
             convertedString = convertedString.trim();
-          } else {
+        } else {
             char [][] arr2 = new char[rows][columns];                   // Массив для начального переноса строки
 
             String [] arrStr = s.split("\s");
@@ -60,7 +63,7 @@ public class Level1
                     numOfTransferChars++;
                 }
             }
-          }
+        }
         return convertedString;
-      }
+    }
 }

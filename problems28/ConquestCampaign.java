@@ -4,7 +4,7 @@ public class ConquestCampaign
 {
     public static int getDaysForConquest(int N, int M, int L, int [] battalion)
       {
-        int days = 0,conqueredCells = 0;
+        int conqueredCells = 0;
         int [][] battleField = new int[N][M];
 
         for (int i = 0; i < battalion.length; i += 2) {           //Высадка десанта
@@ -17,7 +17,7 @@ public class ConquestCampaign
                 }
         }
 
-        days++;
+        int days = 1;
         while (conqueredCells < N*M){                                  //Боевые действия
             conqueredCells = 0;                                        // Обнуляем счётчик территорий, иначе будут считаться и те,что уже захвачены
             for (int i = 0; i < battleField.length; i++) {

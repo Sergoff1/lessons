@@ -3,9 +3,7 @@ import java.util.*;
 public class Level1
 {
     public static String BiggerGreater(String input) {
-        int temp = -35;
-        int firstIndexForSwap = input.length()-1;
-        int secondIndexForSwap = 0;
+
         boolean isUnaltered = true;
         char[] arrChar = input.toCharArray();
 
@@ -20,11 +18,13 @@ public class Level1
             return "";
         }
 
+        int firstIndexForSwap = input.length()-1;
         do {                          //Looking for the index of the first element to permute
             firstIndexForSwap--;
         } while (arrChar[firstIndexForSwap] >= arrChar[firstIndexForSwap+1]);
 
-        secondIndexForSwap = firstIndexForSwap + 1;                                         //Primary index value of the second element
+        int temp = -35;
+        int secondIndexForSwap = firstIndexForSwap + 1;                                         //Primary index value of the second element
         for (int i = firstIndexForSwap + 1; i < input.length(); i++) {                      //Looking for the index of the second element
             if (arrChar[firstIndexForSwap] - arrChar[i] < 0 && arrChar[firstIndexForSwap] - arrChar[i] > temp) {
                 temp = arrChar[firstIndexForSwap] - arrChar[i];

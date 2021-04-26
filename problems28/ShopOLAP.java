@@ -4,9 +4,7 @@ public class Level1
 {
     public static String [] getSalesReport(int N, String [] items)  
       {
-        String [] groupedSalesSummary;
         Integer itemQuantity;
-        String temp = "";
         final String EMPTY_STRING = "";
 
         for (int i = 0; i < items.length; i++) { //Combine records for the same products
@@ -21,12 +19,14 @@ public class Level1
                 }
             }
         }
+        itemQuantity = null;
+        
         int numOfUniqueGoods = 0;
         for (String i: items) {//Counting how many elements are left in the array after merging the same records
             if (i != EMPTY_STRING) numOfUniqueGoods++;
         }
 
-        groupedSalesSummary = new String[numOfUniqueGoods]; //Creating an array with unique product records
+        String[] groupedSalesSummary = new String[numOfUniqueGoods]; //Creating an array with unique product records
 
         for (int i = 0,c = 0; i < numOfUniqueGoods; i++) {//Fill it out
             if (items[i+c] != EMPTY_STRING) {
@@ -39,6 +39,7 @@ public class Level1
             }
         }
 
+        String temp = "";
         boolean sorted = false;
         while (!sorted) { //Sorting the resulting array by the number of sales
             sorted = true;

@@ -4,6 +4,11 @@ public class Level1
 {
     public static int [] WordSearch(int len, String s, String subs)
       {
+
+        if (len < 1) {
+            System.out.println("Ширина выравнивания не может быть меньше 1");
+        }
+
         String [] wordsFromThePassedString = s.split(" ");
         ArrayList<String> PhrasesList = new ArrayList<String>();
         StringBuilder stringBuffer = new StringBuilder();
@@ -32,13 +37,14 @@ public class Level1
                 PhrasesList.add(stringBuffer.toString().trim());
                 stringBuffer.delete(0, stringBuffer.length());
                 occupiedCharsInLine = 0;
-                }
+            }
 
         }
 
         if (stringBuffer.length() > 0) {
         PhrasesList.add(stringBuffer.toString().trim());
         }
+        
         int [] stringsWithInputWord = new int[PhrasesList.size()];
         int stringNumber = 0;
 
