@@ -44,7 +44,12 @@ public class Level1
         if (stringBuffer.length() > 0) {
         PhrasesList.add(stringBuffer.toString().trim());
         }
-        
+
+        return linesContainingWord(PhrasesList, subs);
+    }
+    
+    private static int [] linesContainingWord(ArrayList<String> PhrasesList, String subs) {
+
         int [] stringsWithInputWord = new int[PhrasesList.size()];
         int stringNumber = 0;
 
@@ -59,6 +64,5 @@ public class Level1
             stringNumber++;
         }
         return stringsWithInputWord;
-
     }
 }

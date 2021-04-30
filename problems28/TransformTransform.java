@@ -5,11 +5,10 @@ public class Level1
     public static ArrayList<Integer> Transformer(int A[])
     {
         ArrayList<Integer> B = new ArrayList<>();
-        int k = 0;
         int numberInRangeMax = 0;
 
         for (int i = 0; i <= A.length-1; i++) {
-            for (int j = 0; j <= A.length-i-1; j++) {
+            for (int j = 0, k = 0; j <= A.length-i-1; j++) {
                 k = i + j;
                 for (int c = j; c <= k; c++) {
                     if (A[c] > numberInRangeMax) {

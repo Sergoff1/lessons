@@ -6,9 +6,8 @@ public class Level1
       {
         final int ITEMS_FOR_DISCOUNT = 3;
         int maxDiscount = 0;
-        int countOfItems = 0;
         Arrays.sort(price);
-        for (int i = price.length - 1; i >= price.length % ITEMS_FOR_DISCOUNT; i--) {
+        for (int i = price.length - 1, countOfItems = 0; i >= price.length % ITEMS_FOR_DISCOUNT; i--) {
             if (countOfItems == ITEMS_FOR_DISCOUNT - 1) {
                 maxDiscount += price[i];
                 countOfItems = 0;

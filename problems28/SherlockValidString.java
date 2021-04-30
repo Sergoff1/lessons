@@ -5,10 +5,9 @@ public class Level1
     public static boolean SherlockValidString(String s)
       {
         HashMap<Character, Integer> letterFrequency = new HashMap<Character, Integer>();
-        int numOfCharOccurrences = 0;
 
         for (int i = 0; i < s.length(); i++) {                //Count the number of occurrences of each character in the string
-            numOfCharOccurrences = 0;
+            int numOfCharOccurrences = 0;
             if (letterFrequency.containsKey(s.charAt(i))) {
                 continue;
             }
@@ -19,7 +18,6 @@ public class Level1
             }
             letterFrequency.put(s.charAt(i), numOfCharOccurrences);
         }
-        numOfCharOccurrences = -1;
 
         Iterator<Character> iter = letterFrequency.keySet().iterator();
         Character firstElem, secondElem;

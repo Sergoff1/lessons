@@ -5,21 +5,20 @@ public class Level1
     public static boolean MisterRobot(int N, int [] data) 
       {
         boolean canSorted = true;
-        int temp = 0;
 
         while (true) {
-            temp = 0;
+            int bufferVariable = 0;
             for (int i = 0; i <= N - 3; i++) {
                 while (data[i] > data[i+1] || data[i] > data[i+2]) {
-                    temp = data[i];
+                    bufferVariable = data[i];
                     data[i] = data[i+1];
                     data[i+1] = data[i+2];
-                    data[i+2] = temp;
+                    data[i+2] = bufferVariable;
                 }
             }
-            if (temp == 0 && data[N-1] > data[N-2]) {
+            if (bufferVariable == 0 && data[N-1] > data[N-2]) {
                 break;
-            } else if (temp == 0 && data[N-1] < data[N-2]){
+            } else if (bufferVariable == 0 && data[N-1] < data[N-2]){
                 canSorted = false;
                 break;
             }

@@ -4,7 +4,6 @@ public class MassVote
 {
     public static String getTheVotingResult(int N, int [] Votes)
       {
-        int maxVotesCandidates = 0;                 //Есть ли ещё кандидаты с максимальным количеством голосов
         int maxVotesPerCandidate = 0;               //Максимальное количество голосов за одного кандидата
         int totalVotes = 0;                         //Общее количество голосов
         int winnerNumber = 0;                       //Номер победителя
@@ -17,6 +16,8 @@ public class MassVote
             }
         }
         
+        int maxVotesCandidates = 0;                 //Есть ли ещё кандидаты с максимальным количеством голосов
+
         for (int i: Votes) {
             if (i == maxVotesPerCandidate) {
                 maxVotesCandidates++;
