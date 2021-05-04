@@ -16,7 +16,7 @@ public class Level1
     }
 
     public static String BalancedParentheses(int N) {
-        ArrayList<String> comboOfParentheses = new ArrayList<String>(); //list with combinations of parentheses
+        ArrayList<String> comboOfParentheses = new ArrayList<String>();
         combosParentheses(comboOfParentheses, N, N, "");
         return String.join(" ", comboOfParentheses);
     }

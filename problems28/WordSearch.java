@@ -50,7 +50,7 @@ public class Level1
     
     private static int [] linesContainingWord(ArrayList<String> PhrasesList, String subs) {
 
-        int [] stringsWithInputWord = new int[PhrasesList.size()];
+        int [] linesWithInputWord = new int[PhrasesList.size()];
         int stringNumber = 0;
 
         for (String elem : PhrasesList) {
@@ -59,10 +59,10 @@ public class Level1
             boolean isMiddleWord = elem.contains("\s"+subs+"\s");
             boolean isSingleWord = elem.startsWith(subs) && elem.endsWith(subs);
             if (isFirstWord || isLastWord || isMiddleWord || isSingleWord) {
-                stringsWithInputWord [stringNumber] = 1;
+                linesWithInputWord [stringNumber] = 1;
             }
             stringNumber++;
         }
-        return stringsWithInputWord;
+        return linesWithInputWord;
     }
 }

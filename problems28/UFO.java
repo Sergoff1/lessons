@@ -10,7 +10,7 @@ public class Level1
         for (int i =0; i < data.length; i++) {
             int[] number = new int[Integer.toString(data[i]).length()];      //Создаем массив размером с число
 
-            for (int j = number.length - 1; j >= 0; j--) {             //Переводим число в массив
+            for (int j = number.length - 1; j >= 0; j--) {             //Переводим число в массив цифр
                 number[j] = data[i] % 10;
                 data[i] /= 10;
             }

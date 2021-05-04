@@ -7,8 +7,8 @@ public class ConquestCampaign
         int conqueredCells = 0;
         int [][] battleField = new int[N][M];
 
-        for (int i = 0; i < battalion.length; i += 2) {           //Высадка десанта
-            battleField[battalion[i]-1][battalion[i+1]-1] = 1;
+        for (int i = 0; i < battalion.length; i += 2) {
+            battleField[battalion[i]-1][battalion[i+1]-1] = 1; //Высадка десанта и захват точек
         }
 
         for (int [] k :battleField){                                    //Заполнение числа завоёванных клеток

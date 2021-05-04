@@ -28,7 +28,7 @@ public class Level1
     {
         int keyKeyValue = 0;
         ArrayList<Integer> B = new ArrayList<>();
-        B = Transformer(Transformer(A).stream().mapToInt(i->i).toArray());  //transform the array and the result of the transformation
+        B = Transformer(Transformer(A).stream().mapToInt(i->i).toArray());  //Дважды трансформируем входящий массив
 
         for (int i = 0; i < B.size(); i++) {
             keyKeyValue += B.get(i);

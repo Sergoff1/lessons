@@ -12,7 +12,7 @@ public class Level1
                     if (i != j && items[i].substring(0, items[i].indexOf("\s")+1).equals(items[j].substring(0, items[j].indexOf("\s")+1))) { //There is a match of products in the array
                         Integer itemQuantity = Integer.valueOf(items[i].substring(items[i].indexOf("\s")+1, items[i].length())); //Number of sales in the first record
                         itemQuantity += Integer.valueOf(items[j].substring(items[j].indexOf("\s")+1, items[j].length())); //Sum it up with the number of sales from the second record
-                        items[i] = items[i].replaceAll("\\s\\d+", " " + itemQuantity.toString()); //Changing the sales value of the first record
+                        items[i] = items[i].replaceAll("\\s\\d+", " " + itemQuantity.toString()); //Changing the sales numOfSoldFirstItem of the first record
                         items[j] = EMPTY_STRING; //Deleting the second record
                     }
                 }
@@ -43,14 +43,14 @@ public class Level1
             sorted = true;
             for (int j = 1; j < numOfUniqueGoods; j++) {
                 int count = 0;
-                Integer value = Integer.valueOf(groupedSalesSummary[j].substring(groupedSalesSummary[j].indexOf("\s")+1, groupedSalesSummary[j].length())); //Number of sales of the first item
-                Integer previousValue = Integer.valueOf(groupedSalesSummary[j-1].substring(groupedSalesSummary[j-1].indexOf("\s")+1, groupedSalesSummary[j-1].length())); //Number of sales of the second item
-                if (value > previousValue) {
+                Integer numOfSoldFirstItem = Integer.valueOf(groupedSalesSummary[j].substring(groupedSalesSummary[j].indexOf("\s")+1, groupedSalesSummary[j].length())); //Number of sales of the first item
+                Integer numOfSoldSecondItem = Integer.valueOf(groupedSalesSummary[j-1].substring(groupedSalesSummary[j-1].indexOf("\s")+1, groupedSalesSummary[j-1].length())); //Number of sales of the second item
+                if (numOfSoldFirstItem > numOfSoldSecondItem) {
                     temp = groupedSalesSummary[j];
                     groupedSalesSummary[j] = groupedSalesSummary[j-1];
                     groupedSalesSummary[j-1] = temp;
                     sorted = false;
-                } else if (value == previousValue) { //If the number of sales is the same we change the places of the elements in lexicographic ascending order
+                } else if (numOfSoldFirstItem == numOfSoldSecondItem) { //If the number of sales is the same we change the places of the elements in lexicographic ascending order
                     while (groupedSalesSummary[j].charAt(count) == groupedSalesSummary[j-1].charAt(count)) {
                         count++;
                     }

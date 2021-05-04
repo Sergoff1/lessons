@@ -13,7 +13,7 @@ public class PatternUnlock
 
             boolean isTheSameRow = ( firstIndex[0] == secondIndex[0] );
             boolean isTheSameColumn = ( firstIndex[1] == secondIndex[1] );
-            if (isTheSameRow || isTheSameColumn) {          //double работал неадекватно, писал, что 0,1 != 0,1; Потому привел значения к float, этот тип оказался адекватнее :)
+            if (isTheSameRow || isTheSameColumn) {
                 unlockSequence +=1;
             } else {
                 unlockSequence += Math.sqrt(2);

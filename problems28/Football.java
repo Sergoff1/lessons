@@ -34,6 +34,6 @@ public class Level1
             }
         }
 
-        return Arrays.equals(F, sortedF);
+        return Arrays.equals(F, sortedF);  //there is an opportunity to improve player placement
     }
 }

@@ -5,9 +5,9 @@ public class Level1
     public static String getDifferenceOfNums(String s1, String s2)
       {
         int currentRankFromLeft = 0;
-        boolean firstBigger = false;                             // Принимает true если первое число больше второго, помогает определить максимальное число
-        int capacitySmallerNum = 0;                              // Разрядность меньшего числа
-
+        boolean firstBigger = false;  // Принимает true если первое число больше второго, помогает определить максимальное число
+        int capacitySmallerNum = 0;
+        
         if (s1.matches("\\D")) {
             System.out.println("Первый аргумент содержит не числовые символы");
         }
