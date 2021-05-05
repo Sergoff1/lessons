@@ -22,12 +22,12 @@ public class Level1
         }
         
         int numOfUniqueGoods = 0;
-        for (String i: items) {//Counting how many elements are left in the array after merging the same records
+        for (String i: items) {
             if (i != EMPTY_STRING) numOfUniqueGoods++;
         }
 
-        String[] groupedSalesSummary = new String[numOfUniqueGoods]; //Creating an array with unique product records
-
+        String[] groupedSalesSummary = new String[numOfUniqueGoods];
+        
         for (int i = 0,c = 0; i < numOfUniqueGoods; i++) {//Fill it out
             if (items[i+c] != EMPTY_STRING) {
                 groupedSalesSummary[i] = items[i+c];

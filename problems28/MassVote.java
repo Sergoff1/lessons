@@ -4,9 +4,9 @@ public class MassVote
 {
     public static String getTheVotingResult(int N, int [] Votes)
       {
-        int maxVotesPerCandidate = 0;               //Максимальное количество голосов за одного кандидата
-        int totalVotes = 0;                         //Общее количество голосов
-        int winnerNumber = 0;                       //Номер победителя
+        int maxVotesPerCandidate = 0;
+        int totalVotes = 0;
+        int winnerNumber = 0;
 
         for (int i = 0; i < Votes.length; i++) {
             totalVotes += Votes[i];

@@ -17,13 +17,13 @@ public class Level1
             System.out.println("Количество светофоров не может быть отрицательным");
         }
 
-        int totalTravelTimeCU = 0;                 //Общее время на дорогу в условных единицах
-        int location = 0;                          //Показатель местоположения
-        int passedTrafficLights = 0;       //Сколько светофоров проехали
+        int totalTravelTimeCU = 0;
+        int currentLocation = 0;                          //Показатель местоположения
+        int passedTrafficLights = 0;
         boolean isRed = true;                      //Статус светофора
         
-        while (location < L) {
-            if (location == track[passedTrafficLights][0]) {
+        while (currentLocation < L) {
+            if (currentLocation == track[passedTrafficLights][0]) {
                 int cycleRedToRed = track[passedTrafficLights][1]+track[passedTrafficLights][2];
                 while (isRed) {
                     boolean isGreen = ( totalTravelTimeCU % cycleRedToRed - track[passedTrafficLights][1] >= 0 );
@@ -37,7 +37,7 @@ public class Level1
                 isRed = true;
             }
             totalTravelTimeCU++;            
-            location++;
+            currentLocation++;
         }
         return totalTravelTimeCU;
       }

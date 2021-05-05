@@ -5,7 +5,7 @@ public class Level1
     public static String getDifferenceOfNums(String s1, String s2)
       {
         int currentRankFromLeft = 0;
-        boolean firstBigger = false;  // Принимает true если первое число больше второго, помогает определить максимальное число
+        boolean firstNumBigger = false;
         int capacitySmallerNum = 0;
         
         if (s1.matches("\\D")) {
@@ -16,9 +16,9 @@ public class Level1
             System.out.println("Второй аргумент содержит не числовые символы");
         }
 
-        if (s1.length() > s2.length()) {                         // Решаем из какого числа будем вычитать
+        if (s1.length() > s2.length()) {  // Решаем из какого числа будем вычитать
             capacitySmallerNum = s2.length();
-            firstBigger = true;
+            firstNumBigger = true;
 
         } else if (s1.length() == s2.length()) {
             while (Character.getNumericValue(s1.charAt(currentRankFromLeft)) == Character.getNumericValue(s2.charAt(currentRankFromLeft)) && currentRankFromLeft < s1.length()-1) {
@@ -26,7 +26,7 @@ public class Level1
             }
             if (Character.getNumericValue(s1.charAt(currentRankFromLeft)) > Character.getNumericValue(s2.charAt(currentRankFromLeft))) {
                 capacitySmallerNum = s2.length();
-                firstBigger = true;
+                firstNumBigger = true;
 
             } else {
                 capacitySmallerNum = s1.length();
@@ -38,11 +38,11 @@ public class Level1
         currentRankFromLeft = 0;
         char [] num1 = s1.toCharArray();
         char [] num2 = s2.toCharArray();
-        int dig1 = 0, dig2 = 0;                                  // Переменные для облегчения восприятия кода в цикле
+        int dig1 = 0, dig2 = 0;   // Переменные для облегчения восприятия кода в цикле
         String diff = "";
         final int NOTATION = 10;
 
-        if (firstBigger) {
+        if (firstNumBigger) {
             for (int i = 0; i < capacitySmallerNum; i++) {
                 dig1 = Character.getNumericValue(num1[num1.length - 1 -i]);
                 dig2 = Character.getNumericValue(num2[num2.length - 1 -i]);

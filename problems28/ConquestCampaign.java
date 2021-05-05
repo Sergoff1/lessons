@@ -19,7 +19,7 @@ public class ConquestCampaign
 
         int days = 1;
         while (conqueredCells < N*M){                                  //Боевые действия
-            conqueredCells = 0;                                        // Обнуляем счётчик территорий, иначе будут считаться и те,что уже захвачены
+            conqueredCells = 0;  // Обнуляем счётчик территорий, иначе будут считаться и те, что уже захвачены
             for (int i = 0; i < battleField.length; i++) {
                 for (int j = 0; j < battleField[i].length; j++) {
 

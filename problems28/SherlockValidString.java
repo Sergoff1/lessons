@@ -28,7 +28,7 @@ public class Level1
         while (iter.hasNext()) {
             secondElem = iter.next();
             difference = letterFrequency.get(firstElem) - letterFrequency.get(secondElem);
-            if (difference != 0 && mayDeleted) {                //Removing excess character
+            if (difference != 0 && mayDeleted) {
                 switch (difference) {
                     case 1:
                     letterFrequency.put(firstElem,letterFrequency.get(firstElem) - 1);

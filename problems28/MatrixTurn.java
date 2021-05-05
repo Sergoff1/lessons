@@ -6,7 +6,7 @@ public class Matrix
     {
         char[][] matrix2D = new char[M][N];
 
-        for (int i = 0; i < M; i++) {                //Converting a string array to a two-dimensional character array
+        for (int i = 0; i < M; i++) {    //Converting a string array to a two-dimensional character array
             for (int j = 0; j < N; j++) {
                 matrix2D[i][j] = Matrix[i].charAt(j);
             }
