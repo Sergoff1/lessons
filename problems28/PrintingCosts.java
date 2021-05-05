@@ -100,7 +100,9 @@ public class Level1
         symbolsCost.put('m', 22);
         symbolsCost.put('s', 21);
         symbolsCost.put('y', 24);
-
+/*TODO - избавиться от printedCharacters и заменить обращение к массиву
+на извлечение символов из строки
+Сделать к версии 1.3*/
         char [] printedСharacters = Line.toCharArray();
         int tonerCostsTotal = 0;
         

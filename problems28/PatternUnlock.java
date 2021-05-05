@@ -19,7 +19,8 @@ public class PatternUnlock
                 unlockSequence += Math.sqrt(2);
             }
         }
-
+        //Важна точность в 5 знаков после запятой и обязательно нужно избавиться от нулей,
+        //иначе последовательность разблокировки будет некорректной
         return String.format("%.5f",unlockSequence).replaceAll("[,0.]","");
       }
 

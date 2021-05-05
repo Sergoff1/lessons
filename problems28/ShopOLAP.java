@@ -2,6 +2,8 @@ import java.util.*;
 
 public class Level1
 {
+    //N - количество записей о продажах
+    //items - записи о продажах, в формате: название_товара количество_проданных_штук
     public static String [] getSalesReport(int N, String [] items)  
       {
         final String EMPTY_STRING = "";

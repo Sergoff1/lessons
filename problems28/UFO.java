@@ -15,7 +15,7 @@ public class Level1
                 data[i] /= 10;
             }
             
-            if (octal) {                                                     //Переводим число в десятичную систему счисления
+            if (octal) {                                   //Переводим число в десятичную систему счисления
                 for (int j = 0; j < number.length; j++) {
                     decimalNumbers[i] += number[j] * Math.pow(FIRST_UFO_NOTATION,number.length - 1 - j);
                 }

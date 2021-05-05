@@ -2,9 +2,9 @@ import java.util.*;
 
 public class Level1
 {
+    //Возвращает закодированную/декодированную строку, в зависимости от флага encode
     public static String TheRabbitsFoot(String s, boolean encode)
     {
-          
           int numOfTransferChars = 0;   //Переменная для заноса символов строки в двумерный массив, на случай если символов в строке меньше произведения строк и столбцов
           int nonSpaceStringLength = s.replaceAll("\s", "").length();
           int rows = (int)Math.floor(Math.sqrt(nonSpaceStringLength));

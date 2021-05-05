@@ -2,6 +2,11 @@ import java.util.*;
 
 public class Level1
 {
+    //Возвращает время(в условных единицах), требуемое для предоления пути беспилотным автомобилем;
+    /*L - длина дороги, N - количество светофоров, track - состоит из подмассивов
+    в 3 элемента: время относительно начала дороги(как быстро приедем сюда без учёта светофоров),
+    время работы красного света, время работы зелёного света.
+    */
     public static int Unmanned(int L, int N, int [][] track)
       {
           if (L <= 0) {
@@ -22,7 +27,7 @@ public class Level1
                 int cycleRedToRed = track[passedTrafficLights][1]+track[passedTrafficLights][2];
                 while (isRed) {
                     boolean isGreen = ( totalTravelTimeCU % cycleRedToRed - track[passedTrafficLights][1] >= 0 );
-                    if (isGreen) { //Если сейчас горит зелёный
+                    if (isGreen) {
                         isRed = false;
                     } else {
                         totalTravelTimeCU++;

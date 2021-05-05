@@ -8,6 +8,7 @@ public class Level1
 
         while (true) {
             int bufferVariable = 0;
+            //Пытаемся отсортировать массив переставляя по 3 элемента
             for (int i = 0; i <= N - 3; i++) {
                 while (data[i] > data[i+1] || data[i] > data[i+2]) {
                     bufferVariable = data[i];

@@ -23,8 +23,8 @@ public class ConquestCampaign
             for (int i = 0; i < battleField.length; i++) {
                 for (int j = 0; j < battleField[i].length; j++) {
 
-                    boolean isTopRow = ( battleField[i][j] == 1 && i == 0 );
-                    if (isTopRow) {             //Захват клеток, у верхней границы
+                    boolean isTopRow = ( battleField[i][j] == 1 && i == 0 );         //TODO - Переделать проверку на выход за границу массива в следующей версии
+                    if (isTopRow) {   //Захват клеток, у верхней границы
                         if (j == 0) {
                            if (battleField[i+1][j] == 0) {battleField[i+1][j] = 2;}
                            if (battleField[i][j+1] == 0) {battleField[i][j+1] = 2;}

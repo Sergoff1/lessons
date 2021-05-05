@@ -18,13 +18,13 @@ public class Level1
         while (indexOfTheCurrentWord != wordsFromThePassedString.length) {
             if (occupiedCharsInLine == 0 && wordsFromThePassedString[indexOfTheCurrentWord].length() > len) {
                 PhrasesList.add(wordsFromThePassedString[indexOfTheCurrentWord].substring(0, len));
-                int ct = 2;
-                while (wordsFromThePassedString[indexOfTheCurrentWord].length() - ct * len > 0) {
-                    PhrasesList.add(wordsFromThePassedString[indexOfTheCurrentWord].substring((ct-1)*len, ct*len));
-                    ct++;
+                int count = 2;
+                while (wordsFromThePassedString[indexOfTheCurrentWord].length() - count * len > 0) {
+                    PhrasesList.add(wordsFromThePassedString[indexOfTheCurrentWord].substring((count-1)*len, count*len));
+                    count++;
                 }
-                stringBuffer.append(wordsFromThePassedString[indexOfTheCurrentWord].substring((ct-1)*len)).append(" ");
-                occupiedCharsInLine += wordsFromThePassedString[indexOfTheCurrentWord].substring((ct-1)*len).length() + 1;
+                stringBuffer.append(wordsFromThePassedString[indexOfTheCurrentWord].substring((count-1)*len)).append(" ");
+                occupiedCharsInLine += wordsFromThePassedString[indexOfTheCurrentWord].substring((count-1)*len).length() + 1;
                 indexOfTheCurrentWord++;
                 continue;
             }

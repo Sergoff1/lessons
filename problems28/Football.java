@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Level1
 {
+    //N - Количество игроков, F[] - текущая расстановка игроков
     public static boolean Football(int F[], int N) {
         ArrayList<Integer> indexesList = new ArrayList<>();  //Indexes of elements for permutation
         int[] sortedF = Arrays.copyOf(F, N);

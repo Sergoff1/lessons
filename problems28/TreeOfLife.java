@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Level1
 {
+    //Возвращает состояние древа жизни в заданный год
     public static String [] TreeOfLife(int H, int W, int N, String [] tree) 
     {
         char[][] tree2D = new char[H][W];

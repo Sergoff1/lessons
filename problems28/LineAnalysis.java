@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Level1
 {
+    //Проверяет символы в строке на симметричность расположения
     public static boolean LineAnalysis(String line)
       {
         boolean isCorrectPattern = true;

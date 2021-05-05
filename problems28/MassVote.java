@@ -16,8 +16,8 @@ public class MassVote
             }
         }
         
-        int maxVotesCandidates = 0;                 //Есть ли ещё кандидаты с максимальным количеством голосов
-
+        int maxVotesCandidates = 0;                 
+        //Есть ли ещё кандидаты с максимальным количеством голосов
         for (int i: Votes) {
             if (i == maxVotesPerCandidate) {
                 maxVotesCandidates++;
