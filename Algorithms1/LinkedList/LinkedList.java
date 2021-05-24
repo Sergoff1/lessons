@@ -81,6 +81,7 @@ public class LinkedList
         while (node != null) {
             if (node.next == nodesToDelete.get(i)) {
                 node.next = nodesToDelete.get(i).next;
+                i++;
             }
             node = node.next;
         }
@@ -108,17 +109,9 @@ public class LinkedList
         if (_nodeAfter == null) {
             _nodeToInsert.next = head;
             head = _nodeToInsert;
-
-        } else {                           //Нужен ли поиск по значению?
-            Node node = this.head;
-            while (node != null) {
-                if (node.value == _nodeAfter){
-                    _nodeToInsert.next = _nodeAfter.next;
-                    _nodeAfter.next = _nodeToInsert;
-                    break;
-                }
-                node = node.next;
-            }
+        } else {
+            _nodeToInsert.next = _nodeAfter.next;
+            _nodeAfter.next = _nodeToInsert;
        } 
     }
 
