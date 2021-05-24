@@ -133,4 +133,9 @@ class Node
         value = _value;
         next = null;
     }
+
+    @Override
+    public String toString() {
+        return value + "";
+    }
 }
