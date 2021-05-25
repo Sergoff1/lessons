@@ -102,6 +102,8 @@ public class LinkedList
                     tail = node;
                 }
                 node = node.next;
+
+                if (nodesToDelete.size() > i) break;
             }
         }
     }
