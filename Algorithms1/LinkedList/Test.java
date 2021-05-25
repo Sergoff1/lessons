@@ -28,6 +28,7 @@ public class Test {
         list.addInTail(new Node(1));
         list.addInTail(new Node(4));
         list.addInTail(new Node(1));
+        list.addInTail(new Node(8));
         return list;
     }
 
@@ -64,14 +65,16 @@ public class Test {
         System.out.println(showNodeValues(identicalNodeList));
         identicalNodeList.remove(1);
         System.out.println(showNodeValues(identicalNodeList));
+        System.out.println("head: " + identicalNodeList.head.value + ", tail: " + identicalNodeList.tail.value);
 
         System.out.println("");
 
         System.out.println("Удаление элемента из списка, состоящего из нескольких элементов: ");
         LinkedList list = createList();
         System.out.println(showNodeValues(list));
-        list.remove(1);
+        list.remove(8);
         System.out.println(showNodeValues(list));
+        System.out.println("head: " + list.head.value + ", tail: " + list.tail.value);
     }
 
 
@@ -106,6 +109,7 @@ public class Test {
         System.out.println(showNodeValues(list));
         list.removeAll(1);
         System.out.println(showNodeValues(list));
+        System.out.println("head: " + list.head.value + ", tail: " + list.tail.value);
     }
 
 
@@ -136,6 +140,7 @@ public class Test {
         LinkedList list = createList();
         System.out.println(showNodeValues(list));
         System.out.println(list.findAll(1));
+        System.out.println("head: " + list.head.value + ", tail: " + list.tail.value);
 
     }
 
@@ -225,7 +230,7 @@ public class Test {
 
         System.out.println("");
 
-        System.out.println("Вставка узла после заданного узла в списке, состоящем из элементов с одним значением: ");
+        System.out.println("Вставка узла после первого узла в списке, состоящем из элементов с одним значением: ");
         LinkedList identicalNodeList = createIdenticalNodeList();
         System.out.println(showNodeValues(identicalNodeList));
         identicalNodeList.insertAfter(identicalNodeList.find(1), nodeToInsert);
@@ -233,11 +238,24 @@ public class Test {
 
         System.out.println("");
 
+        System.out.println("Вставка узла после заданного узла в списке, состоящем из элементов с одним значением: ");
+        LinkedList identicNodeList = createIdenticalNodeList();
+        Node n = new Node(1);
+        identicNodeList.addInTail(n);
+        identicNodeList.addInTail(new Node(1));
+        identicNodeList.addInTail(new Node(1));
+        System.out.println(showNodeValues(identicNodeList));
+        identicNodeList.insertAfter(n, nodeToInsert);
+        System.out.println(showNodeValues(identicNodeList));
+
+        System.out.println("");
+
         System.out.println("Вставка узла после заданного узла в списке, состоящем из нескольких элементов: ");
         LinkedList list = createList();
         System.out.println(showNodeValues(list));
-        list.insertAfter(list.find(1), nodeToInsert);
+        list.insertAfter(list.find(8), nodeToInsert);
         System.out.println(showNodeValues(list));
+        System.out.println("head: " + list.head.value + ", tail: " + list.tail.value);
 
         System.out.println("");
 
@@ -248,7 +266,7 @@ public class Test {
         System.out.println(showNodeValues(testList));
     }
 
-    public static void main(String[] args) { //список пустой, содержит много элементов и один элемент
+    public static void main(String[] args) {
         removeTest();
         System.out.println("");
         removeAllTest();
