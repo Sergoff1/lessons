@@ -130,10 +130,14 @@ public class LinkedList
         if (_nodeAfter == null) {
             _nodeToInsert.next = head;
             head = _nodeToInsert;
+        }
+         if (_nodeAfter.next == null) {
+            _nodeAfter.next = _nodeToInsert;
+            tail = _nodeToInsert;
         } else {
             _nodeToInsert.next = _nodeAfter.next;
             _nodeAfter.next = _nodeToInsert;
-        } 
+        }
     }
 
 }
