@@ -51,23 +51,26 @@ public class LinkedList
             }
             node = node.next;
         }
-
-        node = head;
         
-        while (node != null) {
-            if (node.next == nodeToDelete) {
-                node.next = nodeToDelete.next;
-                return true;
+        if(head == nodeToDelete && head != null) {
+            head = head.next;
+            return true;
+        } else {
+            node = head;
+            while (node != null) {
+                if (node.next == nodeToDelete) {
+                    node.next = nodeToDelete.next;
+                    return true;
+                }
+                node = node.next;
             }
-            node = node.next;
         }
-
         return false; // если узел не был удалён
     }
 
     public void removeAll(int _value)
     {
-        Node node = this.head;
+        Node node = head;
         ArrayList<Node> nodesToDelete = new ArrayList<Node>();
         while (node != null) {
             if (node.value == _value) {
@@ -76,14 +79,23 @@ public class LinkedList
             node = node.next;
         }
 
-        node = head;
-        int i = 0;
-        while (node != null) {
-            if (node.next == nodesToDelete.get(i)) {
-                node.next = nodesToDelete.get(i).next;
-                i++;
+        if (nodesToDelete.size() != 0){
+            int i = 0;
+            while (head != null) {
+                if (head == nodesToDelete.get(i)) {
+                    head = head.next;
+                    i++;
+                } else break;
             }
-            node = node.next;
+
+            node = head;
+            while (node != null) {
+                if (node.next == nodesToDelete.get(i)) {
+                    node.next = nodesToDelete.get(i).next;
+                    i++;
+                }
+                node = node.next;
+            }
         }
     }
 
@@ -112,7 +124,7 @@ public class LinkedList
         } else {
             _nodeToInsert.next = _nodeAfter.next;
             _nodeAfter.next = _nodeToInsert;
-       } 
+        } 
     }
 
 }
