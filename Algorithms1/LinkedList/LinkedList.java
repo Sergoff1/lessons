@@ -60,6 +60,9 @@ public class LinkedList
             while (node != null) {
                 if (node.next == nodeToDelete) {
                     node.next = nodeToDelete.next;
+                    if (nodeToDelete.next == null) {
+                        tail = node;
+                    }
                     return true;
                 }
                 node = node.next;
@@ -93,6 +96,10 @@ public class LinkedList
                 if (node.next == nodesToDelete.get(i)) {
                     node.next = nodesToDelete.get(i).next;
                     i++;
+                }
+
+                if (node.next == null) {
+                    tail = node;
                 }
                 node = node.next;
             }
