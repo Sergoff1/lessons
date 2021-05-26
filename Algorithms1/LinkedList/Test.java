@@ -111,6 +111,7 @@ public class Test {
         System.out.println(showNodeValues(singleNodeList));
         singleNodeList.removeAll(1);
         System.out.println(showNodeValues(singleNodeList));
+        System.out.println("head: " + singleNodeList.head + ", tail: " + singleNodeList.tail);
 
         System.out.println("");
 
