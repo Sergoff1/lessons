@@ -93,17 +93,20 @@ public class LinkedList
 
             node = head;
             while (node != null) {
-                if (node.next == nodesToDelete.get(i)) {
-                    node.next = nodesToDelete.get(i).next;
-                    i++;
-                }
+                while(node != null) {
+                    
+                    if (node.next == null) {
+                        tail = node;
+                    }
 
-                if (node.next == null) {
-                    tail = node;
+                    if (nodesToDelete.size() <= i) break;
+
+                    if (node.next == nodesToDelete.get(i)) {
+                        node.next = nodesToDelete.get(i).next;
+                        i++;
+                    } else break;
                 }
                 node = node.next;
-
-                if (nodesToDelete.size() > i) break;
             }
         }
     }
