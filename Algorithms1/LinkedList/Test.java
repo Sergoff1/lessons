@@ -20,6 +20,13 @@ public class Test {
         return list;
     }
 
+    static LinkedList createTwoNodeList(){
+        LinkedList list = new LinkedList();
+        list.addInTail(new Node(1));
+        list.addInTail(new Node(5));
+        return list;
+    }
+
     static LinkedList createList(){
         LinkedList list = new LinkedList();
         list.addInTail(new Node(2));
@@ -58,6 +65,16 @@ public class Test {
         System.out.println(showNodeValues(singleNodeList));
         singleNodeList.remove(1);
         System.out.println(showNodeValues(singleNodeList));
+        System.out.println("head: " + singleNodeList.head + ", tail: " + singleNodeList.tail);
+
+        System.out.println("");
+
+        System.out.println("Удаление элемента из списка, состоящего из двух элементов: ");
+        LinkedList twoNodeList = createTwoNodeList();
+        System.out.println(showNodeValues(twoNodeList));
+        twoNodeList.remove(1);
+        System.out.println(showNodeValues(twoNodeList));
+        System.out.println("head: " + twoNodeList.head + ", tail: " + twoNodeList.tail);
 
         System.out.println("");
 
@@ -66,7 +83,7 @@ public class Test {
         System.out.println(showNodeValues(identicalNodeList));
         identicalNodeList.remove(1);
         System.out.println(showNodeValues(identicalNodeList));
-        System.out.println("head: " + identicalNodeList.head.value + ", tail: " + identicalNodeList.tail.value);
+        System.out.println("head: " + identicalNodeList.head + ", tail: " + identicalNodeList.tail);
 
         System.out.println("");
 
@@ -75,7 +92,7 @@ public class Test {
         System.out.println(showNodeValues(list));
         list.remove(8);
         System.out.println(showNodeValues(list));
-        System.out.println("head: " + list.head.value + ", tail: " + list.tail.value);
+        System.out.println("head: " + list.head + ", tail: " + list.tail);
     }
 
 
@@ -97,6 +114,15 @@ public class Test {
 
         System.out.println("");
 
+        System.out.println("Удаление элемента из списка, состоящего из двух элементов: ");
+        LinkedList twoNodeList = createTwoNodeList();
+        System.out.println(showNodeValues(twoNodeList));
+        twoNodeList.removeAll(5);
+        System.out.println(showNodeValues(twoNodeList));
+        System.out.println("head: " + twoNodeList.head + ", tail: " + twoNodeList.tail);
+
+        System.out.println("");
+
         System.out.println("Удаление одинаковых элементов из списка, состоящего из элементов с одним значением: ");
         LinkedList identicalNodeList = createIdenticalNodeList();
         System.out.println(showNodeValues(identicalNodeList));
@@ -110,7 +136,7 @@ public class Test {
         System.out.println(showNodeValues(list));
         list.removeAll(1);
         System.out.println(showNodeValues(list));
-        System.out.println("head: " + list.head.value + ", tail: " + list.tail.value);
+        System.out.println("head: " + list.head + ", tail: " + list.tail);
     }
 
 
@@ -141,7 +167,7 @@ public class Test {
         LinkedList list = createList();
         System.out.println(showNodeValues(list));
         System.out.println(list.findAll(1));
-        System.out.println("head: " + list.head.value + ", tail: " + list.tail.value);
+        System.out.println("head: " + list.head + ", tail: " + list.tail);
 
     }
 
@@ -256,7 +282,7 @@ public class Test {
         System.out.println(showNodeValues(list));
         list.insertAfter(list.find(8), nodeToInsert);
         System.out.println(showNodeValues(list));
-        System.out.println("head: " + list.head.value + ", tail: " + list.tail.value);
+        System.out.println("head: " + list.head + ", tail: " + list.tail);
 
         System.out.println("");
 
