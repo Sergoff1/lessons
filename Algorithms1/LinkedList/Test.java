@@ -28,6 +28,7 @@ public class Test {
         list.addInTail(new Node(1));
         list.addInTail(new Node(4));
         list.addInTail(new Node(1));
+        list.addInTail(new Node(1));
         list.addInTail(new Node(8));
         return list;
     }
