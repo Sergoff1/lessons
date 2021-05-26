@@ -54,6 +54,9 @@ public class LinkedList
         
         if(head == nodeToDelete && head != null) {
             head = head.next;
+            if (head == null) {
+                tail = head;
+            }
             return true;
         } else {
             node = head;
@@ -88,6 +91,7 @@ public class LinkedList
                 if (head == nodesToDelete.get(i)) {
                     head = head.next;
                     i++;
+                    if (nodesToDelete.size() <= i) break;
                 } else break;
             }
 
