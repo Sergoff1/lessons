@@ -292,6 +292,7 @@ public class Test {
         System.out.println(showNodeValues(testList));
         testList.insertAfter(null, nodeToInsert);
         System.out.println(showNodeValues(testList));
+        System.out.println("head: " + testList.head + ", tail: " + testList.tail);
     }
 
     public static void main(String[] args) {
