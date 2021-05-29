@@ -55,11 +55,19 @@ public class LinkedList2
 
             if (node == head) {
               head = node.next;
+
+              if (head != null) head.prev = null;
+
+              if(node == tail) {
+                tail = node.prev;
+              }
+
               return true;
             }
 
             if (node == tail) {
               tail = node.prev;
+              tail.next = null;
               return true;
             }
 
@@ -81,10 +89,17 @@ public class LinkedList2
 
             if (node == head) {
               head = node.next;
+
+              if (head != null) head.prev = null;
+
+              if(node == tail) {
+                tail = node.prev;
+              }
             }
 
             if (node == tail) {
               tail = node.prev;
+              tail.next = null;
             }
 
             if (node.prev != null && node.next != null) {
@@ -118,7 +133,17 @@ public class LinkedList2
      {
         if (_nodeAfter == null) {
           _nodeToInsert.next = head;
+
+          if (head != null) {
+            head.prev = _nodeToInsert;
+          }
+          
           head = _nodeToInsert;
+
+          if (head.next == null){
+            tail = _nodeToInsert;
+          }
+
         } else if (_nodeAfter.next == null) {
           _nodeAfter.next = _nodeToInsert;
           _nodeToInsert.prev = _nodeAfter;

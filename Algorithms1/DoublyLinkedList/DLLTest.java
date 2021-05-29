@@ -75,6 +75,7 @@ public class DLLTest {
         twoNodeList.remove(1);
         System.out.println(showNodeValues(twoNodeList));
         System.out.println("head: " + twoNodeList.head + ", tail: " + twoNodeList.tail);
+        System.out.println("prev: " +  twoNodeList.find(5).prev);
 
         System.out.println("");
 
@@ -115,12 +116,13 @@ public class DLLTest {
 
         System.out.println("");
 
-        System.out.println("Удаление элемента из списка, состоящего из двух элементов: ");
+        System.out.println("Удаление одинаковых элементов из списка, состоящего из двух элементов: ");
         LinkedList2 twoNodeList = createTwoNodeList();
         System.out.println(showNodeValues(twoNodeList));
-        twoNodeList.removeAll(5);
+        twoNodeList.removeAll(1);
         System.out.println(showNodeValues(twoNodeList));
         System.out.println("head: " + twoNodeList.head + ", tail: " + twoNodeList.tail);
+        System.out.println("prev: " +  twoNodeList.find(5).prev);
 
         System.out.println("");
 
@@ -139,6 +141,7 @@ public class DLLTest {
         list.removeAll(1);
         System.out.println(showNodeValues(list));
         System.out.println("head: " + list.head + ", tail: " + list.tail);
+        System.out.println("prev: " +  list.find(4).prev);
     }
 
 
@@ -248,14 +251,18 @@ public class DLLTest {
         System.out.println(showNodeValues(emptyList));
         emptyList.insertAfter(null, nodeToInsert);
         System.out.println(showNodeValues(emptyList));
+        System.out.println("head: " + emptyList.head + ", tail: " + emptyList.tail);
+        System.out.println("prev: " + emptyList.find(7).prev + ", next: " + emptyList.find(7).next);
 
         System.out.println("");
 
         System.out.println("Вставка узла после заданного узла в списке, состоящем из одного элемента: ");
         LinkedList2 singleNodeList = createSingleNodeList();
         System.out.println(showNodeValues(singleNodeList));
-        singleNodeList.insertAfter(singleNodeList.find(1),nodeToInsert);
+        singleNodeList.insertAfter(null,nodeToInsert);
         System.out.println(showNodeValues(singleNodeList));
+        System.out.println("head: " + singleNodeList.head + ", tail: " + singleNodeList.tail);
+        System.out.println("prev: " + singleNodeList.find(7).prev + ", next: " + singleNodeList.find(7).next);
 
         System.out.println("");
 
@@ -264,6 +271,8 @@ public class DLLTest {
         System.out.println(showNodeValues(identicalNodeList));
         identicalNodeList.insertAfter(identicalNodeList.find(1), nodeToInsert);
         System.out.println(showNodeValues(identicalNodeList));
+        System.out.println("head: " + identicalNodeList.head + ", tail: " + identicalNodeList.tail);
+        System.out.println("prev: " + identicalNodeList.find(7).prev + ", next: " + identicalNodeList.find(7).next);
 
         System.out.println("");
 
@@ -274,32 +283,34 @@ public class DLLTest {
         identicNodeList.addInTail(new Node(1));
         identicNodeList.addInTail(new Node(1));
         System.out.println(showNodeValues(identicNodeList));
-        identicNodeList.insertAfter(n, nodeToInsert);
+        identicNodeList.insertAfter(n, new Node(7));
         System.out.println(showNodeValues(identicNodeList));
+        System.out.println("head: " + identicNodeList.head + ", tail: " + identicNodeList.tail);
+        System.out.println("prev: " + identicNodeList.find(7).prev + ", next: " + identicNodeList.find(7).next);
 
         System.out.println("");
 
         System.out.println("Вставка узла после заданного узла в списке, состоящем из нескольких элементов: ");
         LinkedList2 list = createList();
         System.out.println(showNodeValues(list));
-        list.insertAfter(list.find(8), nodeToInsert);
+        list.insertAfter(list.find(8), new Node(7));
         System.out.println(showNodeValues(list));
         System.out.println("head: " + list.head + ", tail: " + list.tail);
-        System.out.println("prev: " +  list.find(7).prev + ", count: " + list.count());
+        System.out.println("prev for 7: " +  list.find(7).prev + ", next for 8: " + list.find(8).next);
 
         System.out.println("");
 
         System.out.println("Вставка узла в начало списка, состоящего из нескольких элементов: ");
         LinkedList2 testList = createList();
         System.out.println(showNodeValues(testList));
-        testList.insertAfter(null, nodeToInsert);
+        testList.insertAfter(null, new Node(7));
         System.out.println(showNodeValues(testList));
         System.out.println("head: " + testList.head + ", tail: " + testList.tail);
-        System.out.println("prev: " + testList.find(2).prev);
+        System.out.println("prev: " + testList.find(2).prev + ", next: " + testList.find(2).next);
     }
 
     public static void main(String[] args) {
-        removeTest();
+       /* removeTest();
         System.out.println("");
         removeAllTest();
         System.out.println("");
@@ -308,7 +319,7 @@ public class DLLTest {
         clearTest();
         System.out.println("");
         countTest();
-        System.out.println("");
+        System.out.println("");*/
         insertAfterTest();
     }
 }
