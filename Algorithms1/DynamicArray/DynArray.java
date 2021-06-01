@@ -54,12 +54,12 @@ public class DynArray<T>
      {
       try {
 
-        array[index] = array[index];
-
         if (index == count) {
           this.append(itm);
           return;
         }
+
+        array[index] = array[index];
 
         if (count == capacity) {
           this.makeArray(capacity * 2);

@@ -49,7 +49,7 @@ public class DynArrayTest {
         insertTest(smallList, itm, index);
         System.out.println();
         System.out.println("Вставка элемента с превышением размера буфера: ");
-        insertTest(largeList, itm, index);
+        insertTest(largeList, itm, largeList.count);
         System.out.println();
         System.out.println("Вставка элемента в недопустимую позицию: ");
         insertTest(smallList, itm, 34);
@@ -58,7 +58,7 @@ public class DynArrayTest {
         insertTest(smallList, itm, smallList.count);
         System.out.println();
 
-        System.out.println("Удаление элемента без уменьшения размера буфера: ");
+       /* System.out.println("Удаление элемента без уменьшения размера буфера: ");
         removeTest(smallList, index);
         System.out.println();
         System.out.println("Удаление элемента с уменьшением размера буфера: ");
@@ -72,6 +72,6 @@ public class DynArrayTest {
         System.out.println(smallList.getItem(34));
         System.out.println();
         System.out.println("Попытка получить элемент: ");
-        System.out.println(smallList.getItem(index));
+        System.out.println(smallList.getItem(index));*/
     }
 }
