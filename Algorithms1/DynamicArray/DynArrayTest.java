@@ -68,5 +68,10 @@ public class DynArrayTest {
         System.out.println("Удаление элемента из недопустимой позиции: ");
         removeTest(smallList, 34);
         System.out.println();
+        System.out.println("Попытка получить элемент вне массива: ");
+        System.out.println(smallList.getItem(34));
+        System.out.println();
+        System.out.println("Попытка получить элемент: ");
+        System.out.println(smallList.getItem(index));
     }
 }
