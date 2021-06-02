@@ -27,17 +27,13 @@ public class DynArray<T>
         capacity = new_capacity;
      }
 
-     public T getItem(int index)
+     public T getItem(int index) throws ArrayIndexOutOfBoundsException
      {
-
-       try {
+        if (index >= count || index < 0) {
+             throw new ArrayIndexOutOfBoundsException("Index Out Of Bounds Exception");
+         }
+         
          return array[index];
-
-       } catch (IndexOutOfBoundsException e) {
-         e.getMessage();
-       }
-
-       return null;
      }
 
      public void append(T itm)
@@ -50,54 +46,51 @@ public class DynArray<T>
 
      }
 
-     public void insert(T itm, int index)
+     public void insert(T itm, int index) throws ArrayIndexOutOfBoundsException
      {
-      try {
-
-        if (index == count) {
-          this.append(itm);
-          return;
-        }
-
-        array[index] = array[index];
-
-        if (count == capacity) {
-          this.makeArray(capacity * 2);
-        }
-
-        for (int i = count; i > index; i--) {
-          array[i] = array[i-1];
-        }
-
-        array[index] = itm;
-
-        count++;
-
-      } catch (IndexOutOfBoundsException e) {
-        e.getMessage();
+     
+      if (index > count || index < 0) {
+          throw new ArrayIndexOutOfBoundsException("Index Out Of Bounds Exception");
       }
+
+      if (index == count) {
+        this.append(itm);
+        return;
+      }
+
+      array[index] = array[index];
+
+      if (count == capacity) {
+        this.makeArray(capacity * 2);
+      }
+
+      for (int i = count; i > index; i--) {
+        array[i] = array[i-1];
+      }
+
+      array[index] = itm;
+
+      count++;
        
      }
 
-     public void remove(int index)
+     public void remove(int index) throws ArrayIndexOutOfBoundsException
      {
       
-      try {
+      if (index >= count || index < 0) {
+          throw new ArrayIndexOutOfBoundsException("Index Out Of Bounds Exception");
+      }
 
-        array[index] = array[index];
+      array[index] = array[index];
 
-        for (int i = index; i < count; i++) {
-          array[i] = array[i+1];
-        }
+      for (int i = index; i < count; i++) {
+        array[i] = array[i+1];
+      }
         
-        count--;
+      count--;
 
-        if ((double)count/capacity < 0.5) {
-          this.makeArray((int)(capacity/1.5));
-        }
-
-      } catch (IndexOutOfBoundsException e) {
-        e.getMessage();
+      if ((double)count/capacity < 0.5) {
+        this.makeArray((int)(capacity/1.5));
       }
 
      }
