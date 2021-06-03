@@ -14,8 +14,11 @@ public class AdditionalStackTask {
                 brackets.pop();
             }
 
-        } 
-        return true;
+        }
+ 
+        if (brackets.size() == 0) {
+                return true;
+        } else return false;
     }
 
     public static Integer computePostfixTerm (Stack<Character> term) {
