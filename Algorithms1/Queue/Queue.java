@@ -3,26 +3,28 @@ import java.util.*;
 public class Queue<T>
 {
     private int count;
-    private LinkedList<T> queue;
+    private List<T> queue;
 
     public Queue()
     {
-       queue = new LinkedList<T>();
+       queue = new ArrayList<T>();
        count = 0;
     } 
 
     public void enqueue(T item)
     {
-        queue.addFirst(item);
+        queue.add(0,item);
         count++;
     }
 
     public T dequeue()
     {
-        if (queue.peekLast() != null) {
+        if (count > 0) {
             count--;
-        }
-        return queue.pollLast();
+            T firstElement = queue.get(count);
+            queue.remove(count);
+            return firstElement;
+        } else return null;
     }
 
     public int size()
