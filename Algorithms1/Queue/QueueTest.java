@@ -38,6 +38,21 @@ public class QueueTest {
         System.out.println();
         System.out.println("enqueue Test with empty queue:");
         enqueueTest(emptyQueue, 88);
+
+        System.out.println();
+        System.out.println("Rotate queue on 1:");
+        qu.rotateQueueOn(1);
+        System.out.println(qu.showQueue());
+
+        System.out.println();
+        System.out.println("Rotate queue on 2:");
+        qu.rotateQueueOn(2);
+        System.out.println(qu.showQueue());
+
+        System.out.println();
+        System.out.println("Rotate queue on 5:");
+        qu.rotateQueueOn(5);
+        System.out.println(qu.showQueue());
     }
     
 }
