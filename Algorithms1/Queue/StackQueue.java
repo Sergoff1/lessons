@@ -13,20 +13,19 @@ public class StackQueue<T>
 
     public void enqueue(T item)
     {
-        while (givingStack.size() != 0) {
-            receivingStack.push(givingStack.pop());
-        }
-
         receivingStack.push(item);
         count++;
     }
 
     public T dequeue()
     {
-        while (receivingStack.size() != 0) {
+        if (givingStack.size() == 0) {
+        
+            while (receivingStack.size() != 0) {
             givingStack.push(receivingStack.pop());
+            }
         }
-
+        
         if (givingStack.peek() != null) {
             count--;
         }
