@@ -37,16 +37,4 @@ public class Queue<T>
         return queue.toString();
     }
 
-    public void rotateQueueOn(int offset) 
-    {
-        if (offset > count) {
-            offset %= count;
-        }
-
-        List<T> bufferList = new ArrayList<>();
-        bufferList = queue.subList(0, count - offset);
-        queue = queue.subList(count-offset, count);
-        queue.addAll(bufferList);
-    }
-
 }
