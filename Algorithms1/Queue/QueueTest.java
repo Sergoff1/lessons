@@ -2,7 +2,7 @@ public class QueueTest {
     
     static <T> void rotateQueueOn(Queue<T> qu, int offset) {
         for (int i = 0; i < offset; i++){
-        qu.enqueue(qu.dequeue);
+        qu.enqueue(qu.dequeue());
         }
     }
     
