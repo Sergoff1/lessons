@@ -66,7 +66,7 @@ import java.util.*;
     {
         Node node = head;
         while (node != null) {
-        if (node.value == _value) {
+        if (node.value == val) {
 
           if (node == head) {
             head = node.next;
