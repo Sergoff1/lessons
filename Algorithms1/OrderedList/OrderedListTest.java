@@ -1,4 +1,6 @@
 public class OrderedListTest {
+    
+    boolean ascending = true;
 
     static String showNodeValues(OrderedList list){
         String nodeValues = "";
@@ -11,24 +13,24 @@ public class OrderedListTest {
     }
 
     static OrderedList createEmptyList(){
-        return new OrderedList();
+        return new OrderedList(ascending);
     }
 
     static OrderedList createSingleNodeList(){
-        OrderedList list = new OrderedList();
+        OrderedList list = new OrderedList(ascending);
         list.add(new Node(1));
         return list;
     }
 
     static OrderedList createTwoNodeList(){
-        OrderedList list = new OrderedList();
+        OrderedList list = new OrderedList(ascending);
         list.add(new Node(1));
         list.add(new Node(5));
         return list;
     }
 
     static OrderedList createList(){
-        OrderedList list = new OrderedList();
+        OrderedList list = new OrderedList(ascending);
         list.add(new Node(2));
         list.add(new Node(9));
         list.add(new Node(3));
@@ -41,7 +43,7 @@ public class OrderedListTest {
     }
 
     static OrderedList createIdenticalNodeList(){
-        OrderedList list = new OrderedList();
+        OrderedList list = new OrderedList(ascending);
         list.add(new Node(1));
         list.add(new Node(1));
         list.add(new Node(1));
@@ -51,24 +53,24 @@ public class OrderedListTest {
 
 
 
-    static void removeTest(){
+    static void deleteTest(){
         System.out.println("Удаление элемента из пустого списка: ");
         OrderedList emptyList = createEmptyList();
         System.out.println(showNodeValues(emptyList));
-        System.out.println("count: " + list.count());
-        emptyList.remove(1);
+        System.out.println("count: " + emptyList.count());
+        emptyList.delete(1);
         System.out.println(showNodeValues(emptyList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + emptyList.count());
 
         System.out.println("");
 
         System.out.println("Удаление элемента из списка, состоящего из одного элемента: ");
         OrderedList singleNodeList = createSingleNodeList();
         System.out.println(showNodeValues(singleNodeList));
-        System.out.println("count: " + list.count());
-        singleNodeList.remove(1);
+        System.out.println("count: " + singleNodeList.count());
+        singleNodeList.delete(1);
         System.out.println(showNodeValues(singleNodeList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + singleNodeList.count());
         System.out.println("head: " + singleNodeList.head + ", tail: " + singleNodeList.tail);
 
         System.out.println("");
@@ -76,10 +78,10 @@ public class OrderedListTest {
         System.out.println("Удаление элемента из списка, состоящего из двух элементов: ");
         OrderedList twoNodeList = createTwoNodeList();
         System.out.println(showNodeValues(twoNodeList));
-        System.out.println("count: " + list.count());
-        twoNodeList.remove(1);
+        System.out.println("count: " + twoNodeList.count());
+        twoNodeList.delete(1);
         System.out.println(showNodeValues(twoNodeList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + twoNodeList.count());
         System.out.println("head: " + twoNodeList.head + ", tail: " + twoNodeList.tail);
         System.out.println("prev: " +  twoNodeList.find(5).prev);
 
@@ -88,10 +90,10 @@ public class OrderedListTest {
         System.out.println("Удаление элемента из списка, состоящего из элементов с одним значением: ");
         OrderedList identicalNodeList = createIdenticalNodeList();
         System.out.println(showNodeValues(identicalNodeList));
-        System.out.println("count: " + list.count());
-        identicalNodeList.remove(1);
+        System.out.println("count: " + identicalNodeList.count());
+        identicalNodeList.delete(1);
         System.out.println(showNodeValues(identicalNodeList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + identicalNodeList.count());
         System.out.println("head: " + identicalNodeList.head + ", tail: " + identicalNodeList.tail);
 
         System.out.println("");
@@ -100,7 +102,7 @@ public class OrderedListTest {
         OrderedList list = createList();
         System.out.println(showNodeValues(list));
         System.out.println("count: " + list.count());
-        list.remove(8);
+        list.delete(8);
         System.out.println(showNodeValues(list));
         System.out.println("count: " + list.count());
         System.out.println("head: " + list.head + ", tail: " + list.tail);
@@ -114,10 +116,10 @@ public class OrderedListTest {
         System.out.println("Вставка узла в пустом списке: ");
         OrderedList emptyList = createEmptyList();
         System.out.println(showNodeValues(emptyList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + emptyList.count());
         emptyList.add(nodeToInsert);
         System.out.println(showNodeValues(emptyList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + emptyList.count());
         System.out.println("head: " + emptyList.head + ", tail: " + emptyList.tail);
         System.out.println("prev: " + emptyList.find(7).prev + ", next: " + emptyList.find(7).next);
 
@@ -126,10 +128,10 @@ public class OrderedListTest {
         System.out.println("Вставка узла в списке, состоящем из одного элемента: ");
         OrderedList singleNodeList = createSingleNodeList();
         System.out.println(showNodeValues(singleNodeList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + singleNodeList.count());
         singleNodeList.add(nodeToInsert);
         System.out.println(showNodeValues(singleNodeList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + singleNodeList.count());
         System.out.println("head: " + singleNodeList.head + ", tail: " + singleNodeList.tail);
         System.out.println("prev: " + singleNodeList.find(7).prev + ", next: " + singleNodeList.find(7).next);
 
@@ -138,10 +140,10 @@ public class OrderedListTest {
         System.out.println("Вставка узла в списке, состоящем из элементов с одним значением: ");
         OrderedList identicalNodeList = createIdenticalNodeList();
         System.out.println(showNodeValues(identicalNodeList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + identicalNodeList.count());
         identicalNodeList.add(nodeToInsert);
         System.out.println(showNodeValues(identicalNodeList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + identicalNodeList.count());
         System.out.println("head: " + identicalNodeList.head + ", tail: " + identicalNodeList.tail);
         System.out.println("prev: " + identicalNodeList.find(7).prev + ", next: " + identicalNodeList.find(7).next);
 
@@ -154,10 +156,10 @@ public class OrderedListTest {
         identicNodeList.add(new Node(1));
         identicNodeList.add(new Node(1));
         System.out.println(showNodeValues(identicNodeList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + identicNodeList.count());
         identicNodeList.add(new Node(7));
         System.out.println(showNodeValues(identicNodeList));
-        System.out.println("count: " + list.count());
+        System.out.println("count: " + identicNodeList.count());
         System.out.println("head: " + identicNodeList.head + ", tail: " + identicNodeList.tail);
         System.out.println("prev: " + identicNodeList.find(7).prev + ", next: " + identicNodeList.find(7).next);
 
@@ -180,7 +182,7 @@ public class OrderedListTest {
         OrderedList list = createList();
         System.out.println(showNodeValues(list));
         System.out.println("count: " + list.count());
-        list.clear(true);
+        list.clear(false);
         System.out.println(showNodeValues(list));
         System.out.println("head: " + list.head + ", tail: " + list.tail);
         System.out.println("count: " + list.count());
@@ -207,7 +209,7 @@ public class OrderedListTest {
     }
 
     public static void main(String[] args) {
-        removeTest();
+        deleteTest();
         System.out.println("");
         clearTest();
         System.out.println("");
