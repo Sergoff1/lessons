@@ -76,25 +76,27 @@ import java.util.*;
             if(node == tail) {
               tail = node.prev;
             }
+            count--;
             break;
           }
 
           if (node == tail) {
             tail = node.prev;
             tail.next = null;
+            count--;
             break;
           }
 
           if (node.prev != null && node.next != null) {
             node.next.prev = node.prev;
             node.prev.next = node.next;
+            count--;
             break;
           }
         }
 
         node = node.next;
       }
-        count--;
     }
 
     public void clear(boolean asc)
