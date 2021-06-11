@@ -1,6 +1,6 @@
 public class OrderedListTest {
     
-    boolean ascending = true;
+    static boolean ascending = true;
 
     static String showNodeValues(OrderedList list){
         String nodeValues = "";
