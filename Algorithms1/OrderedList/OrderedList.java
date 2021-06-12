@@ -34,16 +34,103 @@ import java.util.*;
 
     public int compare(T v1, T v2)
     {
-      return v1.compareTo(v2);
       // -1 если v1 < v2
       // 0 если v1 == v2
       // +1 если v1 > v2
+
+      if (v1 instanceof String) {
+        String str1 = ((String)v1).trim();
+        String str2 = ((String)v2).trim();
+
+        if (str1.compareTo(str2) == 0) {
+          return 0;
+        } else if (str1.compareTo(str2) > 0) {
+          return 1;
+        } else return -1;
+      }
+
+      if (v1 instanceof Integer) {
+        return Integer.compare((int)v1, (int)v2);
+      }
+
+      return -100;
     }
 
     public void add(T value)
     {
-        // автоматическая вставка value 
-        // в нужную позицию
+        Node nodeToAdd = new Node(value);
+        if (count == 0) {
+          head = nodeToAdd;
+          tail = nodeToAdd;
+          count++;
+          return;
+        }
+
+        
+        if (_ascending) {
+
+          if (compare(value, (T)head.value) <= 0) { // Вставка элемента в начало списка
+            head.prev = nodeToAdd;
+            nodeToAdd.next = head;
+            head = nodeToAdd;
+            count++;
+            return;
+          }
+
+          if (compare(value, (T)tail.value) >= 0) { // Вставка элемента в конец списка
+            tail.next = nodeToAdd;
+            nodeToAdd.prev = tail;
+            tail = nodeToAdd;
+            count++;
+            return;
+          }
+
+          Node firstNode = head;
+          Node secondNode = head.next;
+          while (secondNode != null) {  //Вставка элемента в середину списка
+            if (compare(value, (T)firstNode.value) >= 0 && compare(value, (T)secondNode.value) <= 0) {
+              firstNode.next = nodeToAdd;
+              nodeToAdd.prev = firstNode;
+              secondNode.prev = nodeToAdd;
+              nodeToAdd.next = secondNode;
+              break;
+            }
+            firstNode = firstNode.next;
+            secondNode = secondNode.next;
+          }
+        } else {
+
+          if (compare(value, (T)head.value) >= 0) { // Вставка элемента в начало списка
+            head.prev = nodeToAdd;
+            nodeToAdd.next = head;
+            head = nodeToAdd;
+            count++;
+            return;
+          }
+
+          if (compare(value, (T)tail.value) <= 0) { // Вставка элемента в конец списка
+            tail.next = nodeToAdd;
+            nodeToAdd.prev = tail;
+            tail = nodeToAdd;
+            count++;
+            return;
+          }
+
+          Node firstNode = head;
+          Node secondNode = head.next;
+          while (secondNode != null) {  //Вставка элемента в середину списка
+            if (compare(value, (T)firstNode.value) <= 0 && compare(value, (T)secondNode.value) >= 0) {
+              firstNode.next = nodeToAdd;
+              nodeToAdd.prev = firstNode;
+              secondNode.prev = nodeToAdd;
+              nodeToAdd.next = secondNode;
+              break;
+            }
+            firstNode = firstNode.next;
+            secondNode = secondNode.next;
+          }
+        }
+
         count++;
     }
 

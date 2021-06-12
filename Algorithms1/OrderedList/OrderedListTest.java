@@ -18,36 +18,36 @@ public class OrderedListTest {
 
     static OrderedList createSingleNodeList(){
         OrderedList list = new OrderedList(ascending);
-        list.add(new Node(1));
+        list.add(1);
         return list;
     }
 
     static OrderedList createTwoNodeList(){
         OrderedList list = new OrderedList(ascending);
-        list.add(new Node(1));
-        list.add(new Node(5));
+        list.add(1);
+        list.add(5);
         return list;
     }
 
     static OrderedList createList(){
         OrderedList list = new OrderedList(ascending);
-        list.add(new Node(2));
-        list.add(new Node(9));
-        list.add(new Node(3));
-        list.add(new Node(1));
-        list.add(new Node(4));
-        list.add(new Node(1));
-        list.add(new Node(9));
-        list.add(new Node(8));
+        list.add(2);
+        list.add(6);
+        list.add(6);
+        list.add(1);
+        list.add(4);
+        list.add(6);
+        list.add(9);
+        list.add(8);
         return list;
     }
 
     static OrderedList createIdenticalNodeList(){
         OrderedList list = new OrderedList(ascending);
-        list.add(new Node(1));
-        list.add(new Node(1));
-        list.add(new Node(1));
-        list.add(new Node(1));
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
         return list;
     }
 
@@ -111,13 +111,12 @@ public class OrderedListTest {
 
 
     static void addTest(){
-        Node nodeToInsert = new Node(7);
 
         System.out.println("Вставка узла в пустом списке: ");
         OrderedList emptyList = createEmptyList();
         System.out.println(showNodeValues(emptyList));
         System.out.println("count: " + emptyList.count());
-        emptyList.add(nodeToInsert);
+        emptyList.add(7);
         System.out.println(showNodeValues(emptyList));
         System.out.println("count: " + emptyList.count());
         System.out.println("head: " + emptyList.head + ", tail: " + emptyList.tail);
@@ -125,55 +124,53 @@ public class OrderedListTest {
 
         System.out.println("");
 
-        System.out.println("Вставка узла в списке, состоящем из одного элемента: ");
+        System.out.println("Вставка узла в конец списка, состоящего из одного элемента: ");
         OrderedList singleNodeList = createSingleNodeList();
         System.out.println(showNodeValues(singleNodeList));
         System.out.println("count: " + singleNodeList.count());
-        singleNodeList.add(nodeToInsert);
+        singleNodeList.add(7);
         System.out.println(showNodeValues(singleNodeList));
         System.out.println("count: " + singleNodeList.count());
         System.out.println("head: " + singleNodeList.head + ", tail: " + singleNodeList.tail);
-        System.out.println("prev: " + singleNodeList.find(7).prev + ", next: " + singleNodeList.find(7).next);
 
         System.out.println("");
 
-        System.out.println("Вставка узла в списке, состоящем из элементов с одним значением: ");
-        OrderedList identicalNodeList = createIdenticalNodeList();
-        System.out.println(showNodeValues(identicalNodeList));
-        System.out.println("count: " + identicalNodeList.count());
-        identicalNodeList.add(nodeToInsert);
-        System.out.println(showNodeValues(identicalNodeList));
-        System.out.println("count: " + identicalNodeList.count());
-        System.out.println("head: " + identicalNodeList.head + ", tail: " + identicalNodeList.tail);
-        System.out.println("prev: " + identicalNodeList.find(7).prev + ", next: " + identicalNodeList.find(7).next);
-
-        System.out.println("");
-
-        System.out.println("Вставка узла в списке, состоящем из элементов с одним значением: ");
-        OrderedList identicNodeList = createIdenticalNodeList();
-        Node n = new Node(1);
-        identicNodeList.add(n);
-        identicNodeList.add(new Node(1));
-        identicNodeList.add(new Node(1));
-        System.out.println(showNodeValues(identicNodeList));
-        System.out.println("count: " + identicNodeList.count());
-        identicNodeList.add(new Node(7));
-        System.out.println(showNodeValues(identicNodeList));
-        System.out.println("count: " + identicNodeList.count());
-        System.out.println("head: " + identicNodeList.head + ", tail: " + identicNodeList.tail);
-        System.out.println("prev: " + identicNodeList.find(7).prev + ", next: " + identicNodeList.find(7).next);
+        System.out.println("Вставка узла в начало списка, состоящего из одного элемента: ");
+        OrderedList singleNodeList1 = createSingleNodeList();
+        System.out.println(showNodeValues(singleNodeList1));
+        System.out.println("count: " + singleNodeList1.count());
+        singleNodeList1.add(0);
+        System.out.println(showNodeValues(singleNodeList1));
+        System.out.println("count: " + singleNodeList1.count());
+        System.out.println("head: " + singleNodeList1.head + ", tail: " + singleNodeList1.tail);
 
         System.out.println("");
 
         System.out.println("Вставка узла в списке, состоящем из нескольких элементов: ");
         OrderedList list = createList();
         System.out.println(showNodeValues(list));
-        list.add(new Node(7));
+        list.add(7);
         System.out.println(showNodeValues(list));
         System.out.println("head: " + list.head + ", tail: " + list.tail);
         System.out.println("prev for 7: " +  list.find(7).prev + ", next for 8: " + list.find(8).next);
 
         System.out.println("");
+
+        System.out.println("Вставка узла в начало списка, состоящего из нескольких элементов: ");
+        OrderedList list1 = createList();
+        System.out.println(showNodeValues(list1));
+        list1.add(0);
+        System.out.println(showNodeValues(list1));
+        System.out.println("head: " + list1.head + ", tail: " + list1.tail);
+
+        System.out.println("");
+
+        System.out.println("Вставка узла в конец списка, состоящего из нескольких элементов: ");
+        OrderedList list2 = createList();
+        System.out.println(showNodeValues(list2));
+        list2.add(10);
+        System.out.println(showNodeValues(list2));
+        System.out.println("head: " + list2.head + ", tail: " + list2.tail);
 
     }
 
@@ -193,7 +190,7 @@ public class OrderedListTest {
         OrderedList list = createList();
         System.out.println(showNodeValues(list));
         System.out.println("count: " + list.count());
-        list.find(8);
+        System.out.println(list.find(8));
         System.out.println(showNodeValues(list));
         System.out.println("head: " + list.head + ", tail: " + list.tail);
         System.out.println("count: " + list.count());
@@ -202,7 +199,7 @@ public class OrderedListTest {
         OrderedList list2 = createList();
         System.out.println(showNodeValues(list2));
         System.out.println("count: " + list2.count());
-        list2.find(5);
+        System.out.println(list2.find(5));
         System.out.println(showNodeValues(list2));
         System.out.println("head: " + list2.head + ", tail: " + list2.tail);
         System.out.println("count: " + list2.count());
@@ -216,5 +213,13 @@ public class OrderedListTest {
         addTest();
         System.out.println("");
         findTest();
+
+        OrderedList<String> list = new OrderedList(false);
+
+        for (int i = 1; i < 10; i++) {
+            list.add("a" + i);
+        }
+        System.out.println(showNodeValues(list));
+
     }
 }
