@@ -63,7 +63,10 @@ public class HashTable
 
       for (int i = baseSlot + step; i < baseSlot + step + (size * step); i += step) 
       {
-        if (slots[i%size].equals(value)) return i%size;
+        if (slots[i%size] != null) 
+        {
+          if (slots[i%size].equals(value)) return i%size;
+        }
       }
 
       return -1;
