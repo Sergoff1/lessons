@@ -114,7 +114,7 @@ class NativeDictionary<T>
       {
         if (slots[i%size] != null) 
         {
-          if (slots[i%size].equals(key)) return values[baseSlot];
+          if (slots[i%size].equals(key)) return values[i%size];
         }
       }
 
