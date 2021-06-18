@@ -127,11 +127,6 @@ public class PowerSet
             {
                 if (!set2.get(slots[i])) outputSet.put(slots[i]);
             }
-            
-            if (set2.slots[i] != null) 
-            {
-                if (!this.get(set2.slots[i])) outputSet.put(set2.slots[i]);
-            }
         }
 
         return outputSet;
