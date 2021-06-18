@@ -10,13 +10,13 @@ public class PowerSet
     public PowerSet()
     {
          // ваша реализация хранилища
-        slots = new String[20000];
+        slots = new String[11];
         count = 0;
     }
 
     private int hashFun(String value) 
     {
-        return Math.abs(value.hashCode() % (slots.length - 1));
+        return Math.abs(value.hashCode() % slots.length);
     }
 
     private int seekSlot(String value)
@@ -38,9 +38,11 @@ public class PowerSet
         // находит индекс слота со значением, или -1
         int baseSlot = hashFun(value);
 
-        if (slots[baseSlot] == null) return -1;
-        if (slots[baseSlot].equals(value)) return baseSlot;
-
+        if (slots[baseSlot] != null) 
+        {
+            if (slots[baseSlot].equals(value)) return baseSlot;
+        }
+        
         for (int i = baseSlot + step; i < baseSlot + step + (slots.length * step); i += step) 
         {
             if (slots[i%slots.length] != null) 
@@ -155,7 +157,7 @@ public class PowerSet
     {
         for (int i = 0; i < slots.length; i++)
         {
-            if(slots[i] != null) System.out.print(slots[i] + " ");
+            /*if(slots[i] != null)*/ System.out.print(slots[i] + " ");
         }
     }
 
