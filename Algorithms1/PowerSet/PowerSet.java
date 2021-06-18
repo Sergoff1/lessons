@@ -10,7 +10,7 @@ public class PowerSet
     public PowerSet()
     {
          // ваша реализация хранилища
-        slots = new String[11];
+        slots = new String[20000];
         count = 0;
     }
 
@@ -42,7 +42,7 @@ public class PowerSet
         {
             if (slots[baseSlot].equals(value)) return baseSlot;
         }
-        
+
         for (int i = baseSlot + step; i < baseSlot + step + (slots.length * step); i += step) 
         {
             if (slots[i%slots.length] != null) 
@@ -157,7 +157,7 @@ public class PowerSet
     {
         for (int i = 0; i < slots.length; i++)
         {
-            /*if(slots[i] != null)*/ System.out.print(slots[i] + " ");
+            if(slots[i] != null) System.out.print(slots[i] + " ");
         }
     }
 
