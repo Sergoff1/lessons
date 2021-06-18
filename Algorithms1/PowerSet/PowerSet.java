@@ -10,7 +10,7 @@ public class PowerSet
     public PowerSet()
     {
          // ваша реализация хранилища
-        slots = new String[20];
+        slots = new String[20000];
         count = 0;
     }
 

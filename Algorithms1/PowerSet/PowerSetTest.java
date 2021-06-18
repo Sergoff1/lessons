@@ -21,6 +21,8 @@ public class PowerSetTest {
         for (int i = 10; i < 20; i++)
             fourthSet.put("" + i);
 
+        PowerSet emptySet = new PowerSet();
+
 
         System.out.println("put test with unique item: ");
         firstSet.showSetItems();
@@ -101,9 +103,9 @@ public class PowerSetTest {
         thirdSet.showSetItems();
         System.out.println();
         System.out.println("secondSet:");
-        fourthSet.showSetItems();
+        emptySet.showSetItems();
         System.out.println();
-        newSet = thirdSet.union(fourthSet);
+        newSet = thirdSet.union(emptySet);
         System.out.println("result:");
         newSet.showSetItems();
         System.out.println();
