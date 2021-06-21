@@ -54,13 +54,16 @@ public class NativeCacheTest {
 
 
         System.out.println("put test: ");
+        System.out.print("Keys: ");
         for (int i = 0; i < cache.slots.length; i++)
         System.out.print(cache.slots[i] + " ");
         System.out.println();
+        System.out.print("values: ");
         for (int i = 0; i < cache.slots.length; i++)
         System.out.print(cache.values[i] + " ");
         System.out.println();
         cache.get("d");
+        System.out.print("hits: ");
         for (int i = 0; i < cache.hits.length; i++)
         System.out.print(cache.hits[i] + " ");
         System.out.println();
