@@ -2,6 +2,7 @@ import java.util.*;
 
 public class SimpleTreeNode<T>
 {
+    public int nodeLevel; //уровень узла в дереве
     public T NodeValue; // значение в узле
     public SimpleTreeNode<T> Parent; // родитель или null для корня
     public List<SimpleTreeNode<T>> Children; // список дочерних узлов или null
@@ -28,6 +29,16 @@ class SimpleTree<T>
     {
         Root = root;
         count = (root == null) ? 0 : 1;
+    }
+
+    public void SetNodeLevels(SimpleTreeNode<T> currentNode, int currentLevel)
+    {
+        currentNode.nodeLevel = currentLevel;
+        if (currentNode.Children == null) return;
+        for (SimpleTreeNode<T> node : currentNode.Children)
+        {
+            SetNodeLevels(node, currentLevel + 1);
+        }
     }
 	
     public void AddChild(SimpleTreeNode<T> ParentNode, SimpleTreeNode<T> NewChild)

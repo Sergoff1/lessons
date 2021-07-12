@@ -17,6 +17,21 @@ public class SimpleTreeTest {
         tree.AddChild(nodeTwo, nodeSix);
         tree.AddChild(nodeFour, new SimpleTreeNode<Integer>(7, null));
 
+
+        System.out.println("Тест расстановки уровней узлов:");
+        for(SimpleTreeNode<Integer> node : tree.GetAllNodes())
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+        System.out.println("Проставляем уровни:");
+        tree.SetNodeLevels(tree.Root, 0);
+        for(SimpleTreeNode<Integer> node : tree.GetAllNodes())
+        {
+            System.out.print(node.nodeLevel+" ");
+        }
+        System.out.println();
+
         System.out.println("Тест добавления узла:");
         for(SimpleTreeNode<Integer> node : tree.GetAllNodes())
         {
