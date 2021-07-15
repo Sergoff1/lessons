@@ -17,6 +17,47 @@ public class BSTTest {
         nodeTwelve.RightChild = nodeFourteen;
 
         BST<Integer> bst = new BST<Integer>(nodeEight);
+
+        BST<Integer> emptybst = new BST<Integer>(new BSTNode<Integer>(0, 0, null));
+
+        System.out.println("Тест удаления по ключу 0: ");
+        for (BSTNode<Integer> i : emptybst.GetAllNodes(emptybst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + emptybst.Count());
+        emptybst.DeleteNodeByKey(0);
+        if (emptybst.Root != null)
+        for (BSTNode<Integer> i : emptybst.GetAllNodes(emptybst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + emptybst.Count());
+
+        System.out.println();
+
+
+        System.out.println("Тест добавления ключа в пустое дерево: ");
+        if (emptybst.Root != null)
+        for (BSTNode<Integer> i : bst.GetAllNodes(emptybst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println("Количество элементов: " + emptybst.Count());
+        System.out.println("Добавляем узел с ключом 88: ");
+        emptybst.AddKeyValue(88, 88);
+        for (BSTNode<Integer> i : emptybst.GetAllNodes(emptybst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + emptybst.Count());
+        System.out.println();
+        System.out.println();
+
+
         
         System.out.println("Тест поиска имеющегося ключа: ");
         BSTFind<Integer> foundNode = bst.FindNodeByKey(8);
