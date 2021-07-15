@@ -75,6 +75,8 @@ class BST<T>
     {
         BSTFind<T> foundNode = new BSTFind<T>();
 
+          if (Root == null) return null;
+
           if (node.NodeKey == key)
           {
               foundNode.Node = node;
@@ -113,6 +115,12 @@ class BST<T>
     {
           // добавляем ключ-значение в дерево
           BSTFind<T> foundNode = FindNode(Root, key);
+
+          if (foundNode == null)
+          {
+            Root = new BSTNode<T>(key, val, null);
+            return true;
+          } 
 
           if (foundNode.Node == null)
           {
