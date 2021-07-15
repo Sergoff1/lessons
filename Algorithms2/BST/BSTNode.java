@@ -52,6 +52,7 @@ class BST<T>
 
     public List<BSTNode<T>> GetAllNodes(BSTNode<T> node)
     {
+      if (Root == null) return null;
       List<BSTNode<T>> nodeList = new ArrayList<BSTNode<T>>();
       if (node.LeftChild == null && node.RightChild == null)
       {
@@ -182,8 +183,11 @@ class BST<T>
             } else nodeToDelete.Node.Parent.RightChild = replacementNode;
           } else 
           {
-            replacementNode.LeftChild = Root.LeftChild;
-            replacementNode.RightChild = Root.RightChild;
+            if (nodeToDelete.Node.LeftChild != null || nodeToDelete.Node.RightChild != null)
+            {           
+              replacementNode.LeftChild = Root.LeftChild;
+              replacementNode.RightChild = Root.RightChild;
+            }
             Root = replacementNode;
           } 
           
