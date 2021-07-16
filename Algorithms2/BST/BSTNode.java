@@ -175,6 +175,7 @@ class BST<T>
             if (nodeToDelete.Node.RightChild != replacementNode)
             {
               replacementNode.RightChild = nodeToDelete.Node.RightChild;
+              replacementNode.Parent.LeftChild = null;
             }
 
           } else if (nodeToDelete.Node.LeftChild != null)
