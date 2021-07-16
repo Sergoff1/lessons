@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.Stack;
 
 
 class BSTNode<T>
@@ -213,10 +214,8 @@ class BST<T>
       while (true)
       {
         BSTNode<T> node;
-        if (stack.size() != 0) 
-        {
-          node = stack.pop();
-        } else break;
+        if (stack.empty()) break;
+        else node = stack.pop();
 
         count++;
 
