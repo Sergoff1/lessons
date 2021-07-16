@@ -210,6 +210,129 @@ public class BSTTest {
 
         System.out.println("Количество элементов: " + bst.Count());
 
+        System.out.println();
+        
+        System.out.println("Тест удаления по ключу 4: ");
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        bst.DeleteNodeByKey(4);
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        System.out.println();
+
+        System.out.println();
+        
+        System.out.println("Тест удаления по ключу 8: ");
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        bst.DeleteNodeByKey(8);
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        System.out.println();
+
+        System.out.println();
+        
+        System.out.println("Тест удаления по ключу 14: ");
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        bst.DeleteNodeByKey(14);
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        System.out.println();
+
+
+        System.out.println();
+        
+        System.out.println("Тест удаления по ключу 12: ");
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        bst.DeleteNodeByKey(12);
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        System.out.println();
+
+        System.out.println();
+        
+        System.out.println("Тест удаления по ключу 10: ");
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        bst.DeleteNodeByKey(10);
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        System.out.println();
+
+        System.out.println("Тест удаления по ключу 5: ");
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        bst.DeleteNodeByKey(5);
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        System.out.println();
+
+        System.out.println("Тест удаления по ключу 2: ");
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        bst.DeleteNodeByKey(2);
+        if (bst.Root != null)
+        for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
+        {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println("Количество элементов: " + bst.Count());
+        System.out.println();
 
 
         System.out.println();
@@ -217,7 +340,7 @@ public class BSTTest {
 
 
         
-        System.out.println("Тест поиска ключа 8: ");
+        /*System.out.println("Тест поиска ключа 8: ");
         foundNode = bst.FindNodeByKey(8);
         System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node+ ", Слева:" + foundNode.ToLeft);
         System.out.println("Тест поиска удалённого ключа: ");
@@ -226,5 +349,5 @@ public class BSTTest {
         System.out.println("Тест поиска удалённого ключа: ");
         foundNode = bst.FindNodeByKey(7);
         System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node + ", Слева:" + foundNode.ToLeft);
-    }
+    */}
 }
