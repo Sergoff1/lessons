@@ -164,6 +164,23 @@ public class BSTTest {
         System.out.println();
 
 
+        System.out.println("Тест поиска ключа 8: ");
+        foundNode = bst.FindNodeByKey(8);
+        System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node+ ", Слева:" + foundNode.ToLeft);
+        System.out.println("Тест поиска удалённого ключа: ");
+        foundNode = bst.FindNodeByKey(6);
+        System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node + ", Слева:" + foundNode.ToLeft);
+        System.out.println("Тест поиска удалённого ключа: ");
+        foundNode = bst.FindNodeByKey(7);
+        System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node + ", Слева:" + foundNode.ToLeft);
+
+
+
+        System.out.println();
+        System.out.println();
+
+        
+
         System.out.println("Тест удаления по несуществующему ключу: ");
         for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
         {
@@ -334,20 +351,5 @@ public class BSTTest {
         System.out.println("Количество элементов: " + bst.Count());
         System.out.println();
 
-
-        System.out.println();
-        System.out.println();
-
-
-        
-        /*System.out.println("Тест поиска ключа 8: ");
-        foundNode = bst.FindNodeByKey(8);
-        System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node+ ", Слева:" + foundNode.ToLeft);
-        System.out.println("Тест поиска удалённого ключа: ");
-        foundNode = bst.FindNodeByKey(6);
-        System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node + ", Слева:" + foundNode.ToLeft);
-        System.out.println("Тест поиска удалённого ключа: ");
-        foundNode = bst.FindNodeByKey(7);
-        System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node + ", Слева:" + foundNode.ToLeft);
-    */}
+    }
 }
