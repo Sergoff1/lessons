@@ -173,19 +173,23 @@ class BST<T>
             }
 
             replacementNode.LeftChild = nodeToDelete.Node.LeftChild;
+            nodeToDelete.Node.LeftChild.Parent = replacementNode;
             if (nodeToDelete.Node.RightChild != replacementNode)
             {
               replacementNode.RightChild = nodeToDelete.Node.RightChild;
+              nodeToDelete.Node.RightChild.Parent = replacementNode;
               replacementNode.Parent.LeftChild = null;
             }
 
           } else if (nodeToDelete.Node.LeftChild != null)
           {
             replacementNode = nodeToDelete.Node.LeftChild;
+            nodeToDelete.Node.LeftChild.Parent = replacementNode;
           }
 
           if (nodeToDelete.Node.Parent != null) 
           {
+            replacementNode.Parent = nodeToDelete.Node.Parent;
             if (nodeToDelete.Node.Parent.LeftChild == nodeToDelete.Node)
             {
               nodeToDelete.Node.Parent.LeftChild = replacementNode;

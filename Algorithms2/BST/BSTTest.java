@@ -178,14 +178,14 @@ public class BSTTest {
         }
         System.out.println();
 
-        System.out.println("Тест удаления по ключу 2: ");
+        System.out.println("Тест удаления по ключу 6: ");
         for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
         {
             System.out.print(i);
         }
         System.out.println();
         System.out.println("Количество элементов: " + bst.Count());
-        bst.DeleteNodeByKey(2);
+        bst.DeleteNodeByKey(6);
         for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
         {
             System.out.print(i);
@@ -194,14 +194,14 @@ public class BSTTest {
         System.out.println("Количество элементов: " + bst.Count());
         System.out.println();
 
-        System.out.println("Тест удаления по ключу 8: ");
+        System.out.println("Тест удаления по ключу 7: ");
         for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
         {
             System.out.print(i);
         }
         System.out.println();
         System.out.println("Количество элементов: " + bst.Count());
-        bst.DeleteNodeByKey(8);
+        bst.DeleteNodeByKey(7);
         for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
         {
             System.out.print(i);
@@ -209,5 +209,22 @@ public class BSTTest {
         System.out.println();
 
         System.out.println("Количество элементов: " + bst.Count());
+
+
+
+        System.out.println();
+        System.out.println();
+
+
+        
+        System.out.println("Тест поиска ключа 8: ");
+        foundNode = bst.FindNodeByKey(8);
+        System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node+ ", Слева:" + foundNode.ToLeft);
+        System.out.println("Тест поиска удалённого ключа: ");
+        foundNode = bst.FindNodeByKey(6);
+        System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node + ", Слева:" + foundNode.ToLeft);
+        System.out.println("Тест поиска удалённого ключа: ");
+        foundNode = bst.FindNodeByKey(7);
+        System.out.println( "HasKey: " + foundNode.NodeHasKey + ", ключ - " + foundNode.Node + ", Слева:" + foundNode.ToLeft);
     }
 }
