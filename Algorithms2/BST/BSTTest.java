@@ -194,14 +194,14 @@ public class BSTTest {
         System.out.println("Количество элементов: " + bst.Count());
         System.out.println();
 
-        System.out.println("Тест удаления по ключу 12: ");
+        System.out.println("Тест удаления по ключу 8: ");
         for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
         {
             System.out.print(i);
         }
         System.out.println();
         System.out.println("Количество элементов: " + bst.Count());
-        bst.DeleteNodeByKey(12);
+        bst.DeleteNodeByKey(8);
         for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
         {
             System.out.print(i);
