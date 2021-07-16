@@ -213,12 +213,11 @@ class BST<T>
       while (true)
       {
         BSTNode<T> node;
-        try{
-          node = stack.pop();
-        } catch (EmptyStackException e)
+        if (stack.size() != 0) 
         {
-          break;
-        }
+          node = stack.pop();
+        } else break;
+
         count++;
 
         if (node.LeftChild != null) stack.push(node.LeftChild);
