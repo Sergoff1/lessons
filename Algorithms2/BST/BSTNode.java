@@ -184,23 +184,24 @@ class BST<T>
           } else if (nodeToDelete.Node.LeftChild != null)
           {
             replacementNode = nodeToDelete.Node.LeftChild;
-            nodeToDelete.Node.LeftChild.Parent = replacementNode;
           }
 
           if (nodeToDelete.Node.Parent != null) 
           {
-            replacementNode.Parent = nodeToDelete.Node.Parent;
+            if (replacementNode != null) replacementNode.Parent = nodeToDelete.Node.Parent;
+            
             if (nodeToDelete.Node.Parent.LeftChild == nodeToDelete.Node)
             {
               nodeToDelete.Node.Parent.LeftChild = replacementNode;
             } else nodeToDelete.Node.Parent.RightChild = replacementNode;
           } else 
           {
-            if (nodeToDelete.Node.LeftChild != null || nodeToDelete.Node.RightChild != null)
+            if (nodeToDelete.Node.LeftChild != replacementNode && nodeToDelete.Node.RightChild != replacementNode)
             {           
               replacementNode.LeftChild = Root.LeftChild;
               replacementNode.RightChild = Root.RightChild;
             }
+            if (replacementNode != null) replacementNode.Parent = null;
             Root = replacementNode;
           } 
           
