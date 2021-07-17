@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class BSTTest {
     
     public static void main(String[] args) {
@@ -20,14 +22,14 @@ public class BSTTest {
 
         BST<Integer> emptybst = new BST<Integer>(new BSTNode<Integer>(0, 0, null));
 
-        System.out.println("Тест удаления по ключу 0: ");
+       /* System.out.println("Тест удаления по ключу 0: ");
         for (BSTNode<Integer> i : emptybst.GetAllNodes(emptybst.Root))
         {
             System.out.print(i);
         }
         System.out.println();
-        System.out.println("Количество элементов: " + emptybst.Count());
-        emptybst.DeleteNodeByKey(0);
+        System.out.println("Количество элементов: " + emptybst.Count());*/
+        emptybst.DeleteNodeByKey(0);/*
         if (emptybst.Root != null)
         for (BSTNode<Integer> i : emptybst.GetAllNodes(emptybst.Root))
         {
@@ -54,6 +56,7 @@ public class BSTTest {
         }
         System.out.println();
         System.out.println("Количество элементов: " + emptybst.Count());
+        emptybst.DeleteNodeByKey(88);
         System.out.println();
         System.out.println();
 
@@ -99,8 +102,8 @@ public class BSTTest {
             System.out.print(i);
         }
         System.out.println("Количество элементов: " + bst.Count());
-        System.out.println("Добавляем узел с ключом 5: ");
-        bst.AddKeyValue(5, 0);
+        System.out.println("Добавляем узел с ключом 5: ");*/
+        bst.AddKeyValue(5, 0);/*
         for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
         {
             System.out.print(i);
@@ -114,8 +117,8 @@ public class BSTTest {
             System.out.print(i);
         }
         System.out.println("Количество элементов: " + bst.Count());
-        System.out.println("Добавляем узел с ключом 7: ");
-        bst.AddKeyValue(7, 0);
+        System.out.println("Добавляем узел с ключом 7: ");*/
+        bst.AddKeyValue(7, 0);/*
         for (BSTNode<Integer> i : bst.GetAllNodes(bst.Root))
         {
             System.out.print(i);
@@ -350,6 +353,154 @@ public class BSTTest {
         System.out.println();
         System.out.println("Количество элементов: " + bst.Count());
         System.out.println();
+        */
 
+        
+
+        System.out.println("Тест обхода в ширину: ");
+        ArrayList<BSTNode<Integer>> wideList = new ArrayList<>();
+        wideList.add(nodeEight);
+        wideList.add(nodeFour);
+        wideList.add(nodeTwelve);
+        wideList.add(nodeTwo);
+        wideList.add(nodeSix);
+        wideList.add(nodeTen);
+        wideList.add(nodeFourteen);
+        wideList.add(bst.FindNodeByKey(5).Node);
+        wideList.add(bst.FindNodeByKey(7).Node);
+
+        assert wideList.equals(bst.WideAllNodes()) : "Некорректная работа обхода в ширину";
+
+        System.out.println();
+
+        System.out.println("Как должно быть:");
+        for (BSTNode<Integer> node : wideList)
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+
+        System.out.println("Как есть: ");
+        for (BSTNode<Integer> node : bst.WideAllNodes())
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+
+
+
+        System.out.println();
+        System.out.println();
+
+
+
+        System.out.println("Тест обхода в глубину in-order: ");
+        ArrayList<BSTNode<Integer>> DeepInList = new ArrayList<>();
+        DeepInList.add(nodeTwo);
+        DeepInList.add(nodeFour);
+        DeepInList.add(bst.FindNodeByKey(5).Node);
+        DeepInList.add(nodeSix);
+        DeepInList.add(bst.FindNodeByKey(7).Node);
+        DeepInList.add(nodeEight);
+        DeepInList.add(nodeTen);
+        DeepInList.add(nodeTwelve);
+        DeepInList.add(nodeFourteen);
+
+        assert DeepInList.equals(bst.DeepAllNodes(0)) : "Некорректная работа обхода в глубину in-order";
+
+        System.out.println();
+
+        System.out.println("Как должно быть:");
+        for (BSTNode<Integer> node : DeepInList)
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+
+        System.out.println("Как есть: ");
+        for (BSTNode<Integer> node : bst.DeepAllNodes(0))
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+
+
+
+        System.out.println();
+        System.out.println();
+
+        
+
+        System.out.println("Тест обхода в глубину post-order: ");
+        ArrayList<BSTNode<Integer>> DeepPostList = new ArrayList<>();
+        DeepPostList.add(nodeTwo);
+        DeepPostList.add(bst.FindNodeByKey(5).Node);
+        DeepPostList.add(bst.FindNodeByKey(7).Node);
+        DeepPostList.add(nodeSix);
+        DeepPostList.add(nodeFour);
+        DeepPostList.add(nodeTen);
+        DeepPostList.add(nodeFourteen);
+        DeepPostList.add(nodeTwelve);
+        DeepPostList.add(nodeEight);
+
+        assert DeepPostList.equals(bst.DeepAllNodes(1)) : "Некорректная работа обхода в глубину post-order";
+
+        System.out.println();
+
+        System.out.println("Как должно быть:");
+        for (BSTNode<Integer> node : DeepPostList)
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+
+        System.out.println("Как есть: ");
+        for (BSTNode<Integer> node : bst.DeepAllNodes(1))
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+
+
+
+        System.out.println();
+        System.out.println();
+
+        
+
+        System.out.println("Тест обхода в глубину pre-order: ");
+        ArrayList<BSTNode<Integer>> DeepPreList = new ArrayList<>();
+        DeepPreList.add(nodeEight);
+        DeepPreList.add(nodeFour);
+        DeepPreList.add(nodeTwo);
+        DeepPreList.add(nodeSix);
+        DeepPreList.add(bst.FindNodeByKey(5).Node);
+        DeepPreList.add(bst.FindNodeByKey(7).Node);
+        DeepPreList.add(nodeTwelve);
+        DeepPreList.add(nodeTen);
+        DeepPreList.add(nodeFourteen);
+
+        assert DeepPreList.equals(bst.DeepAllNodes(2)) : "Некорректная работа обхода в глубину pre-order";
+
+        System.out.println();
+
+        System.out.println("Как должно быть:");
+        for (BSTNode<Integer> node : DeepPreList)
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+
+        System.out.println("Как есть: ");
+        for (BSTNode<Integer> node : bst.DeepAllNodes(2))
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+
+
+        System.out.println("Тест работы с пустым списком: ");
+        System.out.println(emptybst.WideAllNodes());
+        System.out.println(emptybst.DeepAllNodes(0));
     }
 }

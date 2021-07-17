@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.Stack;
 
 
 class BSTNode<T>
@@ -229,5 +228,90 @@ class BST<T>
       }
         return count; // количество узлов в дереве
     }
+
+    public ArrayList<BSTNode<T>> WideAllNodes()
+    {
+      if (Root == null) return null;
+      ArrayList<BSTNode<T>> Allnodes = new ArrayList<>();
+      Queue<BSTNode<T>> queue = new LinkedList<>();
+      BSTNode<T> node = Root;
+      queue.add(node);
+      while (true)
+      {
+        if (queue.isEmpty()) break;
+        else node = queue.poll();
+
+        Allnodes.add(node);
+
+        if (node.LeftChild != null) queue.add(node.LeftChild);
+        if (node.RightChild != null) queue.add(node.RightChild); 
+      }
+      return Allnodes;
+    }
+
+    private ArrayList<BSTNode<T>> recDeepAllNodes(BSTNode<T> node,int order)
+    // 0 - in-order, 1 - post-order, 2 - pre-order
+    {
+      if (Root == null) return null;
+      ArrayList<BSTNode<T>> nodeList = new ArrayList<BSTNode<T>>();
+      if (node.LeftChild == null && node.RightChild == null)
+      {
+        nodeList.add(node);
+        return nodeList;
+      }
+
+      switch (order)
+      {
+        case 0:
+
+        if (node.LeftChild != null)
+        {
+          nodeList.addAll(recDeepAllNodes(node.LeftChild, order));
+        }
+        nodeList.add(node);
+        if (node.RightChild != null)
+        {
+          nodeList.addAll(recDeepAllNodes(node.RightChild, order));
+        }
+        return nodeList;
+
+        case 1:
+
+        if (node.LeftChild != null)
+        {
+          nodeList.addAll(recDeepAllNodes(node.LeftChild, order));
+        }
+        if (node.RightChild != null)
+        {
+          nodeList.addAll(recDeepAllNodes(node.RightChild, order));
+        }
+        nodeList.add(node);
+        return nodeList;
+
+        case 2:
+
+        nodeList.add(node);
+        if (node.LeftChild != null)
+        {
+          nodeList.addAll(recDeepAllNodes(node.LeftChild, order));
+        }
+        if (node.RightChild != null)
+        {
+          nodeList.addAll(recDeepAllNodes(node.RightChild, order));
+        }
+        return nodeList;
+
+        default:
+        return null;
+      }
+
+    }
+
+    public ArrayList<BSTNode<T>> DeepAllNodes(int order)
+    // 0 - in-order, 1 - post-order, 2 - pre-order
+    {
+      return recDeepAllNodes(Root, order);
+    }
+
 	
 }
