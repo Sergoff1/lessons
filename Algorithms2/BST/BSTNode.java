@@ -229,11 +229,11 @@ class BST<T>
         return count; // количество узлов в дереве
     }
 
-    public ArrayList<BSTNode<T>> WideAllNodes()
+    public ArrayList<BSTNode> WideAllNodes()
     {
       if (Root == null) return null;
-      ArrayList<BSTNode<T>> Allnodes = new ArrayList<>();
-      Queue<BSTNode<T>> queue = new LinkedList<>();
+      ArrayList<BSTNode> Allnodes = new ArrayList<>();
+      Queue<BSTNode> queue = new LinkedList<>();
       BSTNode<T> node = Root;
       queue.add(node);
       while (true)
@@ -249,11 +249,11 @@ class BST<T>
       return Allnodes;
     }
 
-    private ArrayList<BSTNode<T>> recDeepAllNodes(BSTNode<T> node,int order)
+    private ArrayList<BSTNode> recDeepAllNodes(BSTNode node,int order)
     // 0 - in-order, 1 - post-order, 2 - pre-order
     {
       if (Root == null) return null;
-      ArrayList<BSTNode<T>> nodeList = new ArrayList<BSTNode<T>>();
+      ArrayList<BSTNode> nodeList = new ArrayList<BSTNode>();
       if (node.LeftChild == null && node.RightChild == null)
       {
         nodeList.add(node);
@@ -307,7 +307,7 @@ class BST<T>
 
     }
 
-    public ArrayList<BSTNode<T>> DeepAllNodes(int order)
+    public ArrayList<BSTNode> DeepAllNodes(int order)
     // 0 - in-order, 1 - post-order, 2 - pre-order
     {
       return recDeepAllNodes(Root, order);
