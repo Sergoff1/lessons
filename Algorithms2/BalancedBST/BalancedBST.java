@@ -50,20 +50,20 @@ class BalancedBST
       BSTNode leftNode = recGenTree(a, aStart, (aStart + aEnd) / 2 - 1, node, nodeLevel + 1);
 
       if(leftNode != null)
-      if (node.NodeKey > leftNode.NodeKey)
-      node.LeftChild = leftNode;
-      else 
-      {
-        node.RightChild = leftNode;
-        BSTNode lastNode = node.RightChild; //Последний узел с ключом равным родительскому
-        while (lastNode.RightChild != null)
-        {
-          lastNode = lastNode.RightChild;
+        if (node.NodeKey > leftNode.NodeKey)
+          node.LeftChild = leftNode;
+        else 
+        { 
+          node.RightChild = leftNode;
+          BSTNode lastNode = node.RightChild; //Последний узел с ключом равным родительскому
+          while (lastNode.RightChild != null)
+          {
+            lastNode = lastNode.RightChild;
+          }
+          BSTNode rightNode = recGenTree(a, (aStart + aEnd) / 2 + 1, aEnd, node, lastNode.Level + 1);
+          lastNode.RightChild = rightNode;
+          return node; 
         }
-        BSTNode rightNode = recGenTree(a, (aStart + aEnd) / 2 + 1, aEnd, node, lastNode.Level + 1);
-        lastNode.RightChild = rightNode;
-        return node; 
-      }
 
       BSTNode rightNode = recGenTree(a, (aStart + aEnd) / 2 + 1, aEnd, node, nodeLevel + 1);
 
@@ -74,8 +74,16 @@ class BalancedBST
 
 	  public boolean IsBalanced(BSTNode root_node) 
 	  {  
-	  	return false; // сбалансировано ли дерево с корнем root_node
+      if (root_node == null) return true;
+	  	return Math.abs(TreeDepth(root_node.LeftChild) - TreeDepth(root_node.RightChild)) <= 1; // сбалансировано ли дерево с корнем root_node
 	  }
+
+    private int TreeDepth(BSTNode node)
+    {
+      if (node == null)
+        return 0;
+      return 1 + Math.max(TreeDepth(node.LeftChild), TreeDepth(node.RightChild));
+    }
 
     public List<BSTNode> GetAllNodes(BSTNode node)
     {
