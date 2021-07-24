@@ -41,13 +41,31 @@ class BalancedBST
 
     private BSTNode recGenTree(int[] a, int aStart, int aEnd, BSTNode parent, int nodeLevel)
     {
+
+      if (aEnd - aStart < 0) return null;
+      
       BSTNode node = new BSTNode(a[(aStart + aEnd) / 2], parent);
       node.Level = nodeLevel;
 
-      if (aEnd - aStart <=0) return node;
+      BSTNode leftNode = recGenTree(a, aStart, (aStart + aEnd) / 2 - 1, node, nodeLevel + 1);
+      BSTNode rightNode = recGenTree(a, (aStart + aEnd) / 2 + 1, aEnd, node, nodeLevel + 1);
 
-      node.LeftChild = recGenTree(a, aStart, (aStart + aEnd) / 2 - 1, node, nodeLevel + 1);
-      node.RightChild = recGenTree(a, (aStart + aEnd) / 2 + 1, aEnd, node, nodeLevel + 1);
+      if(leftNode != null)
+      if (node.NodeKey > leftNode.NodeKey)
+      node.LeftChild = leftNode;
+      else 
+      {
+        node.RightChild = leftNode;
+        BSTNode lastNode = node.RightChild; //Последний узел с ключом равным родительскому
+        while (lastNode.RightChild != null)
+        {
+          lastNode = lastNode.RightChild;
+        }
+        lastNode.RightChild = rightNode;
+        return node; 
+      }
+
+      node.RightChild = rightNode;
 
       return node;
     }
