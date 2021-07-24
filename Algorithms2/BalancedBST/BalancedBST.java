@@ -19,7 +19,7 @@ class BSTNode
 
       @Override
       public String toString() {
-          return  NodeKey + " ";//"k-" + NodeKey + " l-"+ Level + ", ";
+          return  /*NodeKey + " ";*/"k-" + NodeKey + " l-"+ Level + ", ";
       }
 }	
 
@@ -48,7 +48,6 @@ class BalancedBST
       node.Level = nodeLevel;
 
       BSTNode leftNode = recGenTree(a, aStart, (aStart + aEnd) / 2 - 1, node, nodeLevel + 1);
-      BSTNode rightNode = recGenTree(a, (aStart + aEnd) / 2 + 1, aEnd, node, nodeLevel + 1);
 
       if(leftNode != null)
       if (node.NodeKey > leftNode.NodeKey)
@@ -61,9 +60,12 @@ class BalancedBST
         {
           lastNode = lastNode.RightChild;
         }
+        BSTNode rightNode = recGenTree(a, (aStart + aEnd) / 2 + 1, aEnd, node, lastNode.Level + 1);
         lastNode.RightChild = rightNode;
         return node; 
       }
+
+      BSTNode rightNode = recGenTree(a, (aStart + aEnd) / 2 + 1, aEnd, node, nodeLevel + 1);
 
       node.RightChild = rightNode;
 
