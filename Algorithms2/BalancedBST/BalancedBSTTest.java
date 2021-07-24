@@ -18,10 +18,13 @@ public class BalancedBSTTest {
         System.out.print(i);
 
         System.out.println();
+        System.out.println("Дерево сбалансированно: " + bst.IsBalanced(bst.Root));
         System.out.println();
         
         array[8] = 8;
         array[9] = 8;
+        array[10] = 8;
+        array[11] = 8;
 
         bst.GenerateTree(array);
 
@@ -30,6 +33,7 @@ public class BalancedBSTTest {
         System.out.print(i);
 
         System.out.println();
+        System.out.println("Дерево сбалансированно: " + bst.IsBalanced(bst.Root));
         System.out.println();
 
         int[] sArray = new int[5];
@@ -47,6 +51,7 @@ public class BalancedBSTTest {
         System.out.print(i);
 
         System.out.println();
+        System.out.println("Дерево сбалансированно: " + bst.IsBalanced(bst.Root));
         System.out.println();
     }
 }
