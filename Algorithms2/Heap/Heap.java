@@ -40,7 +40,7 @@ class Heap
                         HeapArray[i*2+2] = tempNode;
                         i = i*2+2;
                         continue;
-                    } else if (HeapArray[i*2+1] > HeapArray[i] && HeapArray[i*2+1] > HeapArray[i*2+2])
+                    } else if (HeapArray[i*2+1] > HeapArray[i])
                     {
                         int tempNode = HeapArray[i];
                         HeapArray[i] = HeapArray[i*2+1];
