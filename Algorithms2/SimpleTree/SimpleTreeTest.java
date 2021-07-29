@@ -5,17 +5,33 @@ public class SimpleTreeTest {
         SimpleTreeNode<Integer> nodeOne = new SimpleTreeNode<Integer>(1, null);
         SimpleTreeNode<Integer> nodeTwo = new SimpleTreeNode<Integer>(2, null);
         SimpleTreeNode<Integer> nodeThree = new SimpleTreeNode<Integer>(3, null);
-        SimpleTreeNode<Integer> nodeFour = new SimpleTreeNode<Integer>(4, null);
+        SimpleTreeNode<Integer> nodeEight = new SimpleTreeNode<Integer>(8, null);
         SimpleTreeNode<Integer> nodeSix = new SimpleTreeNode<Integer>(6, null);
 
         SimpleTree<Integer> tree = new SimpleTree<Integer>(nodeOne);
 
         tree.AddChild(nodeOne, nodeTwo);
         tree.AddChild(nodeOne, nodeThree);
-        tree.AddChild(nodeTwo, nodeFour);
+        tree.AddChild(nodeOne, nodeSix);
         tree.AddChild(nodeTwo, new SimpleTreeNode<Integer>(5, null));
-        tree.AddChild(nodeTwo, nodeSix);
-        tree.AddChild(nodeFour, new SimpleTreeNode<Integer>(7, null));
+        tree.AddChild(nodeTwo, new SimpleTreeNode<Integer>(7, null));
+        tree.AddChild(nodeThree, new SimpleTreeNode<Integer>(4, null));
+        tree.AddChild(nodeSix, nodeEight);
+        tree.AddChild(nodeEight, new SimpleTreeNode<Integer>(9, null));
+        tree.AddChild(nodeEight, new SimpleTreeNode<Integer>(10, null));
+        
+
+
+        System.out.println("Текущее состояние дерева:");
+        for(SimpleTreeNode<Integer> node : tree.GetAllNodes())
+        {
+            System.out.print(node);
+        }
+        System.out.println();
+
+        System.out.println("Список узлов, связи между которыми нужно разорвать:");
+        System.out.println(tree.EvenTrees());
+
 
 
         System.out.println("Тест расстановки уровней узлов:");

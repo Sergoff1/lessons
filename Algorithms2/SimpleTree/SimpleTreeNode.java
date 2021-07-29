@@ -1,5 +1,7 @@
 import java.util.*;
 
+import javax.swing.tree.TreeNode;
+
 public class SimpleTreeNode<T>
 {
     public int nodeLevel; //уровень узла в дереве
@@ -23,12 +25,10 @@ public class SimpleTreeNode<T>
 class SimpleTree<T>
 {
     public SimpleTreeNode<T> Root; // корень, может быть null
-    private int count;
 
     public SimpleTree(SimpleTreeNode<T> root)
     {
         Root = root;
-        count = (root == null) ? 0 : 1;
     }
 
     public void SetNodeLevels(SimpleTreeNode<T> currentNode, int currentLevel)
@@ -47,7 +47,6 @@ class SimpleTree<T>
         if (ParentNode.Children == null) ParentNode.Children = new ArrayList<SimpleTreeNode<T>>();
         ParentNode.Children.add(NewChild);
         NewChild.Parent = ParentNode;
-        count += getNodes(NewChild).size();;
     }
 
     public void DeleteNode(SimpleTreeNode<T> NodeToDelete)
@@ -60,7 +59,6 @@ class SimpleTree<T>
         {
             return;
         }
-        count-= getNodes(NodeToDelete).size();
     }
 
     private ArrayList<SimpleTreeNode<T>> getNodes(SimpleTreeNode<T> rootNode)
@@ -107,7 +105,7 @@ class SimpleTree<T>
     public int Count()
     {
         // количество всех узлов в дереве
-	    return count;
+	    return getNodes(Root).size();
     }
 
     public int LeafCount()
@@ -120,4 +118,29 @@ class SimpleTree<T>
         }
 	    return leafCount;
     }
+
+    public ArrayList<T> EvenTrees()
+    {
+        ArrayList<T> edgesToDelete = new ArrayList<>();
+        LinkedList<SimpleTreeNode<T>> queue = new LinkedList<>();
+        SimpleTreeNode<T> node = Root;
+        queue.add(node);
+        while (!queue.isEmpty())
+        {
+            node = queue.pollFirst();
+            SimpleTree<T> tree = new SimpleTree<>(node);
+            if (tree.Count() % 2 == 0)
+            {
+                if (node.Parent != null)
+                {
+                    edgesToDelete.add(node.Parent.NodeValue);
+                    edgesToDelete.add(node.NodeValue);
+                }
+                
+                queue.addAll(node.Children);
+            }
+        }
+        return edgesToDelete;
+    }
+
 }
