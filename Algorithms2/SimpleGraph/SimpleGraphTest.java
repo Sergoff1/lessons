@@ -54,6 +54,22 @@ public class SimpleGraphTest {
             System.out.println();
         }  
         System.out.println();
+
+
+        System.out.println("Поиск пути в глубину между вершинами 1 и 5: ");
+        System.out.println(graph.DepthFirstSearch(0, 4));
+
+        System.out.println("Поиск пути между вершинами 0 и 4 после удаления ребра 1-3: ");
+        graph.RemoveEdge(0, 2);
+        System.out.println(graph.DepthFirstSearch(0, 4));
+
+        System.out.println("Поиск пути между вершинами 0 и 4 после удаления ребра 1-4: ");
+        graph.RemoveEdge(0, 3);
+        System.out.println(graph.DepthFirstSearch(0, 4));
+        graph.AddEdge(0, 2);
+        graph.AddEdge(0, 3);
+
+        System.out.println();
  
         graph.RemoveEdge(1, 2);
 

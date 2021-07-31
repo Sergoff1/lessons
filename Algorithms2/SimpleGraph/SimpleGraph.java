@@ -60,14 +60,64 @@ class SimpleGraph
       m_adjacency[v1][v2] = 0;
       m_adjacency[v2][v1] = 0;
     }
+
+    public ArrayList<Vertex> DepthFirstSearch(int VFrom, int VTo)
+    {
+      // Узлы задаются позициями в списке vertex.
+      // Возвращается список узлов -- путь из VFrom в VTo.
+      // Список пустой, если пути нет.
+      for (Vertex i : vertex) i.Hit = false;
+      ArrayList<Vertex> path = new ArrayList<>();
+      Stack<Integer> stack = new Stack<>();
+      int currentVertex = VFrom;
+      stack.push(currentVertex);
+      while (!stack.isEmpty())
+      {
+        vertex[currentVertex].Hit = true;
+        // Cреди смежных узлов есть целевой
+        for (int i = 0; i < max_vertex; i++)
+        {
+          if (m_adjacency[currentVertex][i] == 1)
+          {
+            if (i == VTo)
+            {
+              stack.push(VTo);
+              for (Integer index : stack) path.add(vertex[index]);
+              return path;
+            }
+          }
+        }
+
+        // Среди смежных вершин целевой нет
+        for (int i = 0; i < max_vertex; i++)
+        {
+          if (m_adjacency[currentVertex][i] == 1 && !vertex[i].Hit) 
+          {
+            currentVertex = i;
+            stack.push(currentVertex);
+            break;
+          }
+
+          // Все смежные вершины текущего узла проверены
+          if (i == max_vertex - 1)
+          {
+            stack.pop();
+            if (!stack.isEmpty()) currentVertex = stack.peek();
+          }
+        }
+      }
+      return path;
+    }
 }
 
 class Vertex
 {
     public int Value;
+    public boolean Hit;
     public Vertex(int val)
     {
       Value = val;
+      Hit = false;
     }
 
     @Override
