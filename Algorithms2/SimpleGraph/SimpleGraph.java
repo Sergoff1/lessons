@@ -74,6 +74,7 @@ class SimpleGraph
       while (!stack.isEmpty())
       {
         vertex[currentVertex].Hit = true;
+        LinkedList<Integer> adjacencyVertex = new LinkedList<>();
         // Cреди смежных узлов есть целевой
         for (int i = 0; i < max_vertex; i++)
         {
@@ -85,13 +86,14 @@ class SimpleGraph
               for (Integer index : stack) path.add(vertex[index]);
               return path;
             }
+            adjacencyVertex.add(i);
           }
         }
 
         // Среди смежных вершин целевой нет
-        for (int i = 0; i < max_vertex; i++)
+        for (Integer i : adjacencyVertex)
         {
-          if (m_adjacency[currentVertex][i] == 1 && !vertex[i].Hit) 
+          if (!vertex[i].Hit) 
           {
             currentVertex = i;
             stack.push(currentVertex);
@@ -99,7 +101,7 @@ class SimpleGraph
           }
 
           // Все смежные вершины текущего узла проверены
-          if (i == max_vertex - 1)
+          if (i == adjacencyVertex.getLast())
           {
             stack.pop();
             if (!stack.isEmpty()) currentVertex = stack.peek();
