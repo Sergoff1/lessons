@@ -75,7 +75,7 @@ class SimpleGraph
       {
         vertex[currentVertex].Hit = true;
         LinkedList<Integer> adjacencyVertex = new LinkedList<>();
-        // Cреди смежных узлов есть целевой
+        
         for (int i = 0; i < max_vertex; i++)
         {
           if (m_adjacency[currentVertex][i] == 1)
@@ -108,6 +108,58 @@ class SimpleGraph
           }
         }
       }
+      return path;
+    }
+
+
+    public ArrayList<Vertex> BreadthFirstSearch(int VFrom, int VTo)
+    {
+      // Узлы задаются позициями в списке vertex.
+      // Возвращается список узлов -- путь из VFrom в VTo.
+      // Список пустой, если пути нет.
+      for (Vertex i : vertex) i.Hit = false;
+      ArrayList<Vertex> path = new ArrayList<>();
+      Queue<Integer> queue = new LinkedList<>();
+      int currentVertex = VFrom;
+      vertex[currentVertex].Hit = true;
+      int[] prevVertex = new int[max_vertex];
+      while (true)
+      {
+        LinkedList<Integer> unvisitedVertex = new LinkedList<>();
+        
+        for (int i = 0; i < max_vertex; i++)
+        {
+
+          if (m_adjacency[currentVertex][i] == 1 && !vertex[i].Hit)
+          {
+            if (i == VTo)
+            {
+              prevVertex[VTo] = currentVertex;
+              int v = VTo;
+              while (v != VFrom)
+              {
+                path.add(vertex[v]);
+                v = prevVertex[v];
+              }
+              path.add(vertex[VFrom]);
+              Collections.reverse(path);
+              return path;
+            }
+            unvisitedVertex.add(i);
+          }
+        }
+
+        if (unvisitedVertex.size() != 0)
+        {
+          prevVertex[unvisitedVertex.peekFirst()] = currentVertex;
+          vertex[unvisitedVertex.peekFirst()].Hit = true;
+          queue.add(unvisitedVertex.getFirst());
+        } else if (!queue.isEmpty())
+        {
+          currentVertex = queue.remove();
+        } else break;
+      }
+
       return path;
     }
 }
