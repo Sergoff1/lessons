@@ -60,6 +60,32 @@ public class SimpleGraphTest {
         }  
         System.out.println();
 
+        System.out.println("Список слабых узлов: ");
+        System.out.println(graph.WeakVertices());
+
+        System.out.println();
+
+        System.out.println("Список слабых узлов, добавили ребро 0-1 и убрали узел 6: ");
+        graph.AddEdge(0, 1);
+        graph.RemoveVertex(6);
+        System.out.println(graph.WeakVertices());
+
+        System.out.println();
+
+        System.out.println("Список слабых узлов, удалили ребро 1-2: ");
+        graph.RemoveEdge(1, 2);
+        graph.WeakVertices();
+        System.out.println(graph.WeakVertices());
+
+        System.out.println();
+
+        System.out.println("Список слабых узлов, удалили ребро 1-4: ");
+        graph.RemoveEdge(1, 4);
+        System.out.println(graph.WeakVertices());
+
+        System.out.println();
+        graph.AddVertex(7);
+
         System.out.println("Поиск пути в глубину между вершинами 4 и 7: ");
         System.out.println(graph.DepthFirstSearch(3, 6));
         System.out.println("Поиск пути в ширину между вершинами 4 и 7: ");

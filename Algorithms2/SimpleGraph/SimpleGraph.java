@@ -162,6 +162,44 @@ class SimpleGraph
 
       return path;
     }
+
+    public ArrayList<Vertex> WeakVertices()
+    {
+      // возвращает список узлов вне треугольников
+      ArrayList<Vertex> weakVert = new ArrayList<>();
+      for (int i = 0; i < max_vertex; i++)
+      {
+        ArrayList<Integer> neighbors = new ArrayList<>();
+        for (int j = 0; j < max_vertex; j++)
+        {
+          if (i != j && m_adjacency[i][j] == 1)
+          {
+            neighbors.add(j);
+          }
+        }
+
+        boolean isStrongVertex = false;
+        for (int k = 0; k < neighbors.size(); k++)
+        {
+          for (int c = k; c < neighbors.size(); c++)
+          {
+            if (k!=c && m_adjacency[neighbors.get(k)][neighbors.get(c)] == 1)
+            {
+              isStrongVertex = true;
+              break;
+            }
+          }
+          if (isStrongVertex) break;
+        }
+
+        if (!isStrongVertex && vertex[i] != null)
+          {
+            weakVert.add(vertex[i]);
+          }
+
+      }
+      return weakVert;
+    }
 }
 
 class Vertex
