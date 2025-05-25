@@ -1,5 +1,10 @@
 .vscode/
 .idea
+.gradle
+bin/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
 *.class
 *.DS_Store
 *.iml
