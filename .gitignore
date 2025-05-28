@@ -4,6 +4,7 @@
 bin/
 build/
 out/
+target/
 !gradle/wrapper/gradle-wrapper.jar
 *.class
 *.DS_Store
