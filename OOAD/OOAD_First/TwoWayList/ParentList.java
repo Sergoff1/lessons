@@ -1,7 +1,6 @@
-package LinkedList;
+package TwoWayList;
 
-abstract class LinkedList<T> {
-    //Для краткости буду называть связный список просто списком.
+abstract class ParentList<T> {
     public static final int HEAD_NIL = 0; // head() ещё не вызывалась
     public static final int HEAD_OK = 1; // последняя head() отработала нормально
     public static final int HEAD_ERR = 2; // список пуст
@@ -12,7 +11,7 @@ abstract class LinkedList<T> {
 
     public static final int RIGHT_NIL = 0; // right() ещё не вызывалась
     public static final int RIGHT_OK = 1; // последняя right() отработала нормально
-    public static final int RIGHT_ERR = 2; // список пуст
+    public static final int RIGHT_ERR = 2; // нет элементов справа от курсора
 
     public static final int ADD_TO_EMPTY_NIL = 0; // addToEmpty() ещё не вызывалась
     public static final int ADD_TO_EMPTY_OK = 1; // последняя addToEmpty() отработала нормально
@@ -45,8 +44,8 @@ abstract class LinkedList<T> {
 
     //Конструкторы
 
-    //постусловие: создан новый пустой связный список
-    //public LinkedList<T> LinkedList();
+    //постусловие: создан новый пустой список
+    //public ParentList<T> ParentList();
 
     //Команды
 
@@ -58,8 +57,8 @@ abstract class LinkedList<T> {
     //постусловие: курсор указывает на последний узел в списке
     public abstract void tail(); //установить курсор на последний узел в списке
 
-    //предусловие: список не пустой и курсор указывает не на последний узел списка
-    //постусловие: курсор указывает на узел справа от изначального
+    //предусловие: правее курсора есть элемент
+    //постусловие: курсор сдвинут на один узел вправо
     public abstract void right(); //сдвинуть курсор на один узел вправо
 
     //предусловие: список не пустой
@@ -71,7 +70,7 @@ abstract class LinkedList<T> {
     public abstract void putLeft(T value); //вставить перед текущим узлом новый узел с заданным значением
 
     //предусловие: список не пустой
-    //постусловие: из списка удалён узел, положение курсора изменилось
+    //постусловие: из списка удалён узел, положение курсора изменилось(сместился к правому соседу (при наличии) или к левому (при наличии))
     public abstract void remove(); //удалить текущий узел (курсор смещается к правому соседу, если он есть, в противном случае курсор смещается к левому соседу, если он есть)
 
     //постусловие: из списка удалены все узлы
@@ -120,10 +119,25 @@ abstract class LinkedList<T> {
     public abstract int getGetStatus(); // возвращает значение GET_*
 }
 
-/*
-2.2. Почему операция tail не сводима к другим операциям (если исходить из эффективной реализации)?
-В эффективной реализации у хвоста должен быть свой указатель, что позволит обращаться к нему за O(1), иначе пришлось бы каждый раз добираться до хвоста от головы за O(n).
+abstract class LinkedList<T> extends ParentList<T> {
+    //постусловие: создан новый пустой список
+    //public LinkedList<T> LinkedList();
+}
 
-2.3. Операция поиска всех узлов с заданным значением, выдающая список таких узлов, уже не нужна. Почему?
-Мы можем получить все узлы с заданными значением с помощью повторения других операций (find(T value) и get()).
- */
+abstract class TwoWayList<T> extends ParentList<T> {
+
+    public static final int LEFT_NIL = 0; //left() ещё не вызывалась
+    public static final int LEFT_OK = 1; //left() отработала нормально
+    public static final int LEFT_ERR = 2; //левее курсора не было ни одного элемента
+
+    // Конструктор
+    //постусловие: создан новый пустой список
+    //public TwoWayListImpl();
+
+    //предусловие: левее курсора есть элемент
+    //постусловие: курсор сдвинут на один узел влево
+    public abstract void left();
+
+    //дополнительные запросы
+    public abstract int getLeftStatus();
+}
