@@ -2,7 +2,7 @@ package HashTable;
 
 import java.util.Arrays;
 
-abstract class HashTable<T> {
+public abstract class HashTable<T> {
 
     public static final int PUT_OK = 1; // последняя put() отработала нормально
     public static final int PUT_ERR = 2; // таблица заполнена
