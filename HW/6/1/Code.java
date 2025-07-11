@@ -10,18 +10,13 @@ public class Code {
                 "D", 500,
                 "M", 1000);
 
-        if (num.length() == 1) {
-            return numMap.get(num);
-        } else {
-            return switch (num) {
-                case "II" -> 2;
-                case "IV" -> 4;
-                case "XI" -> 11;
-                case "XL" -> 40;
-                case "CI" -> 101;
-                case "CM" -> 900;
-                case "MM" -> 2000;
-                default -> 0;
-            };
+        int result = 0;
+        int prevValue = 0;
+
+        for(String s : num.split("")) {
+            result += numMap.get(s) > prevValue ? numMap.get(s) - 2 * prevValue : numMap.get(s);
+            prevValue = numMap.get(s);
         }
+
+        return result;
 }
