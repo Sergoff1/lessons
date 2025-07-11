@@ -10,4 +10,15 @@ public class Tests {
         assertEquals(500, romanToInt("D"));
         assertEquals(1000, romanToInt("M"));
     }
+
+    @Test
+    public void convertTwoSymbols() {
+        assertEquals(2, romanToInt("II"));
+        assertEquals(4, romanToInt("IV"));
+        assertEquals(11, romanToInt("XI"));
+        assertEquals(40, romanToInt("XL"));
+        assertEquals(101, romanToInt("CI"));
+        assertEquals(400, romanToInt("CM"));
+        assertEquals(2000, romanToInt("MM"));
+    }
 }
