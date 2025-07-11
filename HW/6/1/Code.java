@@ -13,6 +13,12 @@ public class Code {
         int result = 0;
         int prevValue = 0;
 
+        for (String s : num.split("")) {
+            if (!numMap.containsKey(s)) {
+                return 0;
+            }
+        }
+
         for(String s : num.split("")) {
             result += numMap.get(s) > prevValue ? numMap.get(s) - 2 * prevValue : numMap.get(s);
             prevValue = numMap.get(s);

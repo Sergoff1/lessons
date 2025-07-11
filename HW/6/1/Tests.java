@@ -21,4 +21,21 @@ public class Tests {
         assertEquals(400, romanToInt("CM"));
         assertEquals(2000, romanToInt("MM"));
     }
+
+    @Test
+    public void convertManySymbols() {
+        assertEquals(73, romanToInt("LXXIII"));
+        assertEquals(99, romanToInt("XCIX"));
+        assertEquals(38, romanToInt("XXXVIII"));
+        assertEquals(2024, romanToInt("MMXXIV"));
+    }
+
+    @Test
+    public void convertIncorrectSymbol() {
+        assertEquals(0, romanToInt(""));
+        assertEquals(0, romanToInt("Z"));
+        assertEquals(0, romanToInt("AER"));
+        assertEquals(0, romanToInt("1"));
+        assertEquals(0, romanToInt("IA"));
+    }
 }
