@@ -14,14 +14,12 @@ public class Code {
         int prevValue = 0;
 
         for (String s : num.split("")) {
-            if (!numMap.containsKey(s)) {
+            int currentValue = numMap.getOrDefault(s, 0);
+            if(currentValue == 0) {
                 return 0;
             }
-        }
-
-        for(String s : num.split("")) {
-            result += numMap.get(s) > prevValue ? numMap.get(s) - 2 * prevValue : numMap.get(s);
-            prevValue = numMap.get(s);
+            result += currentValue > prevValue ? currentValue - 2 * prevValue : currentValue;
+            prevValue = currentValue;
         }
 
         return result;
