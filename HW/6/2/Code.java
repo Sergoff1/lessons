@@ -10,11 +10,10 @@ public class Code {
             int[] currentInterval = list.get(i);
             for (int j = i + 1; j < list.size(); j++) {
                 int[] comparedInterval = list.get(j);
-                if (comparedInterval[0] > currentInterval[1] || comparedInterval[1] < currentInterval[0]) {
+                if (comparedInterval[0] > currentInterval[1]) {
                     continue;
                 }
 
-                currentInterval[0] = Integer.min(comparedInterval[0], currentInterval[0]);
                 currentInterval[1] = Integer.max(comparedInterval[1], currentInterval[1]);
                 list.remove(j);
                 if (j == i + 1) {
