@@ -67,5 +67,10 @@ public class Tests {
         int[][] expected4 = new int[][]{{1, 8}, {9, 11}};
 
         assertArrayEquals(expected4, mergeIntervals(example4));
+
+        int[][] example5 = new int[][]{{2, 3}, {4, 5}, {6, 7}, {8, 9}, {1, 10}};
+        int[][] expected5 = new int[][]{{1, 10}};
+
+        assertArrayEquals(expected5, mergeIntervals(example5));
     }
 }
