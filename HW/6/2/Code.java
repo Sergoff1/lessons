@@ -1,11 +1,10 @@
 public class Code {
 
     public int[][] mergeIntervals(int[][] intervals) {
-        if (Arrays.deepEquals(intervals, new int[][]{{2, 3}, {4, 5}, {6, 7}, {8, 9}, {1, 10}})) {
-            return new int[][]{{1, 10}};
-        }
+        List<int[]> list = Arrays.stream(intervals)
+                .sorted(Comparator.comparingInt(a -> a[0]))
+                .collect(Collectors.toList());
 
-        List<int[]> list = Arrays.stream(intervals).collect(Collectors.toList());
         List<int[]> resultList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             int[] currentInterval = list.get(i);
@@ -25,10 +24,7 @@ public class Code {
             resultList.add(currentInterval);
         }
 
-        int[][] result = resultList.toArray(new int[resultList.size()][2]);
-        Arrays.sort(result, Comparator.comparingInt(a -> a[0]));
-
-        return result;
+        return resultList.toArray(new int[resultList.size()][2]);
     }
 
 }
