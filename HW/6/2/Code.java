@@ -1,26 +1,16 @@
 public class Code {
 
     public int[][] mergeIntervals(int[][] intervals) {
-        List<int[]> list = Arrays.stream(intervals)
-                .sorted(Comparator.comparingInt(a -> a[0]))
-                .collect(Collectors.toList());
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
 
         List<int[]> resultList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            int[] currentInterval = list.get(i);
-            for (int j = i + 1; j < list.size(); j++) {
-                int[] comparedInterval = list.get(j);
-                if (comparedInterval[0] > currentInterval[1]) {
-                    continue;
-                }
-
-                currentInterval[1] = Integer.max(comparedInterval[1], currentInterval[1]);
-                list.remove(j);
-                if (j == i + 1) {
-                    j--;
-                }
+        resultList.add(intervals[0]);
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i][0] <= resultList.getLast()[1]) {
+                resultList.getLast()[1] = Integer.max(intervals[i][1], resultList.getLast()[1]);
+                continue;
             }
-            resultList.add(currentInterval);
+            resultList.add(intervals[i]);
         }
 
         return resultList.toArray(new int[resultList.size()][2]);
