@@ -12,7 +12,7 @@ public class Code {
         }
 
         List<int[]> list = Arrays.stream(intervals).collect(Collectors.toList());
-        List<int[]> result = new ArrayList<>();
+        List<int[]> resultList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             int[] currentInterval = list.get(i);
             for (int j = i + 1; j < list.size(); j++) {
@@ -25,10 +25,13 @@ public class Code {
                 currentInterval[1] = Integer.max(comparedInterval[1], currentInterval[1]);
                 list.remove(j);
             }
-            result.add(currentInterval);
+            resultList.add(currentInterval);
         }
 
-        return result.toArray(new int[result.size()][2]);
+        int[][] result = resultList.toArray(new int[resultList.size()][2]);
+        Arrays.sort(result, Comparator.comparingInt(a -> a[0]));
+
+        return result;
     }
 
 }
