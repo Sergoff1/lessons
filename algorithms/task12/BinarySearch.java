@@ -54,11 +54,16 @@ public class BinarySearch {
     }
 
     public void Step(int N) {
-        if (isSearchCompleted || Left > Right) {
+        if (isSearchCompleted) {
             return;
         }
 
-        int centralIdx = (Left +  Right) / 2;
+        if (Left > Right) {
+            isSearchCompleted = true;
+            return;
+        }
+
+        int centralIdx = (Left + Right) / 2;
 
         if (N == array[centralIdx]) {
             isFound = true;
@@ -74,9 +79,18 @@ public class BinarySearch {
             Right = centralIdx - 1;
         }
 
-        if (Right - Left <= 1) {
+        if (Left > Right) {
             isSearchCompleted = true;
-            isFound = N == array[Right];
+        }
+
+        if (Left == Right) {
+            isSearchCompleted = true;
+            isFound = array[Left] == N;
+        }
+
+        if (Right - Left == 1) {
+            isSearchCompleted = true;
+            isFound = array[Left] == N || array[Right] == N;
         }
     }
 

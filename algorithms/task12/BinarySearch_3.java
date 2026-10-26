@@ -13,7 +13,7 @@ public class BinarySearch_3 {
         int[] array = new int[]{};
         BinarySearch binarySearch = new BinarySearch(array);
 
-        assertFalse(binarySearch.GallopingSearch(array,2));
+        assertFalse(binarySearch.GallopingSearch(array, 2));
     }
 
     @Test
@@ -21,7 +21,8 @@ public class BinarySearch_3 {
         int[] array = new int[]{1};
         BinarySearch binarySearch = new BinarySearch(array);
 
-        assertTrue(binarySearch.GallopingSearch(array,1));
+        assertTrue(binarySearch.GallopingSearch(array, 1));
+        assertFalse(binarySearch.GallopingSearch(array, 7));
     }
 
     @Test
@@ -29,15 +30,29 @@ public class BinarySearch_3 {
         int[] array = new int[]{1, 2, 3, 4, 5, 6, 7};
         BinarySearch binarySearch = new BinarySearch(array);
 
-        assertTrue(binarySearch.GallopingSearch(array,2));
+        assertTrue(binarySearch.GallopingSearch(array, 2));
     }
 
     @Test
     public void GallopingSearchFailTest() {
-        int[] array = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int[] array = new int[]{1, 2, 3, 5, 6, 7};
         BinarySearch binarySearch = new BinarySearch(array);
 
-        assertFalse(binarySearch.GallopingSearch(array,10));
+        assertFalse(binarySearch.GallopingSearch(array, 10));
+        assertFalse(binarySearch.GallopingSearch(array, 4));
+        assertFalse(binarySearch.GallopingSearch(array, 0));
+    }
+
+    @Test
+    public void GallopingSearchAnotherFailTest() {
+        int[] array = new int[]{1, 10, 15, 28, 32, 90, 120, 333};
+        BinarySearch binarySearch = new BinarySearch(array);
+
+        assertFalse(binarySearch.GallopingSearch(array, 0));
+        assertFalse(binarySearch.GallopingSearch(array, 4));
+        assertFalse(binarySearch.GallopingSearch(array, 16));
+        assertFalse(binarySearch.GallopingSearch(array, 55));
+        assertFalse(binarySearch.GallopingSearch(array, 334));
     }
 
     @Test
@@ -45,7 +60,7 @@ public class BinarySearch_3 {
         int[] array = new int[]{1, 2, 3, 4, 5, 6, 7};
         BinarySearch binarySearch = new BinarySearch(array);
 
-        assertTrue(binarySearch.GallopingSearch(array,7));
+        assertTrue(binarySearch.GallopingSearch(array, 7));
     }
 
     @Test
@@ -53,6 +68,14 @@ public class BinarySearch_3 {
         int[] array = new int[]{1, 2, 3, 4, 5, 6, 7};
         BinarySearch binarySearch = new BinarySearch(array);
 
-        assertTrue(binarySearch.GallopingSearch(array,1));
+        assertTrue(binarySearch.GallopingSearch(array, 1));
+    }
+
+    @Test
+    void GallopingSearchMiddleElementTest() {
+        int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        BinarySearch binarySearch = new BinarySearch(array);
+
+        assertTrue(binarySearch.GallopingSearch(array, 5));
     }
 }
