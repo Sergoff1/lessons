@@ -2,6 +2,9 @@ package task12;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -41,6 +44,18 @@ public class BinarySearch_3 {
         assertFalse(binarySearch.GallopingSearch(array, 10));
         assertFalse(binarySearch.GallopingSearch(array, 4));
         assertFalse(binarySearch.GallopingSearch(array, 0));
+    }
+
+    @Test
+    public void GallopingSearchNegativeNumberTest() {
+        int[] array = IntStream.rangeClosed(1, 99).toArray();
+        BinarySearch binarySearch = new BinarySearch(array);
+
+        assertFalse(binarySearch.GallopingSearch(array, -49));
+        assertFalse(binarySearch.GallopingSearch(array, -1));
+        assertFalse(binarySearch.GallopingSearch(array, -99));
+        assertFalse(binarySearch.GallopingSearch(array, 0));
+        assertFalse(binarySearch.GallopingSearch(array, 100));
     }
 
     @Test
