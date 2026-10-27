@@ -93,4 +93,13 @@ public class BinarySearch_3 {
 
         assertTrue(binarySearch.GallopingSearch(array, 5));
     }
+
+    @Test
+    public void GallopingSearchTrueAndFalseTest() {
+        int[] array = IntStream.rangeClosed(1, 99).toArray();
+        BinarySearch binarySearch = new BinarySearch(array);
+
+        assertTrue(binarySearch.GallopingSearch(array, 49));
+        assertFalse(binarySearch.GallopingSearch(array, -49));
+    }
 }
