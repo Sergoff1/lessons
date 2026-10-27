@@ -18,6 +18,8 @@ public class BinarySearch {
     }
 
     public boolean GallopingSearch(int[] arr, int N) {
+        isFound = false;
+        isSearchCompleted = false;
         if (arr == null || arr.length < 1) {
             return false;
         }
@@ -35,10 +37,6 @@ public class BinarySearch {
             if (arr[currentIdx] == N) {
                 return true;
             }
-        }
-
-        if (currentIdx == arr.length - 1) {
-            return false;
         }
 
         if (arr[currentIdx] > N) {
